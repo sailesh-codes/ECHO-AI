@@ -1,0 +1,37 @@
+'use server'
+
+export async function generateAIResponse(userMessage: string) {
+  const apiKey = process.env.GEMINI_API_KEY
+
+  if (!apiKey) {
+    throw new Error('GEMINI_API_KEY environment variable is not set')
+  }
+
+  try {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [
+          {
+            parts: [{ text: userMessage }]
+          }
+        ]
+      })
+    })
+
+    if (!response.ok) {
+      const errorData = await response.text()
+      throw new Error(`API error: ${response.status} - ${errorData}`)
+    }
+
+    const data = await response.json()
+    const assistantContent = data?.candidates?.[0]?.content?.parts?.[0]?.text || 'No response received'
+
+    return assistantContent
+  } catch (error: any) {
+    throw new Error(error.message || 'Failed to generate AI response')
+  }
+}

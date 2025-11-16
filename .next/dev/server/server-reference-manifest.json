@@ -1,0 +1,21 @@
+{
+  "node": {
+    "40dee22ccd462a3bcc78c01ce989d8a5aa7d9a7696": {
+      "workers": {
+        "app/page": {
+          "moduleId": "[project]/OneDrive/Desktop/ECHO/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/ECHO/app/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "generateAIResponse",
+          "filename": "OneDrive/Desktop/ECHO/app/actions.ts"
+        }
+      },
+      "layer": {
+        "app/page": "action-browser"
+      },
+      "filename": "OneDrive/Desktop/ECHO/app/actions.ts",
+      "exportedName": "generateAIResponse"
+    }
+  },
+  "edge": {},
+  "encryptionKey": "w0G7VGLNcmKehD/oH5P00ScL+YAq/KeoP1K7pt/JwIA="
+}
