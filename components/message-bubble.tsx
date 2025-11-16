@@ -30,23 +30,45 @@ export default function MessageBubble({ message, onCopy }: MessageBubbleProps) {
   return (
     <div className={`flex ${isUser ? 'justify-end' : 'justify-start'} gap-3 animate-in fade-in slide-in-from-bottom-2 duration-300`}>
       <div
-        className={`max-w-xs md:max-w-md lg:max-w-lg px-5 py-3 rounded-2xl transition-all duration-200 ${
-          isUser
-            ? 'text-white'
-            : 'text-white'
-        }`}
+        className={`
+          relative
+          max-w-xs md:max-w-md lg:max-w-lg
+          px-5 py-3
+          rounded-2xl
+          transition-all duration-200
+          shadow
+          ${isUser 
+            ? 'bg-gradient-to-br from-[#6838a7]/80 to-[#402a63]/90 text-white rounded-br-md'
+            : 'bg-[#20212c]/90 text-white rounded-bl-md'
+          }
+        `}
+        style={{
+          border: 'none'
+        }}
       >
-        <p className="text-sm md:text-base break-words whitespace-pre-wrap leading-relaxed font-medium">{message.content}</p>
-        
+        <div className="flex items-center gap-2">
+          {!isUser && (
+            <span className="w-7 h-7 rounded-full bg-cyan-500 flex items-center justify-center text-sm font-bold">
+              AI
+            </span>
+          )}
+          <p className="text-sm md:text-base break-words whitespace-pre-wrap leading-relaxed font-medium flex-1">
+            {message.content}
+          </p>
+          {isUser && (
+            <span className="w-7 h-7 rounded-full bg-gradient-to-br from-[#a78bfa] to-[#7c3aed] flex items-center justify-center text-sm font-bold">
+              U
+            </span>
+          )}
+        </div>
         <div className="flex items-center justify-between mt-3 gap-3">
           <span className="text-xs opacity-40 font-medium">
             {formatTime(message.timestamp)}
           </span>
-          
           {!isUser && (
             <button
               onClick={() => onCopy(message.content)}
-              className="text-xs opacity-40 hover:opacity-100 transition-all duration-200 cursor-pointer hover:text-cyan-300 active:text-cyan-200 font-medium"
+              className="text-xs opacity-40 hover:opacity-80 transition-all duration-200 cursor-pointer hover:text-cyan-300 active:text-cyan-200 font-medium"
               title="Copy message"
             >
               Copy

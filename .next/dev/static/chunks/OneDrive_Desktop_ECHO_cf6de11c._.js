@@ -265,14 +265,50 @@ function MessageBubble({ message, onCopy }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: `flex ${isUser ? 'justify-end' : 'justify-start'} gap-3 animate-in fade-in slide-in-from-bottom-2 duration-300`,
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: `max-w-xs md:max-w-md lg:max-w-lg px-5 py-3 rounded-2xl transition-all duration-200 ${isUser ? 'text-white' : 'text-white'}`,
+            className: `
+          relative
+          max-w-xs md:max-w-md lg:max-w-lg
+          px-5 py-3
+          rounded-2xl
+          transition-all duration-200
+          shadow
+          ${isUser ? 'bg-gradient-to-br from-[#6838a7]/80 to-[#402a63]/90 text-white rounded-br-md' : 'bg-[#20212c]/90 text-white rounded-bl-md'}
+        `,
+            style: {
+                border: 'none'
+            },
             children: [
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                    className: "text-sm md:text-base break-words whitespace-pre-wrap leading-relaxed font-medium",
-                    children: message.content
-                }, void 0, false, {
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "flex items-center gap-2",
+                    children: [
+                        !isUser && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            className: "w-7 h-7 rounded-full bg-cyan-500 flex items-center justify-center text-sm font-bold",
+                            children: "AI"
+                        }, void 0, false, {
+                            fileName: "[project]/OneDrive/Desktop/ECHO/components/message-bubble.tsx",
+                            lineNumber: 51,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-sm md:text-base break-words whitespace-pre-wrap leading-relaxed font-medium flex-1",
+                            children: message.content
+                        }, void 0, false, {
+                            fileName: "[project]/OneDrive/Desktop/ECHO/components/message-bubble.tsx",
+                            lineNumber: 55,
+                            columnNumber: 11
+                        }, this),
+                        isUser && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            className: "w-7 h-7 rounded-full bg-gradient-to-br from-[#a78bfa] to-[#7c3aed] flex items-center justify-center text-sm font-bold",
+                            children: "U"
+                        }, void 0, false, {
+                            fileName: "[project]/OneDrive/Desktop/ECHO/components/message-bubble.tsx",
+                            lineNumber: 59,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
                     fileName: "[project]/OneDrive/Desktop/ECHO/components/message-bubble.tsx",
-                    lineNumber: 39,
+                    lineNumber: 49,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -283,23 +319,23 @@ function MessageBubble({ message, onCopy }) {
                             children: formatTime(message.timestamp)
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Desktop/ECHO/components/message-bubble.tsx",
-                            lineNumber: 42,
+                            lineNumber: 65,
                             columnNumber: 11
                         }, this),
                         !isUser && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                             onClick: ()=>onCopy(message.content),
-                            className: "text-xs opacity-40 hover:opacity-100 transition-all duration-200 cursor-pointer hover:text-cyan-300 active:text-cyan-200 font-medium",
+                            className: "text-xs opacity-40 hover:opacity-80 transition-all duration-200 cursor-pointer hover:text-cyan-300 active:text-cyan-200 font-medium",
                             title: "Copy message",
                             children: "Copy"
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Desktop/ECHO/components/message-bubble.tsx",
-                            lineNumber: 47,
+                            lineNumber: 69,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/OneDrive/Desktop/ECHO/components/message-bubble.tsx",
-                    lineNumber: 41,
+                    lineNumber: 64,
                     columnNumber: 9
                 }, this)
             ]
@@ -361,67 +397,10 @@ function ChatWindow({ messages, isLoading, onSendMessage, onStopResponse, onCopy
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "w-full max-w-3xl h-full md:h-[600px] bg-black/90 rounded-2xl border border-zinc-800 flex flex-col overflow-hidden shadow-2xl  transition-all duration-300",
+        className: "relative w-full h-full flex flex-col items-center",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "px-6 py-4 border-b border-zinc-800 flex items-center justify-between bg-black/80",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex items-center gap-3",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center text-white font-semibold shadow-cyan-500/30",
-                                children: "AI"
-                            }, void 0, false, {
-                                fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                                lineNumber: 48,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                                        className: "text-lg font-bold bg-gradient-to-r from-cyan-300 to-cyan-400 bg-clip-text text-transparent",
-                                        children: "Assistant"
-                                    }, void 0, false, {
-                                        fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                                        lineNumber: 52,
-                                        columnNumber: 13
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-xs text-zinc-500",
-                                        children: "Powered by Gemini"
-                                    }, void 0, false, {
-                                        fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                                        lineNumber: 53,
-                                        columnNumber: 13
-                                    }, this)
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                                lineNumber: 51,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                        lineNumber: 47,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "w-3 h-3 rounded-full bg-gradient-to-r from-cyan-400 to-cyan-500 animate-pulse shadow-cyan-500/50"
-                    }, void 0, false, {
-                        fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                        lineNumber: 56,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                lineNumber: 46,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex-1 overflow-y-auto no-scrollbar px-6 py-6 space-y-4 bg-black/80",
+                className: "w-full max-w-4xl flex-1 overflow-y-auto no-scrollbar px-10 pb-48 pt-8 space-y-4",
                 children: [
                     messages.length === 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex items-center justify-center h-full text-center",
@@ -442,17 +421,17 @@ function ChatWindow({ messages, isLoading, onSendMessage, onStopResponse, onCopy
                                             d: "M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
                                         }, void 0, false, {
                                             fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                                            lineNumber: 66,
+                                            lineNumber: 51,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                                        lineNumber: 65,
+                                        lineNumber: 50,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                                    lineNumber: 64,
+                                    lineNumber: 49,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -460,7 +439,7 @@ function ChatWindow({ messages, isLoading, onSendMessage, onStopResponse, onCopy
                                     children: "Start a conversation"
                                 }, void 0, false, {
                                     fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                                    lineNumber: 69,
+                                    lineNumber: 54,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -468,25 +447,25 @@ function ChatWindow({ messages, isLoading, onSendMessage, onStopResponse, onCopy
                                     children: "Ask me anything, I'm here to help!"
                                 }, void 0, false, {
                                     fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                                    lineNumber: 70,
+                                    lineNumber: 55,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                            lineNumber: 63,
+                            lineNumber: 48,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                        lineNumber: 62,
+                        lineNumber: 47,
                         columnNumber: 11
                     }, this) : messages.map((message)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$components$2f$message$2d$bubble$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                             message: message,
                             onCopy: onCopyMessage
                         }, message.id, false, {
                             fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                            lineNumber: 75,
+                            lineNumber: 60,
                             columnNumber: 13
                         }, this)),
                     isLoading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -500,7 +479,7 @@ function ChatWindow({ messages, isLoading, onSendMessage, onStopResponse, onCopy
                                         className: "w-2 h-2 bg-cyan-400 rounded-full animate-bounce"
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                                        lineNumber: 86,
+                                        lineNumber: 71,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -510,7 +489,7 @@ function ChatWindow({ messages, isLoading, onSendMessage, onStopResponse, onCopy
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                                        lineNumber: 87,
+                                        lineNumber: 72,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -520,73 +499,73 @@ function ChatWindow({ messages, isLoading, onSendMessage, onStopResponse, onCopy
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                                        lineNumber: 88,
+                                        lineNumber: 73,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                                lineNumber: 85,
+                                lineNumber: 70,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                            lineNumber: 84,
+                            lineNumber: 69,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                        lineNumber: 83,
+                        lineNumber: 68,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         ref: messagesEndRef
                     }, void 0, false, {
                         fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                        lineNumber: 93,
+                        lineNumber: 78,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                lineNumber: 60,
+                lineNumber: 45,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "p-4 bg-black/80",
+                className: "fixed bottom-8 left-1/2 -translate-x-1/2 w-full max-w-2xl px-2",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "flex gap-3 items-end max-w-2xl mx-auto",
+                    className: "flex gap-2 w-full items-end bg-gradient-to-r from-[#291952]/90 to-[#2C1E4A]/90 rounded-full shadow-xl px-2 py-2",
                     children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "flex-1 flex items-center gap-2",
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
-                                ref: inputRef,
-                                value: input,
-                                onChange: (e)=>setInput(e.target.value),
-                                onKeyPress: (e)=>{
-                                    if (e.key === 'Enter' && !e.shiftKey && !isLoading) {
-                                        e.preventDefault();
-                                        handleSend();
-                                    }
-                                },
-                                placeholder: "Ask anything...",
-                                className: "flex-1 bg-zinc-900 text-white placeholder-zinc-500/70 resize-none focus:outline-none min-h-10 max-h-24 text-sm rounded-2xl p-3 leading-relaxed border border-zinc-700",
-                                disabled: isLoading
-                            }, void 0, false, {
-                                fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                                lineNumber: 100,
-                                columnNumber: 13
-                            }, this)
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
+                            ref: inputRef,
+                            value: input,
+                            onChange: (e)=>setInput(e.target.value),
+                            onKeyDown: (e)=>{
+                                if (e.key === 'Enter' && !e.shiftKey && !isLoading) {
+                                    e.preventDefault();
+                                    handleSend();
+                                }
+                            },
+                            placeholder: "Type your prompt here...",
+                            className: "flex-1 rounded-full px-6 py-3 bg-transparent text-white placeholder-zinc-300 resize-none focus:outline-none border-none shadow-none min-h-12 max-h-28 text-base",
+                            style: {
+                                border: 'none',
+                                outline: 'none',
+                                boxShadow: 'none',
+                                background: 'transparent'
+                            },
+                            disabled: isLoading,
+                            rows: 1
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                            lineNumber: 99,
+                            lineNumber: 84,
                             columnNumber: 11
                         }, this),
                         isLoading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                             onClick: onStopResponse,
-                            className: "p-3 bg-gradient-to-r from-red-500/80 to-red-600/80 hover:from-red-500 hover:to-red-600 text-white rounded-2xl transition-all duration-200 font-medium text-sm flex items-center justify-center shadow-red-500/20",
+                            className: "p-3 bg-gradient-to-r from-red-500 to-red-600 rounded-full text-white flex items-center justify-center transition-all",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                className: "w-4 h-4",
+                                className: "w-5 h-5",
                                 fill: "none",
                                 stroke: "currentColor",
                                 viewBox: "0 0 24 24",
@@ -595,6 +574,30 @@ function ChatWindow({ messages, isLoading, onSendMessage, onStopResponse, onCopy
                                     strokeLinejoin: "round",
                                     strokeWidth: 2,
                                     d: "M6 18L18 6M6 6l12 12"
+                                }, void 0, false, {
+                                    fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
+                                    lineNumber: 111,
+                                    columnNumber: 17
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
+                                lineNumber: 110,
+                                columnNumber: 15
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
+                            lineNumber: 106,
+                            columnNumber: 13
+                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            onClick: handleSend,
+                            disabled: !input.trim() || isLoading,
+                            className: "p-3 bg-gradient-to-r from-purple-500 to-violet-600 rounded-full text-white flex items-center justify-center transition-all disabled:opacity-50",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                                className: "w-6 h-6",
+                                fill: "currentColor",
+                                viewBox: "0 0 20 20",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                    d: "M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5.951-1.429 5.951 1.429a1 1 0 001.169-1.409l-7-14z"
                                 }, void 0, false, {
                                     fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
                                     lineNumber: 121,
@@ -607,42 +610,18 @@ function ChatWindow({ messages, isLoading, onSendMessage, onStopResponse, onCopy
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                            lineNumber: 116,
-                            columnNumber: 13
-                        }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                            onClick: handleSend,
-                            disabled: !input.trim() || isLoading,
-                            className: "p-3 bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 disabled:from-zinc-700 disabled:to-zinc-800 disabled:cursor-not-allowed text-black rounded-2xl transition-all duration-200 font-semibold flex items-center justify-center shadow-cyan-500/40 hover:shadow-cyan-400/60 disabled:shadow-none",
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
-                                className: "w-5 h-5",
-                                fill: "currentColor",
-                                viewBox: "0 0 20 20",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
-                                    d: "M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5.951-1.429 5.951 1.429a1 1 0 001.169-1.409l-7-14z"
-                                }, void 0, false, {
-                                    fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                                    lineNumber: 131,
-                                    columnNumber: 17
-                                }, this)
-                            }, void 0, false, {
-                                fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                                lineNumber: 130,
-                                columnNumber: 15
-                            }, this)
-                        }, void 0, false, {
-                            fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                            lineNumber: 125,
+                            lineNumber: 115,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                    lineNumber: 98,
+                    lineNumber: 83,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/OneDrive/Desktop/ECHO/components/chat-window.tsx",
-                lineNumber: 97,
+                lineNumber: 82,
                 columnNumber: 7
             }, this)
         ]
