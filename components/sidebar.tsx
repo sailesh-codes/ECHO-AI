@@ -32,8 +32,8 @@ export default function Sidebar({ onInfo, onDeleteChat, messageCount }: SidebarP
       >
         {/* Header */}
         <div className="mb-8">
-          <h2 className="text-2xl font-bold text-cyan-400 mb-1">ChatBot</h2>
-          <p className="text-xs text-zinc-500">Powered by Gemini API</p>
+          <h2 className="text-3xl font-bold text-cyan-400 mb-1">Echo</h2>
+          <p className="text-xs text-zinc-500">Powered by <span><a href="https://codecraftnet.com" target="_blank" rel="noopener noreferrer">Code Craft</a></span></p>
         </div>
 
         {/* Stats */}
@@ -69,7 +69,7 @@ export default function Sidebar({ onInfo, onDeleteChat, messageCount }: SidebarP
 
         {/* Footer */}
         <div className="pt-6 border-t border-cyan-500/20 text-xs text-zinc-500">
-          <p>Built with React & Tailwind</p>
+          <p>Code Craft</p>
         </div>
       </aside>
 

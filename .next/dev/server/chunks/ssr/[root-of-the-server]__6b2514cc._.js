@@ -72,9 +72,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$OneDrive$2f$Desktop$2f$ECHO$
 ;
 ;
 const metadata = {
-    title: 'v0 App',
-    description: 'Created with v0',
-    generator: 'v0.app',
+    title: 'Echo',
+    description: 'Echo',
+    generator: 'Echo',
     icons: {
         icon: [
             {

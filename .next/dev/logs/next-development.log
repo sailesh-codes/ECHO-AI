@@ -49,3 +49,108 @@
 [00:28:51.450] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763292890523}
 [00:32:51.301] Server  LOG      ✓ Compiled in 132ms
 [04:41:46.318] Server  LOG      ✓ Compiled in 339ms
+[04:48:11.451] Server  LOG      ✓ Compiled in 129ms
+[04:48:16.987] Server  LOG      ✓ Compiled in 70ms
+[04:48:20.311] Server  LOG      ✓ Compiled in 84ms
+[04:49:00.021] Server  LOG      ✓ Compiled in 78ms
+[04:49:04.318] Server  LOG      ✓ Compiled in 63ms
+[04:49:23.715] Server  LOG      ✓ Compiled in 241ms
+[04:49:24.642] Browser ERROR   ./OneDrive/Desktop/ECHO/components/sidebar.tsx:36:65
+Parsing ecmascript source code failed
+  34 |         <div className="mb-8">
+  35 |           <h2 className="text-2xl font-bold text-cyan-400 mb-1">Echo</h2>
+> 36 |           <p className="text-xs text-zinc-500">Powered by <span ">Code Craft</span></p>
+     |                                                                 ^^^^^^^^^^^^^^^^^^^^^^^
+  37 |         </div>
+  38 |
+  39 |         {/* Stats */}
+
+Unterminated string constant
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/ECHO/components/sidebar.tsx [Client Component Browser]
+    ./OneDrive/Desktop/ECHO/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/ECHO/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/ECHO/components/sidebar.tsx [Client Component SSR]
+    ./OneDrive/Desktop/ECHO/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/ECHO/app/page.tsx [Server Component]
+[04:49:31.471] Server  LOG      ✓ Compiled in 59ms
+[04:49:38.548] Server  LOG      ✓ Compiled in 64ms
+[04:49:39.634] Browser ERROR   ./OneDrive/Desktop/ECHO/components/sidebar.tsx:36:88
+Parsing ecmascript source code failed
+  34 |         <div className="mb-8">
+  35 |           <h2 className="text-2xl font-bold text-cyan-400 mb-1">Echo</h2>
+> 36 |           <p className="text-xs text-zinc-500">Powered by <span><a</a>Code Craft</span></p>
+     |                                                                                        ^
+  37 |         </div>
+  38 |
+  39 |         {/* Stats */}
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/ECHO/components/sidebar.tsx [Client Component Browser]
+    ./OneDrive/Desktop/ECHO/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/ECHO/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/ECHO/components/sidebar.tsx [Client Component SSR]
+    ./OneDrive/Desktop/ECHO/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/ECHO/app/page.tsx [Server Component]
+[04:49:39.634] Browser ERROR   ./OneDrive/Desktop/ECHO/components/sidebar.tsx:36:68
+Parsing ecmascript source code failed
+  34 |         <div className="mb-8">
+  35 |           <h2 className="text-2xl font-bold text-cyan-400 mb-1">Echo</h2>
+> 36 |           <p className="text-xs text-zinc-500">Powered by <span><a</a>Code Craft</span></p>
+     |                                                                    ^^^^^^^^^^^^^^^^^^^
+  37 |         </div>
+  38 |
+  39 |         {/* Stats */}
+
+Unknown regular expression flags.
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/ECHO/components/sidebar.tsx [Client Component Browser]
+    ./OneDrive/Desktop/ECHO/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/ECHO/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/ECHO/components/sidebar.tsx [Client Component SSR]
+    ./OneDrive/Desktop/ECHO/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/ECHO/app/page.tsx [Server Component]
+[04:49:39.634] Browser ERROR   ./OneDrive/Desktop/ECHO/components/sidebar.tsx:36:89
+Parsing ecmascript source code failed
+  34 |         <div className="mb-8">
+  35 |           <h2 className="text-2xl font-bold text-cyan-400 mb-1">Echo</h2>
+> 36 |           <p className="text-xs text-zinc-500">Powered by <span><a</a>Code Craft</span></p>
+     |                                                                                         ^^^
+  37 |         </div>
+  38 |
+  39 |         {/* Stats */}
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./OneDrive/Desktop/ECHO/components/sidebar.tsx [Client Component Browser]
+    ./OneDrive/Desktop/ECHO/app/page.tsx [Client Component Browser]
+    ./OneDrive/Desktop/ECHO/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./OneDrive/Desktop/ECHO/components/sidebar.tsx [Client Component SSR]
+    ./OneDrive/Desktop/ECHO/app/page.tsx [Client Component SSR]
+    ./OneDrive/Desktop/ECHO/app/page.tsx [Server Component]
+[04:49:44.266] Server  LOG      ✓ Compiled in 85ms
+[04:49:48.714] Server  LOG      ✓ Compiled in 62ms
+[04:50:01.643] Server  LOG      ✓ Compiled in 54ms
+[04:50:11.776] Server  LOG      ✓ Compiled in 51ms
+[04:50:14.174] Server  LOG      ✓ Compiled in 51ms
+[04:52:24.408] Server  LOG      ✓ Compiled in 215ms
+[04:52:42.777] Server  LOG      ✓ Compiled in 62ms
+[04:52:46.511] Server  LOG      ✓ Compiled in 61ms
+[04:52:47.583] Server  LOG      ✓ Compiled in 111ms
