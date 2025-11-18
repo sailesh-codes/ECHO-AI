@@ -40,24 +40,52 @@ export default function Home() {
   }
 
   useEffect(() => {
+    // Debug: Show all cookies
+    console.log('All cookies:', document.cookie)
+    
     // Extract user email from auth token
     const token = document.cookie.split('; ').find(row => row.startsWith('auth-token='))
+    console.log('Token found:', !!token)
+    
     if (token) {
       try {
-        const decoded = Buffer.from(token.split('=')[1], 'base64').toString('utf-8')
+        const tokenValue = token.split('=')[1]
+        console.log('Token value:', tokenValue)
+        const decoded = Buffer.from(tokenValue, 'base64').toString('utf-8')
+        console.log('Decoded token:', decoded)
         const email = decoded.split(':')[0]
-        setUserEmail(email)
-        setRemainingPrompts(5) // Default to 5 prompts
+        console.log('Extracted email:', email)
         
-        // Try to get user data
-        fetch('/api/auth/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email })
+        if (email) {
+          setUserEmail(email)
+          setRemainingPrompts(5) // Default to 5 prompts
+        }
+        
+        // Try to get user data from the user endpoint
+        fetch('/api/auth/user', {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' }
         })
           .then(res => res.json())
           .then(data => {
+            console.log('User data response:', data)
             if (data.success && data.user?.remainingPrompts !== undefined) {
+              setRemainingPrompts(data.user.remainingPrompts)
+            }
+          })
+          .catch(err => {
+            console.error('Failed to fetch user data:', err)
+            // Try the login endpoint as fallback
+            return fetch('/api/auth/login', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email })
+            })
+          })
+          .then(res => res?.json())
+          .then(data => {
+            console.log('Login fallback response:', data)
+            if (data?.success && data.user?.remainingPrompts !== undefined) {
               setRemainingPrompts(data.user.remainingPrompts)
             }
           })
@@ -65,21 +93,20 @@ export default function Home() {
       } catch (error) {
         console.error('Token decode error:', error)
       }
+    } else {
+      console.log('No auth token found in cookies')
+      // Redirect to login page if no token found
+      window.location.href = '/auth'
     }
 
     const savedMessages = localStorage.getItem('chatbot_messages')
     if (savedMessages) {
       try {
-        const parsed = JSON.parse(savedMessages)
-        setMessages(parsed.map((msg: any) => ({
-          ...msg,
-          timestamp: new Date(msg.timestamp)
-        })))
-      } catch (e) {
-        console.error('Failed to load messages:', e)
+        setMessages(JSON.parse(savedMessages))
+      } catch (error) {
+        console.error('Failed to load saved messages:', error)
       }
     }
-
     setIsInitialized(true)
   }, [])
 
@@ -88,7 +115,28 @@ export default function Home() {
   }, [messages])
 
   const handleSendMessage = async (content: string) => {
-    if (!userEmail) {
+    console.log('handleSendMessage called, userEmail:', userEmail)
+    
+    // Fallback: try to get email directly from token if state is empty
+    let emailToUse = userEmail
+    if (!emailToUse) {
+      console.log('userEmail is empty, trying to get from token')
+      const token = document.cookie.split('; ').find(row => row.startsWith('auth-token='))
+      if (token) {
+        try {
+          const decoded = Buffer.from(token.split('=')[1], 'base64').toString('utf-8')
+          emailToUse = decoded.split(':')[0]
+          console.log('Fallback email extracted:', emailToUse)
+          // Set it in state for future use
+          setUserEmail(emailToUse)
+        } catch (error) {
+          console.error('Fallback token decode error:', error)
+        }
+      }
+    }
+    
+    if (!emailToUse) {
+      console.log('No email found, showing error toast')
       toast({
         title: 'Authentication Error',
         description: 'Please log in to send messages',
@@ -115,9 +163,9 @@ export default function Home() {
       let assistantContent: string
       
       if (provider === 'gemini') {
-        assistantContent = await generateAIResponse(content, userEmail)
+        assistantContent = await generateAIResponse(content, emailToUse)
       } else if (provider === 'mistral') {
-        assistantContent = await generateMistralResponse(content, userEmail)
+        assistantContent = await generateMistralResponse(content, emailToUse)
       } else {
         throw new Error('Unknown provider')
       }
@@ -132,11 +180,11 @@ export default function Home() {
       setMessages(prev => [...prev, assistantMessage])
       
       // Refresh prompt count
-      if (userEmail) {
+      if (emailToUse) {
         fetch('/api/auth/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: userEmail })
+          body: JSON.stringify({ email: emailToUse })
         })
           .then(res => res.json())
           .then(data => {

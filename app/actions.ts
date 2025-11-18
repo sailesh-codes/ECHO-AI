@@ -1,24 +1,19 @@
 'use server'
 
+import { UserService } from '@/lib/user-service'
+
 export async function generateAIResponse(userMessage: string, userEmail: string) {
   try {
-    // Check prompt limit
-    const checkResponse = await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3001'}/api/prompts/check`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: userEmail })
-    })
+    // Check prompt limit directly using UserService
+    const canPrompt = await UserService.canSendPrompt(userEmail)
+    const promptCount = await UserService.getPromptCount(userEmail)
 
-    console.log('Prompt check response status:', checkResponse.status)
-    
-    if (!checkResponse.ok) {
-      const errorData = await checkResponse.json()
-      console.error('Prompt check error:', errorData)
-      throw new Error(errorData.error || 'Failed to check prompt limit')
+    if (!canPrompt) {
+      throw new Error(`Prompt limit reached. You have used ${promptCount}/5 prompts.`)
     }
 
-    const checkData = await checkResponse.json()
-    console.log('Prompt check success:', checkData)
+    // Increment prompt count
+    await UserService.updateUserPromptCount(userEmail)
 
     const apiKey = process.env.GEMINI_API_KEY
     
@@ -65,23 +60,16 @@ export async function generateAIResponse(userMessage: string, userEmail: string)
 
 export async function generateMistralResponse(userMessage: string, userEmail: string) {
   try {
-    // Check prompt limit
-    const checkResponse = await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3001'}/api/prompts/check`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: userEmail })
-    })
+    // Check prompt limit directly using UserService
+    const canPrompt = await UserService.canSendPrompt(userEmail)
+    const promptCount = await UserService.getPromptCount(userEmail)
 
-    console.log('Prompt check response status (Mistral):', checkResponse.status)
-    
-    if (!checkResponse.ok) {
-      const errorData = await checkResponse.json()
-      console.error('Prompt check error (Mistral):', errorData)
-      throw new Error(errorData.error || 'Failed to check prompt limit')
+    if (!canPrompt) {
+      throw new Error(`Prompt limit reached. You have used ${promptCount}/5 prompts.`)
     }
 
-    const checkData = await checkResponse.json()
-    console.log('Prompt check success (Mistral):', checkData)
+    // Increment prompt count
+    await UserService.updateUserPromptCount(userEmail)
 
     const apiKey = process.env.MISTRAL_API_KEY
     
