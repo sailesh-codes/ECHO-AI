@@ -1,156 +1,54 @@
-[00:00:01.849] Server  LOG      ✓ Ready in 1156ms
-[00:00:04.460] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:04.639] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:04.639] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:04.639] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763291163698}
-[00:02:35.271] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:35.441] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:02:35.441] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:02:35.441] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763291314503}
-[00:03:21.280] Server  LOG      ✓ Compiled in 100ms
-[00:03:21.635] Browser ERROR   uncaughtError: ReferenceError: Sidebar is not defined
-[00:03:28.306] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:03:28.335] Server  LOG      ✓ Compiled in 83ms
-[00:03:28.736] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:29.640] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:03:29.640] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:03:29.640] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763291367962}
-[00:03:35.121] Server  LOG      ✓ Compiled in 75ms
-[00:04:24.142] Server  LOG      ✓ Compiled in 61ms
-[00:04:52.877] Server  LOG      ✓ Compiled in 79ms
-[00:05:22.236] Server  LOG      ✓ Compiled in 66ms
-[00:07:55.053] Server  LOG      ✓ Compiled in 166ms
-[00:09:30.453] Server  LOG      ✓ Compiled in 112ms
-[00:09:42.229] Server  LOG      ✓ Compiled in 90ms
-[00:10:57.702] Server  LOG      ✓ Compiled in 69ms
-[00:16:15.397] Server  LOG      ✓ Compiled in 123ms
-[00:18:14.582] Server  LOG      ✓ Compiled in 186ms
-[00:25:30.207] Server  LOG      ✓ Compiled in 230ms
-[00:25:39.906] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:25:40.068] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:25:40.068] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:25:40.068] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763292699140}
-[00:28:44.389] Server  LOG      ✓ Compiled in 64ms
-[00:28:49.645] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:28:49.770] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:28:49.770] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:28:49.770] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763292888841}
-[00:28:50.422] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:28:50.545] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:28:50.545] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:28:50.545] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763292889617}
-[00:28:50.995] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:28:51.122] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:28:51.122] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:28:51.122] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763292890194}
-[00:28:51.325] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:28:51.450] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:28:51.450] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:28:51.450] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763292890523}
-[00:32:51.301] Server  LOG      ✓ Compiled in 132ms
-[04:41:46.318] Server  LOG      ✓ Compiled in 339ms
-[04:48:11.451] Server  LOG      ✓ Compiled in 129ms
-[04:48:16.987] Server  LOG      ✓ Compiled in 70ms
-[04:48:20.311] Server  LOG      ✓ Compiled in 84ms
-[04:49:00.021] Server  LOG      ✓ Compiled in 78ms
-[04:49:04.318] Server  LOG      ✓ Compiled in 63ms
-[04:49:23.715] Server  LOG      ✓ Compiled in 241ms
-[04:49:24.642] Browser ERROR   ./OneDrive/Desktop/ECHO/components/sidebar.tsx:36:65
-Parsing ecmascript source code failed
-  34 |         <div className="mb-8">
-  35 |           <h2 className="text-2xl font-bold text-cyan-400 mb-1">Echo</h2>
-> 36 |           <p className="text-xs text-zinc-500">Powered by <span ">Code Craft</span></p>
-     |                                                                 ^^^^^^^^^^^^^^^^^^^^^^^
-  37 |         </div>
-  38 |
-  39 |         {/* Stats */}
-
-Unterminated string constant
-
-Import traces:
-  Client Component Browser:
-    ./OneDrive/Desktop/ECHO/components/sidebar.tsx [Client Component Browser]
-    ./OneDrive/Desktop/ECHO/app/page.tsx [Client Component Browser]
-    ./OneDrive/Desktop/ECHO/app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./OneDrive/Desktop/ECHO/components/sidebar.tsx [Client Component SSR]
-    ./OneDrive/Desktop/ECHO/app/page.tsx [Client Component SSR]
-    ./OneDrive/Desktop/ECHO/app/page.tsx [Server Component]
-[04:49:31.471] Server  LOG      ✓ Compiled in 59ms
-[04:49:38.548] Server  LOG      ✓ Compiled in 64ms
-[04:49:39.634] Browser ERROR   ./OneDrive/Desktop/ECHO/components/sidebar.tsx:36:88
-Parsing ecmascript source code failed
-  34 |         <div className="mb-8">
-  35 |           <h2 className="text-2xl font-bold text-cyan-400 mb-1">Echo</h2>
-> 36 |           <p className="text-xs text-zinc-500">Powered by <span><a</a>Code Craft</span></p>
-     |                                                                                        ^
-  37 |         </div>
-  38 |
-  39 |         {/* Stats */}
-
-Expression expected
-
-Import traces:
-  Client Component Browser:
-    ./OneDrive/Desktop/ECHO/components/sidebar.tsx [Client Component Browser]
-    ./OneDrive/Desktop/ECHO/app/page.tsx [Client Component Browser]
-    ./OneDrive/Desktop/ECHO/app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./OneDrive/Desktop/ECHO/components/sidebar.tsx [Client Component SSR]
-    ./OneDrive/Desktop/ECHO/app/page.tsx [Client Component SSR]
-    ./OneDrive/Desktop/ECHO/app/page.tsx [Server Component]
-[04:49:39.634] Browser ERROR   ./OneDrive/Desktop/ECHO/components/sidebar.tsx:36:68
-Parsing ecmascript source code failed
-  34 |         <div className="mb-8">
-  35 |           <h2 className="text-2xl font-bold text-cyan-400 mb-1">Echo</h2>
-> 36 |           <p className="text-xs text-zinc-500">Powered by <span><a</a>Code Craft</span></p>
-     |                                                                    ^^^^^^^^^^^^^^^^^^^
-  37 |         </div>
-  38 |
-  39 |         {/* Stats */}
-
-Unknown regular expression flags.
-
-Import traces:
-  Client Component Browser:
-    ./OneDrive/Desktop/ECHO/components/sidebar.tsx [Client Component Browser]
-    ./OneDrive/Desktop/ECHO/app/page.tsx [Client Component Browser]
-    ./OneDrive/Desktop/ECHO/app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./OneDrive/Desktop/ECHO/components/sidebar.tsx [Client Component SSR]
-    ./OneDrive/Desktop/ECHO/app/page.tsx [Client Component SSR]
-    ./OneDrive/Desktop/ECHO/app/page.tsx [Server Component]
-[04:49:39.634] Browser ERROR   ./OneDrive/Desktop/ECHO/components/sidebar.tsx:36:89
-Parsing ecmascript source code failed
-  34 |         <div className="mb-8">
-  35 |           <h2 className="text-2xl font-bold text-cyan-400 mb-1">Echo</h2>
-> 36 |           <p className="text-xs text-zinc-500">Powered by <span><a</a>Code Craft</span></p>
-     |                                                                                         ^^^
-  37 |         </div>
-  38 |
-  39 |         {/* Stats */}
-
-Unterminated regexp literal
-
-Import traces:
-  Client Component Browser:
-    ./OneDrive/Desktop/ECHO/components/sidebar.tsx [Client Component Browser]
-    ./OneDrive/Desktop/ECHO/app/page.tsx [Client Component Browser]
-    ./OneDrive/Desktop/ECHO/app/page.tsx [Server Component]
-
-  Client Component SSR:
-    ./OneDrive/Desktop/ECHO/components/sidebar.tsx [Client Component SSR]
-    ./OneDrive/Desktop/ECHO/app/page.tsx [Client Component SSR]
-    ./OneDrive/Desktop/ECHO/app/page.tsx [Server Component]
-[04:49:44.266] Server  LOG      ✓ Compiled in 85ms
-[04:49:48.714] Server  LOG      ✓ Compiled in 62ms
-[04:50:01.643] Server  LOG      ✓ Compiled in 54ms
-[04:50:11.776] Server  LOG      ✓ Compiled in 51ms
-[04:50:14.174] Server  LOG      ✓ Compiled in 51ms
-[04:52:24.408] Server  LOG      ✓ Compiled in 215ms
-[04:52:42.777] Server  LOG      ✓ Compiled in 62ms
-[04:52:46.511] Server  LOG      ✓ Compiled in 61ms
-[04:52:47.583] Server  LOG      ✓ Compiled in 111ms
+[00:00:01.875] Server  LOG      ✓ Ready in 1303ms
+[00:00:09.636] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:09.917] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:09.917] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:09.917] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763440042832}
+[00:00:21.433] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\_71c56bff._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:21.510] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:21.547] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\node_modules_next_dist_179b90d2._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:21.553] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:21.559] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:21.562] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:21.563] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:21.567] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:21.570] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:00:21.573] Server  ERROR    ⨯ Error: GEMINI_API_KEY environment variable is not set
+[00:00:21.701] Browser ERROR   Error: GEMINI_API_KEY environment variable is not set
+[00:01:23.071] Server  LOG        Reload env: .env
+[00:01:24.352] Server  LOG        Reload env: .env
+[00:01:25.758] Server  LOG        Reload env: .env
+[00:03:28.613] Server  LOG        Reload env: .env
+[00:05:45.678] Server  LOG      ✓ Compiled in 93ms
+[00:05:48.574] Server  LOG      ✓ Compiled in 88ms
+[00:06:39.355] Server  LOG      ✓ Compiled in 56ms
+[00:06:46.593] Server  LOG      ✓ Compiled in 51ms
+[00:07:01.678] Server  LOG      ✓ Compiled in 109ms
+[00:07:23.844] Server  LOG      ✓ Compiled in 51ms
+[00:07:25.196] Server  LOG      ✓ Compiled in 71ms
+[00:12:16.670] Server  LOG      ✓ Compiled in 95ms
+[00:12:33.302] Server  LOG      ✓ Compiled in 65ms
+[00:12:37.452] Server  LOG      ✓ Compiled in 68ms
+[00:12:50.436] Server  LOG      ✓ Compiled in 224ms
+[00:15:30.792] Server  LOG      ✓ Compiled in 177ms
+[00:15:31.190] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:15:31.379] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:15:31.379] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:15:31.379] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763440964298}
+[00:15:41.426] Server  LOG      ✓ Compiled in 180ms
+[00:15:46.577] Server  LOG      ✓ Compiled in 146ms
+[00:15:50.778] Server  LOG      ✓ Compiled in 106ms
+[00:18:18.466] Server  LOG      ✓ Compiled in 86ms
+[00:18:23.117] Server  LOG      ✓ Compiled in 63ms
+[00:18:23.974] Browser ERROR   uncaughtError: ReferenceError: showConfirmModal is not defined
+[00:18:26.551] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:18:26.706] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\_c960e1a8._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
+[00:18:26.707] Server  ERROR    ⨯ ReferenceError: showConfirmModal is not defined
+[00:18:26.735] Server  LOG      ✓ Compiled in 71ms
+[00:18:26.899] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:27.969] Browser ERROR   uncaughtError: ReferenceError: showConfirmModal is not defined
+[00:18:29.962] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:18:30.097] Server  LOG      ✓ Compiled in 125ms
+[00:18:30.301] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:18:30.970] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:18:30.971] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:18:30.971] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763441143407}

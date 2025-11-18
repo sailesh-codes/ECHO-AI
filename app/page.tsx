@@ -6,6 +6,7 @@ import Sidebar from '@/components/sidebar'
 import ChatWindow from '@/components/chat-window'
 import InfoModal from '@/components/info-modal'
 import ConfirmModal from '@/components/confirm-modal'
+import { toast } from '@/hooks/use-toast'
 
 export interface Message {
   id: string
@@ -18,8 +19,8 @@ export default function Home() {
   const [messages, setMessages] = useState<Message[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [showInfoModal, setShowInfoModal] = useState(false)
-  const [showConfirmModal, setShowConfirmModal] = useState(false)
   const [isInitialized, setIsInitialized] = useState(false)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true)
   const abortControllerRef = useRef<AbortController | null>(null)
 
   useEffect(() => {
@@ -90,24 +91,28 @@ export default function Home() {
 
   const handleCopyMessage = (content: string) => {
     navigator.clipboard.writeText(content)
+    toast({
+      title: 'Message copied',
+      description: 'The message has been copied to your clipboard.',
+    })
   }
 
   const handleClearChat = () => {
-    setShowConfirmModal(true)
-  }
-
-  const confirmClearChat = () => {
     setMessages([])
-    setShowConfirmModal(false)
     localStorage.setItem('chatbot_messages', '[]')
+    toast({
+      title: 'Chat history cleared',
+      description: 'All messages have been removed.',
+      variant: 'destructive'
+    })
   }
 
   return (
     <div className="flex h-screen w-full bg-black text-white overflow-hidden">
       <Sidebar
-        onInfo={() => setShowInfoModal(true)}
-        onDeleteChat={handleClearChat}
-        messageCount={messages.length}
+        isOpen={isSidebarOpen}
+        onToggle={() => setIsSidebarOpen(!isSidebarOpen)}
+        onClearHistory={handleClearChat}
       />
       
       <main className="flex-1 flex items-center justify-center p-4 md:p-8">
@@ -125,14 +130,6 @@ export default function Home() {
       <InfoModal 
         isOpen={showInfoModal} 
         onClose={() => setShowInfoModal(false)}
-      />
-      
-      <ConfirmModal
-        isOpen={showConfirmModal}
-        title="Clear Chat History"
-        message="Are you sure you want to delete all messages? This action cannot be undone."
-        onConfirm={confirmClearChat}
-        onCancel={() => setShowConfirmModal(false)}
       />
     </div>
   )

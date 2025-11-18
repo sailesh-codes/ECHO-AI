@@ -1,19 +1,19 @@
 {
   "node": {
-    "40dee22ccd462a3bcc78c01ce989d8a5aa7d9a7696": {
+    "404b1c38d0623efbdc0af6b40713aa13911edb05fc": {
       "workers": {
         "app/page": {
-          "moduleId": "[project]/OneDrive/Desktop/ECHO/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/OneDrive/Desktop/ECHO/app/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "moduleId": "[project]/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/app/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "exportedName": "generateAIResponse",
-          "filename": "OneDrive/Desktop/ECHO/app/actions.ts"
+          "filename": "app/actions.ts"
         }
       },
       "layer": {
         "app/page": "action-browser"
       },
       "exportedName": "generateAIResponse",
-      "filename": "OneDrive/Desktop/ECHO/app/actions.ts"
+      "filename": "app/actions.ts"
     }
   },
   "edge": {}

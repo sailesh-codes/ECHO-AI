@@ -1,85 +1,119 @@
 'use client'
 
 import { useState } from 'react'
+import { toast } from '@/hooks/use-toast'
+import { Trash2, ExternalLink, Menu, X, User, Sparkles } from 'lucide-react'
 
 interface SidebarProps {
-  onInfo: () => void
-  onDeleteChat: () => void
-  messageCount: number
+  isOpen: boolean
+  onToggle: () => void
+  onClearHistory: () => void
 }
 
-export default function Sidebar({ onInfo, onDeleteChat, messageCount }: SidebarProps) {
-  const [isExpanded, setIsExpanded] = useState(false)
+export default function Sidebar({ isOpen, onToggle, onClearHistory }: SidebarProps) {
+  const handleClearChat = () => {
+    onClearHistory()
+    toast({
+      title: 'Chat history cleared',
+      description: 'All messages have been removed.',
+    })
+  }
 
   return (
     <>
-      {/* Mobile Toggle */}
-      <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="md:hidden fixed top-4 left-4 z-40 p-2 bg-cyan-500/20 border border-cyan-500/40 rounded-lg hover:bg-cyan-500/30 transition-all"
-        aria-label="Toggle sidebar"
-      >
-        <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-
-      {/* Sidebar */}
-      <aside
-        className={`fixed md:static left-0 top-0 z-30 h-screen w-64 bg-zinc-950 border-r border-cyan-500/20 p-6 flex flex-col transition-transform duration-300 md:translate-x-0 ${
-          isExpanded ? 'translate-x-0' : '-translate-x-full'
-        }`}
-      >
-        {/* Header */}
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold text-cyan-400 mb-1">Echo</h2>
-          <p className="text-xs text-zinc-500">Powered by <span><a href="https://codecraftnet.com" target="_blank" rel="noopener noreferrer">Code Craft</a></span></p>
-        </div>
-
-        {/* Stats */}
-        <div className="mb-8 p-4 bg-cyan-500/10 border border-cyan-500/30 rounded-lg">
-          <p className="text-xs text-zinc-400 mb-1">Messages</p>
-          <p className="text-2xl font-bold text-cyan-400">{messageCount}</p>
-        </div>
-
-        {/* Buttons */}
-        <div className="space-y-3 flex-1">
-          <button
-            onClick={onInfo}
-            className="w-full px-4 py-3 bg-cyan-500/10 border border-cyan-500/30 hover:bg-cyan-500/20 hover:border-cyan-400/60 text-cyan-400 rounded-lg transition-all font-semibold flex items-center gap-3 group"
-            aria-label="Show information"
-          >
-            <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span>Info</span>
-          </button>
-
-          <button
-            onClick={onDeleteChat}
-            className="w-full px-4 py-3 bg-red-500/10 border border-red-500/30 hover:bg-red-500/20 hover:border-red-400/60 text-red-400 rounded-lg transition-all font-semibold flex items-center gap-3 group"
-            aria-label="Delete chat history"
-          >
-            <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-            </svg>
-            <span>Delete Chat</span>
-          </button>
-        </div>
-
-        {/* Footer */}
-        <div className="pt-6 border-t border-cyan-500/20 text-xs text-zinc-500">
-          <p>Code Craft</p>
-        </div>
-      </aside>
-
-      {/* Mobile Overlay */}
-      {isExpanded && (
-        <div
-          className="fixed inset-0 bg-black/50 md:hidden z-20"
-          onClick={() => setIsExpanded(false)}
+      {/* Mobile backdrop */}
+      {isOpen && (
+        <div 
+          className="md:hidden fixed inset-0 bg-black/50 z-40"
+          onClick={onToggle}
         />
       )}
+
+      {/* Toggle button for small screens */}
+      {!isOpen && (
+        <button
+          onClick={onToggle}
+          className="md:hidden fixed left-4 top-4 z-40 p-2 hover:bg-cyan-500/10 rounded-lg text-white transition-colors"
+        >
+          <Menu className="w-6 h-6" />
+        </button>
+      )}
+
+      {/* Sidebar */}
+      <aside 
+        className={`fixed md:relative h-full z-50 ${
+          isOpen ? 'w-64' : 'w-0'
+        } bg-black border-r border-cyan-500/30 flex flex-col transition-all duration-300 overflow-hidden`}
+      >
+        {/* Logo Section */}
+        <div className="p-6">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-cyan-500/25">
+              <Sparkles className="w-5 h-5 text-black" />
+            </div>
+            <div>
+              <h1 className="text-white font-bold text-lg">Echo</h1>
+              <p className="text-cyan-400 text-sm">AI Assistant</p>
+            </div>
+          </div>
+
+          {/* User Profile */}
+          <button className="w-full text-left hover:bg-cyan-500/10 p-3 rounded-xl transition-colors flex items-center gap-3">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-r from-cyan-500 to-cyan-400 flex items-center justify-center">
+              <User className="w-4 h-4 text-black" />
+            </div>
+            <div className="text-left">
+              <div className="text-sm font-medium text-white">Guest User</div>
+              <div className="text-xs text-cyan-400">Free Plan</div>
+            </div>
+          </button>
+        </div>
+        
+        {/* Navigation */}
+        <div className="flex-1 px-4">
+          <nav className="space-y-2">
+            <button className="w-full text-left px-3 py-2 rounded-lg bg-cyan-500/20 text-cyan-300 font-medium transition-colors hover:bg-cyan-500/30">
+              New Chat
+            </button>
+            <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-cyan-500/10 text-gray-400 transition-colors hover:text-cyan-300">
+              Recent Chats
+            </button>
+            <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-cyan-500/10 text-gray-400 transition-colors hover:text-cyan-300">
+              Settings
+            </button>
+          </nav>
+        </div>
+        
+        {/* Footer */}
+        <div className="p-4 border-t border-cyan-500/30 space-y-3">
+          <a 
+            href="https://www.codecraftnet.com/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-sm text-gray-400 hover:text-cyan-300 transition-colors flex items-center gap-1"
+          >
+            Powered by <span className="text-cyan-400 font-medium">Code Craft</span>
+            <ExternalLink className="w-3 h-3" />
+          </a>
+          
+          {/* Clear Chat Button */}
+          <button 
+            onClick={handleClearChat}
+            className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm text-red-400 hover:bg-red-500/10 rounded-lg transition-colors"
+          >
+            <Trash2 className="w-4 h-4" />
+            Clear Chat History
+          </button>
+        </div>
+
+        {/* Close button for mobile */}
+        <button
+          onClick={onToggle}
+          className="md:hidden absolute top-4 right-4 p-1 hover:bg-cyan-500/10 rounded-lg text-gray-400 transition-colors hover:text-cyan-300"
+        >
+          <X className="w-5 h-5" />
+        </button>
+      </aside>
     </>
   )
 }
