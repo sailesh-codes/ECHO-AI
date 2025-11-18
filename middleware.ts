@@ -4,6 +4,7 @@ import type { NextRequest } from 'next/server'
 export function middleware(request: NextRequest) {
   const token = request.cookies.get('auth-token')?.value
   const isAuthPage = request.nextUrl.pathname.startsWith('/auth')
+  const isRegisterPage = request.nextUrl.pathname.startsWith('/register')
   const isApiRoute = request.nextUrl.pathname.startsWith('/api')
   
   // Don't redirect API routes
@@ -12,12 +13,12 @@ export function middleware(request: NextRequest) {
   }
   
   // If user is not authenticated and trying to access protected pages, redirect to auth
-  if (!token && !isAuthPage && request.nextUrl.pathname !== '/') {
+  if (!token && !isAuthPage && !isRegisterPage && request.nextUrl.pathname !== '/') {
     return NextResponse.redirect(new URL('/auth', request.url))
   }
   
-  // If user is authenticated and on auth page, redirect to home
-  if (token && isAuthPage) {
+  // If user is authenticated and on auth/register page, redirect to home
+  if (token && (isAuthPage || isRegisterPage)) {
     return NextResponse.redirect(new URL('/', request.url))
   }
   

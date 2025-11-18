@@ -97,12 +97,12 @@ export default function Sidebar({
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
                   <span className="text-xs text-gray-400">Prompts Remaining</span>
-                  <span className="text-sm font-bold text-cyan-300">{remainingPrompts}/5</span>
+                  <span className="text-sm font-bold text-cyan-300">{isNaN(remainingPrompts) ? 5 : remainingPrompts}/5</span>
                 </div>
                 <div className="w-full bg-gray-700 rounded-full h-2">
                   <div 
                     className="bg-gradient-to-r from-cyan-400 to-cyan-600 h-2 rounded-full transition-all duration-300"
-                    style={{ width: `${(remainingPrompts / 5) * 100}%` }}
+                    style={{ width: `${((isNaN(remainingPrompts) ? 5 : remainingPrompts) / 5) * 100}%` }}
                   />
                 </div>
               </div>

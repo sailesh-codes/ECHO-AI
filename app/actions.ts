@@ -2,7 +2,7 @@
 
 export async function generateAIResponse(userMessage: string, userEmail: string) {
   // Check prompt limit
-  const checkResponse = await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/prompts/check`, {
+  const checkResponse = await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3001'}/api/prompts/check`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email: userEmail })
@@ -52,7 +52,7 @@ export async function generateAIResponse(userMessage: string, userEmail: string)
 
 export async function generateMistralResponse(userMessage: string, userEmail: string) {
   // Check prompt limit
-  const checkResponse = await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/prompts/check`, {
+  const checkResponse = await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3001'}/api/prompts/check`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email: userEmail })

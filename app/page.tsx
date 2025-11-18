@@ -43,22 +43,28 @@ export default function Home() {
     // Extract user email from auth token
     const token = document.cookie.split('; ').find(row => row.startsWith('auth-token='))
     if (token) {
-      const email = Buffer.from(token.split('=')[1], 'base64').toString('utf-8').split(':')[0]
-      setUserEmail(email)
-      
-      // Fetch user data to get prompt count
-      fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
-      })
-        .then(res => res.json())
-        .then(data => {
-          if (data.success) {
-            setRemainingPrompts(data.user.remainingPrompts)
-          }
+      try {
+        const decoded = Buffer.from(token.split('=')[1], 'base64').toString('utf-8')
+        const email = decoded.split(':')[0]
+        setUserEmail(email)
+        setRemainingPrompts(5) // Default to 5 prompts
+        
+        // Try to get user data
+        fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
         })
-        .catch(err => console.error('Failed to fetch user data:', err))
+          .then(res => res.json())
+          .then(data => {
+            if (data.success && data.user?.remainingPrompts !== undefined) {
+              setRemainingPrompts(data.user.remainingPrompts)
+            }
+          })
+          .catch(err => console.error('Failed to fetch user data:', err))
+      } catch (error) {
+        console.error('Token decode error:', error)
+      }
     }
 
     const savedMessages = localStorage.getItem('chatbot_messages')
@@ -134,7 +140,7 @@ export default function Home() {
         })
           .then(res => res.json())
           .then(data => {
-            if (data.success) {
+            if (data.success && data.user?.remainingPrompts !== undefined) {
               setRemainingPrompts(data.user.remainingPrompts)
             }
           })

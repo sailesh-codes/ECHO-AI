@@ -2,9 +2,9 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Mail, ArrowRight, Sparkles } from 'lucide-react'
+import { Mail, ArrowRight, Sparkles, UserPlus } from 'lucide-react'
 
-export default function AuthPage() {
+export default function RegisterPage() {
   const [email, setEmail] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
@@ -16,7 +16,7 @@ export default function AuthPage() {
     setError('')
 
     try {
-      const response = await fetch('/api/auth/login', {
+      const response = await fetch('/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email })
@@ -27,7 +27,7 @@ export default function AuthPage() {
       if (response.ok) {
         router.push('/')
       } else {
-        setError(data.error || 'Authentication failed')
+        setError(data.error || 'Registration failed')
       }
     } catch (error) {
       setError('Network error. Please try again.')
@@ -61,17 +61,17 @@ export default function AuthPage() {
         {/* Logo/Icon */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-2xl mb-4 shadow-lg shadow-cyan-500/25">
-            <Sparkles className="w-8 h-8 text-black" />
+            <UserPlus className="w-8 h-8 text-black" />
           </div>
           <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-300 bg-clip-text text-transparent">
-            Welcome to Echo AI
+            Create Account
           </h1>
           <p className="text-gray-400 mt-2">
-            Enter your email to start chatting with AI
+            Join Echo AI and start chatting
           </p>
         </div>
 
-        {/* Auth Form */}
+        {/* Register Form */}
         <div className="bg-gray-900/50 backdrop-blur-xl border border-cyan-500/20 rounded-2xl p-8 shadow-2xl">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
@@ -107,7 +107,7 @@ export default function AuthPage() {
                 <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin" />
               ) : (
                 <>
-                  Continue
+                  Create Account
                   <ArrowRight className="w-5 h-5" />
                 </>
               )}
@@ -116,8 +116,8 @@ export default function AuthPage() {
 
           <div className="mt-6 pt-6 border-t border-gray-800">
             <div className="text-center text-sm text-gray-400">
-              <p>You get 5 free prompts per email</p>
-              <p className="mt-1">No registration required</p>
+              <p>You get 5 free prompts per account</p>
+              <p className="mt-1">No credit card required</p>
             </div>
           </div>
         </div>
@@ -125,9 +125,9 @@ export default function AuthPage() {
         {/* Login Link */}
         <div className="mt-6 text-center">
           <p className="text-gray-400 text-sm">
-            Don't have an account?{' '}
-            <a href="/register" className="text-cyan-400 hover:text-cyan-300 font-medium transition-colors">
-              Register
+            Already have an account?{' '}
+            <a href="/auth" className="text-cyan-400 hover:text-cyan-300 font-medium transition-colors">
+              Sign In
             </a>
           </p>
         </div>
