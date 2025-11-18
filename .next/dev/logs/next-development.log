@@ -1,54 +1,9 @@
-[00:00:01.875] Server  LOG      ✓ Ready in 1303ms
-[00:00:09.636] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:09.917] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:09.917] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:09.917] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763440042832}
-[00:00:21.433] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\_71c56bff._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:21.510] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:21.547] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\node_modules_next_dist_179b90d2._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:21.553] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:21.559] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:21.562] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:21.563] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:21.567] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:21.570] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:21.573] Server  ERROR    ⨯ Error: GEMINI_API_KEY environment variable is not set
-[00:00:21.701] Browser ERROR   Error: GEMINI_API_KEY environment variable is not set
-[00:01:23.071] Server  LOG        Reload env: .env
-[00:01:24.352] Server  LOG        Reload env: .env
-[00:01:25.758] Server  LOG        Reload env: .env
-[00:03:28.613] Server  LOG        Reload env: .env
-[00:05:45.678] Server  LOG      ✓ Compiled in 93ms
-[00:05:48.574] Server  LOG      ✓ Compiled in 88ms
-[00:06:39.355] Server  LOG      ✓ Compiled in 56ms
-[00:06:46.593] Server  LOG      ✓ Compiled in 51ms
-[00:07:01.678] Server  LOG      ✓ Compiled in 109ms
-[00:07:23.844] Server  LOG      ✓ Compiled in 51ms
-[00:07:25.196] Server  LOG      ✓ Compiled in 71ms
-[00:12:16.670] Server  LOG      ✓ Compiled in 95ms
-[00:12:33.302] Server  LOG      ✓ Compiled in 65ms
-[00:12:37.452] Server  LOG      ✓ Compiled in 68ms
-[00:12:50.436] Server  LOG      ✓ Compiled in 224ms
-[00:15:30.792] Server  LOG      ✓ Compiled in 177ms
-[00:15:31.190] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:15:31.379] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:15:31.379] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:15:31.379] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763440964298}
-[00:15:41.426] Server  LOG      ✓ Compiled in 180ms
-[00:15:46.577] Server  LOG      ✓ Compiled in 146ms
-[00:15:50.778] Server  LOG      ✓ Compiled in 106ms
-[00:18:18.466] Server  LOG      ✓ Compiled in 86ms
-[00:18:23.117] Server  LOG      ✓ Compiled in 63ms
-[00:18:23.974] Browser ERROR   uncaughtError: ReferenceError: showConfirmModal is not defined
-[00:18:26.551] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:18:26.706] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\_c960e1a8._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:18:26.707] Server  ERROR    ⨯ ReferenceError: showConfirmModal is not defined
-[00:18:26.735] Server  LOG      ✓ Compiled in 71ms
-[00:18:26.899] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:18:27.969] Browser ERROR   uncaughtError: ReferenceError: showConfirmModal is not defined
-[00:18:29.962] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
-[00:18:30.097] Server  LOG      ✓ Compiled in 125ms
-[00:18:30.301] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:18:30.970] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:18:30.971] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:18:30.971] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763441143407}
+[00:00:01.693] Server  LOG      ✓ Ready in 1137ms
+[00:00:04.733] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:04.785] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:04.995] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:04.995] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:04.995] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763448396018}
+[00:00:05.858] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:05.858] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:05.858] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763448396069}

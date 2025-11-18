@@ -19,6 +19,7 @@ export default function Home() {
   const [messages, setMessages] = useState<Message[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [showInfoModal, setShowInfoModal] = useState(false)
+  const [showConfirmModal, setShowConfirmModal] = useState(false)
   const [isInitialized, setIsInitialized] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
   const abortControllerRef = useRef<AbortController | null>(null)
@@ -98,8 +99,13 @@ export default function Home() {
   }
 
   const handleClearChat = () => {
+    setShowConfirmModal(true)
+  }
+
+  const confirmClearChat = () => {
     setMessages([])
     localStorage.setItem('chatbot_messages', '[]')
+    setShowConfirmModal(false)
     toast({
       title: 'Chat history cleared',
       description: 'All messages have been removed.',
@@ -130,6 +136,14 @@ export default function Home() {
       <InfoModal 
         isOpen={showInfoModal} 
         onClose={() => setShowInfoModal(false)}
+      />
+      
+      <ConfirmModal
+        isOpen={showConfirmModal}
+        title="Clear Chat History"
+        message="Are you sure you want to delete all messages? This action cannot be undone."
+        onConfirm={confirmClearChat}
+        onCancel={() => setShowConfirmModal(false)}
       />
     </div>
   )

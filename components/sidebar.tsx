@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { toast } from '@/hooks/use-toast'
 import { Trash2, ExternalLink, Menu, X, User, Sparkles } from 'lucide-react'
 
 interface SidebarProps {
@@ -13,10 +12,6 @@ interface SidebarProps {
 export default function Sidebar({ isOpen, onToggle, onClearHistory }: SidebarProps) {
   const handleClearChat = () => {
     onClearHistory()
-    toast({
-      title: 'Chat history cleared',
-      description: 'All messages have been removed.',
-    })
   }
 
   return (
