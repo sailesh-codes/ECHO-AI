@@ -48,7 +48,7 @@ export default function MessageBubble({ message, onCopy }: MessageBubbleProps) {
       >
         <div className="flex items-center gap-2">
           {!isUser && (
-            <span className="w-7 h-7 rounded-full bg-cyan-500 flex items-center justify-center text-sm font-bold">
+            <span className="w-9 h-9 rounded-full bg-cyan-500 flex items-center justify-center text-sm font-bold">
               Echo
             </span>
           )}

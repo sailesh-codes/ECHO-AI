@@ -8,13 +8,19 @@ interface SidebarProps {
   onToggle: () => void
   onClearHistory: () => void
   isLoading?: boolean
+  userEmail?: string
+  onLogout?: () => Promise<void>
+  remainingPrompts?: number
 }
 
 export default function Sidebar({ 
   isOpen, 
   onToggle, 
   onClearHistory, 
-  isLoading = false
+  isLoading = false,
+  userEmail,
+  onLogout,
+  remainingPrompts = 5
 }: SidebarProps) {
   const handleClearChat = () => {
     onClearHistory()
@@ -72,17 +78,48 @@ export default function Sidebar({
         
         {/* Navigation */}
         <div className="flex-1 px-4 space-y-4">
-          {/* Random Model Indicator */}
-          <div className="space-y-2">
-            <div className="text-xs text-cyan-400 font-medium uppercase tracking-wider">AI Model</div>
-            <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-cyan-500/20 border border-cyan-400/60">
-              <Shuffle className="w-4 h-4 text-cyan-300" />
-              <span className="text-cyan-300 text-sm">Random Model</span>
+          
+          {/* User Profile */}
+        {userEmail && (
+          <div className="space-y-4">
+            <div className="text-xs text-cyan-400 font-medium uppercase tracking-wider">Profile</div>
+            <div className="bg-gradient-to-br from-cyan-500/20 to-cyan-600/10 border border-cyan-500/30 rounded-xl p-4">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full flex items-center justify-center">
+                  <User className="w-5 h-5 text-black" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-white font-medium truncate">{userEmail}</div>
+                  <div className="text-xs text-cyan-400">Free Plan</div>
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="flex justify-between items-center">
+                  <span className="text-xs text-gray-400">Prompts Remaining</span>
+                  <span className="text-sm font-bold text-cyan-300">{remainingPrompts}/5</span>
+                </div>
+                <div className="w-full bg-gray-700 rounded-full h-2">
+                  <div 
+                    className="bg-gradient-to-r from-cyan-400 to-cyan-600 h-2 rounded-full transition-all duration-300"
+                    style={{ width: `${(remainingPrompts / 5) * 100}%` }}
+                  />
+                </div>
+              </div>
             </div>
-            <p className="text-xs text-gray-400">Model automatically changes for each message</p>
+            
+            {onLogout && (
+              <button
+                onClick={onLogout}
+                className="w-full px-4 py-2 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 hover:bg-red-500/20 transition-colors text-sm font-medium"
+              >
+                Logout
+              </button>
+            )}
           </div>
+        )}
 
-          {/* Navigation Buttons */}
+        {/* Navigation Buttons */}
           <nav className="space-y-2">
             <button className="w-full text-left px-3 py-2 rounded-lg bg-cyan-500/20 text-cyan-300 font-medium transition-colors hover:bg-cyan-500/30">
               New Chat
@@ -93,6 +130,14 @@ export default function Sidebar({
             <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-cyan-500/10 text-gray-400 transition-colors hover:text-cyan-300">
               Settings
             </button>
+            {onLogout && (
+              <button 
+                onClick={onLogout}
+                className="w-full text-left px-3 py-2 rounded-lg hover:bg-red-500/10 text-gray-400 transition-colors hover:text-red-400"
+              >
+                Logout
+              </button>
+            )}
           </nav>
         </div>
         
@@ -111,7 +156,7 @@ export default function Sidebar({
           {/* Clear Chat Button */}
           <button 
             onClick={handleClearChat}
-            className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm text-red-400 hover:bg-red-100/10 rounded-lg transition-colors"
+            className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm text-red-400 hover:bg-red-900 hover:text-white rounded-lg transition-colors"
           >
             <Trash2 className="w-4 h-4" />
             Clear Chat 

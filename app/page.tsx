@@ -23,6 +23,8 @@ export default function Home() {
   const [showConfirmModal, setShowConfirmModal] = useState(false)
   const [isInitialized, setIsInitialized] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
+  const [userEmail, setUserEmail] = useState<string>('')
+  const [remainingPrompts, setRemainingPrompts] = useState<number>(5)
   const abortControllerRef = useRef<AbortController | null>(null)
 
   // Available models and providers for random selection
@@ -38,8 +40,28 @@ export default function Home() {
   }
 
   useEffect(() => {
+    // Extract user email from auth token
+    const token = document.cookie.split('; ').find(row => row.startsWith('auth-token='))
+    if (token) {
+      const email = Buffer.from(token.split('=')[1], 'base64').toString('utf-8').split(':')[0]
+      setUserEmail(email)
+      
+      // Fetch user data to get prompt count
+      fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.success) {
+            setRemainingPrompts(data.user.remainingPrompts)
+          }
+        })
+        .catch(err => console.error('Failed to fetch user data:', err))
+    }
+
     const savedMessages = localStorage.getItem('chatbot_messages')
-    
     if (savedMessages) {
       try {
         const parsed = JSON.parse(savedMessages)
@@ -51,7 +73,7 @@ export default function Home() {
         console.error('Failed to load messages:', e)
       }
     }
-    
+
     setIsInitialized(true)
   }, [])
 
@@ -60,6 +82,15 @@ export default function Home() {
   }, [messages])
 
   const handleSendMessage = async (content: string) => {
+    if (!userEmail) {
+      toast({
+        title: 'Authentication Error',
+        description: 'Please log in to send messages',
+        variant: 'destructive'
+      })
+      return
+    }
+
     const newUserMessage: Message = {
       id: Date.now().toString(),
       role: 'user',
@@ -69,8 +100,7 @@ export default function Home() {
 
     setMessages(prev => [...prev, newUserMessage])
     setIsLoading(true)
-    abortControllerRef.current = new AbortController()
-
+    abortControllerRef.current = null
     try {
       // Get random model and provider for each request
       const { provider, model } = getRandomModel()
@@ -79,9 +109,9 @@ export default function Home() {
       let assistantContent: string
       
       if (provider === 'gemini') {
-        assistantContent = await generateAIResponse(content)
+        assistantContent = await generateAIResponse(content, userEmail)
       } else if (provider === 'mistral') {
-        assistantContent = await generateMistralResponse(content)
+        assistantContent = await generateMistralResponse(content, userEmail)
       } else {
         throw new Error('Unknown provider')
       }
@@ -94,9 +124,24 @@ export default function Home() {
       }
 
       setMessages(prev => [...prev, assistantMessage])
+      
+      // Refresh prompt count
+      if (userEmail) {
+        fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: userEmail })
+        })
+          .then(res => res.json())
+          .then(data => {
+            if (data.success) {
+              setRemainingPrompts(data.user.remainingPrompts)
+            }
+          })
+          .catch(err => console.error('Failed to refresh prompt count:', err))
+      }
     } catch (error: any) {
       console.error('Error generating response:', error)
-      
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
@@ -105,7 +150,6 @@ export default function Home() {
       }
 
       setMessages(prev => [...prev, errorMessage])
-      
       toast({
         title: 'Error',
         description: error.message || 'Failed to generate response',
@@ -114,6 +158,15 @@ export default function Home() {
     } finally {
       setIsLoading(false)
       abortControllerRef.current = null
+    }
+  }
+
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/auth/logout', { method: 'POST' })
+      window.location.href = '/auth'
+    } catch (error) {
+      console.error('Logout error:', error)
     }
   }
 
@@ -154,6 +207,9 @@ export default function Home() {
         onToggle={() => setIsSidebarOpen(!isSidebarOpen)}
         onClearHistory={handleClearChat}
         isLoading={isLoading}
+        userEmail={userEmail}
+        onLogout={handleLogout}
+        remainingPrompts={remainingPrompts}
       />
       
       <main className="flex-1 flex items-center justify-center p-4 md:p-8">

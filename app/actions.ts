@@ -1,6 +1,18 @@
 'use server'
 
-export async function generateAIResponse(userMessage: string) {
+export async function generateAIResponse(userMessage: string, userEmail: string) {
+  // Check prompt limit
+  const checkResponse = await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/prompts/check`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: userEmail })
+  })
+
+  if (!checkResponse.ok) {
+    const errorData = await checkResponse.json()
+    throw new Error(errorData.error || 'Failed to check prompt limit')
+  }
+
   const apiKey = process.env.GEMINI_API_KEY
   
   if (!apiKey) {
@@ -38,7 +50,19 @@ export async function generateAIResponse(userMessage: string) {
   }
 }
 
-export async function generateMistralResponse(userMessage: string) {
+export async function generateMistralResponse(userMessage: string, userEmail: string) {
+  // Check prompt limit
+  const checkResponse = await fetch(`${process.env.NEXTAUTH_URL || 'http://localhost:3000'}/api/prompts/check`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: userEmail })
+  })
+
+  if (!checkResponse.ok) {
+    const errorData = await checkResponse.json()
+    throw new Error(errorData.error || 'Failed to check prompt limit')
+  }
+
   const apiKey = process.env.MISTRAL_API_KEY
   
   if (!apiKey) {
