@@ -1,11 +1,12 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { generateAIResponse } from './actions'
+import { generateAIResponse, generateHFResponse } from './actions'
 import Sidebar from '@/components/sidebar'
 import ChatWindow from '@/components/chat-window'
 import InfoModal from '@/components/info-modal'
 import ConfirmModal from '@/components/confirm-modal'
+import ModelSelector from '@/components/model-selector'
 import { toast } from '@/hooks/use-toast'
 
 export interface Message {
@@ -22,6 +23,8 @@ export default function Home() {
   const [showConfirmModal, setShowConfirmModal] = useState(false)
   const [isInitialized, setIsInitialized] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
+  const [selectedModel, setSelectedModel] = useState('distilbert/distilgpt2')
+  const [aiProvider, setAiProvider] = useState<'gemini' | 'huggingface'>('huggingface')
   const abortControllerRef = useRef<AbortController | null>(null)
 
   useEffect(() => {
@@ -59,7 +62,13 @@ export default function Home() {
     abortControllerRef.current = new AbortController()
 
     try {
-      const assistantContent = await generateAIResponse(content)
+      let assistantContent: string
+      
+      if (aiProvider === 'huggingface') {
+        assistantContent = await generateHFResponse(selectedModel, content)
+      } else {
+        assistantContent = await generateAIResponse(content)
+      }
 
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
@@ -70,16 +79,25 @@ export default function Home() {
 
       setMessages(prev => [...prev, assistantMessage])
     } catch (error: any) {
-      console.error('Error:', error.message)
+      console.error('Error generating response:', error)
+      
       const errorMessage: Message = {
-        id: (Date.now() + 2).toString(),
+        id: (Date.now() + 1).toString(),
         role: 'assistant',
         content: `Error: ${error.message}`,
         timestamp: new Date()
       }
+
       setMessages(prev => [...prev, errorMessage])
+      
+      toast({
+        title: 'Error',
+        description: error.message || 'Failed to generate response',
+        variant: 'destructive'
+      })
     } finally {
       setIsLoading(false)
+      abortControllerRef.current = null
     }
   }
 
@@ -119,6 +137,11 @@ export default function Home() {
         isOpen={isSidebarOpen}
         onToggle={() => setIsSidebarOpen(!isSidebarOpen)}
         onClearHistory={handleClearChat}
+        selectedModel={selectedModel}
+        onModelChange={setSelectedModel}
+        aiProvider={aiProvider}
+        onProviderChange={setAiProvider}
+        isLoading={isLoading}
       />
       
       <main className="flex-1 flex items-center justify-center p-4 md:p-8">

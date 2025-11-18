@@ -1,15 +1,30 @@
 'use client'
 
 import { useState } from 'react'
-import { Trash2, ExternalLink, Menu, X, User, Sparkles } from 'lucide-react'
+import { Trash2, ExternalLink, Menu, X, User, Sparkles, Bot, Gem } from 'lucide-react'
+import ModelSelector from '@/components/model-selector'
 
 interface SidebarProps {
   isOpen: boolean
   onToggle: () => void
   onClearHistory: () => void
+  selectedModel?: string
+  onModelChange?: (modelId: string) => void
+  aiProvider?: 'gemini' | 'huggingface'
+  onProviderChange?: (provider: 'gemini' | 'huggingface') => void
+  isLoading?: boolean
 }
 
-export default function Sidebar({ isOpen, onToggle, onClearHistory }: SidebarProps) {
+export default function Sidebar({ 
+  isOpen, 
+  onToggle, 
+  onClearHistory, 
+  selectedModel = 'bigcode/starcoder',
+  onModelChange,
+  aiProvider = 'huggingface',
+  onProviderChange,
+  isLoading = false
+}: SidebarProps) {
   const handleClearChat = () => {
     onClearHistory()
   }
@@ -65,7 +80,49 @@ export default function Sidebar({ isOpen, onToggle, onClearHistory }: SidebarPro
         </div>
         
         {/* Navigation */}
-        <div className="flex-1 px-4">
+        <div className="flex-1 px-4 space-y-4">
+          {/* AI Provider Toggle */}
+          <div className="space-y-2">
+            <div className="text-xs text-cyan-400 font-medium uppercase tracking-wider">AI Provider</div>
+            <div className="flex gap-2">
+              <button
+                onClick={() => onProviderChange?.('huggingface')}
+                className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-lg border transition-all ${
+                  aiProvider === 'huggingface'
+                    ? 'bg-cyan-500/20 border-cyan-400/60 text-cyan-300'
+                    : 'bg-black border-cyan-500/30 text-gray-400 hover:border-cyan-400/60 hover:text-cyan-300'
+                }`}
+              >
+                <Bot className="w-4 h-4" />
+                HF
+              </button>
+              <button
+                onClick={() => onProviderChange?.('gemini')}
+                className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-lg border transition-all ${
+                  aiProvider === 'gemini'
+                    ? 'bg-cyan-500/20 border-cyan-400/60 text-cyan-300'
+                    : 'bg-black border-cyan-500/30 text-gray-400 hover:border-cyan-400/60 hover:text-cyan-300'
+                }`}
+              >
+                <Gem className="w-4 h-4" />
+                Gemini
+              </button>
+            </div>
+          </div>
+
+          {/* Model Selector */}
+          {aiProvider === 'huggingface' && (
+            <div className="space-y-2">
+              <div className="text-xs text-cyan-400 font-medium uppercase tracking-wider">Model Selection</div>
+              <ModelSelector
+                selectedModel={selectedModel}
+                onModelChange={onModelChange || (() => {})}
+                disabled={isLoading}
+              />
+            </div>
+          )}
+
+          {/* Navigation Buttons */}
           <nav className="space-y-2">
             <button className="w-full text-left px-3 py-2 rounded-lg bg-cyan-500/20 text-cyan-300 font-medium transition-colors hover:bg-cyan-500/30">
               New Chat
@@ -94,10 +151,10 @@ export default function Sidebar({ isOpen, onToggle, onClearHistory }: SidebarPro
           {/* Clear Chat Button */}
           <button 
             onClick={handleClearChat}
-            className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm text-red-400 hover:bg-red-500/10 rounded-lg transition-colors"
+            className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm text-red-400 hover:bg-red-100/10 rounded-lg transition-colors"
           >
             <Trash2 className="w-4 h-4" />
-            Clear Chat History
+            Clear Chat 
           </button>
         </div>
 
