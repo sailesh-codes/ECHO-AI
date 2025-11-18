@@ -1,17 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import { Trash2, ExternalLink, Menu, X, User, Sparkles, Bot, Gem } from 'lucide-react'
-import ModelSelector from '@/components/model-selector'
+import { Menu, X, Sparkles, User, Trash2, ExternalLink, Shuffle } from 'lucide-react'
 
 interface SidebarProps {
   isOpen: boolean
   onToggle: () => void
   onClearHistory: () => void
-  selectedModel?: string
-  onModelChange?: (modelId: string) => void
-  aiProvider?: 'gemini' | 'huggingface'
-  onProviderChange?: (provider: 'gemini' | 'huggingface') => void
   isLoading?: boolean
 }
 
@@ -19,10 +14,6 @@ export default function Sidebar({
   isOpen, 
   onToggle, 
   onClearHistory, 
-  selectedModel = 'bigcode/starcoder',
-  onModelChange,
-  aiProvider = 'huggingface',
-  onProviderChange,
   isLoading = false
 }: SidebarProps) {
   const handleClearChat = () => {
@@ -81,46 +72,15 @@ export default function Sidebar({
         
         {/* Navigation */}
         <div className="flex-1 px-4 space-y-4">
-          {/* AI Provider Toggle */}
+          {/* Random Model Indicator */}
           <div className="space-y-2">
-            <div className="text-xs text-cyan-400 font-medium uppercase tracking-wider">AI Provider</div>
-            <div className="flex gap-2">
-              <button
-                onClick={() => onProviderChange?.('huggingface')}
-                className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-lg border transition-all ${
-                  aiProvider === 'huggingface'
-                    ? 'bg-cyan-500/20 border-cyan-400/60 text-cyan-300'
-                    : 'bg-black border-cyan-500/30 text-gray-400 hover:border-cyan-400/60 hover:text-cyan-300'
-                }`}
-              >
-                <Bot className="w-4 h-4" />
-                HF
-              </button>
-              <button
-                onClick={() => onProviderChange?.('gemini')}
-                className={`flex-1 flex items-center justify-center gap-2 px-3 py-2 rounded-lg border transition-all ${
-                  aiProvider === 'gemini'
-                    ? 'bg-cyan-500/20 border-cyan-400/60 text-cyan-300'
-                    : 'bg-black border-cyan-500/30 text-gray-400 hover:border-cyan-400/60 hover:text-cyan-300'
-                }`}
-              >
-                <Gem className="w-4 h-4" />
-                Gemini
-              </button>
+            <div className="text-xs text-cyan-400 font-medium uppercase tracking-wider">AI Model</div>
+            <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-cyan-500/20 border border-cyan-400/60">
+              <Shuffle className="w-4 h-4 text-cyan-300" />
+              <span className="text-cyan-300 text-sm">Random Model</span>
             </div>
+            <p className="text-xs text-gray-400">Model automatically changes for each message</p>
           </div>
-
-          {/* Model Selector */}
-          {aiProvider === 'huggingface' && (
-            <div className="space-y-2">
-              <div className="text-xs text-cyan-400 font-medium uppercase tracking-wider">Model Selection</div>
-              <ModelSelector
-                selectedModel={selectedModel}
-                onModelChange={onModelChange || (() => {})}
-                disabled={isLoading}
-              />
-            </div>
-          )}
 
           {/* Navigation Buttons */}
           <nav className="space-y-2">

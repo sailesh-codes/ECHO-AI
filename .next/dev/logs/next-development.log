@@ -1,126 +1,72 @@
-[00:00:01.214] Server  LOG      ✓ Ready in 815ms
-[00:00:06.014] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:06.227] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:06.227] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:06.227] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763452163934}
-[00:00:58.276] Server  ERROR   Hugging Face API Error: {}
-[00:00:58.294] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\_71c56bff._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:58.380] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:58.410] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\node_modules_next_dist_179b90d2._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:58.421] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:58.425] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:58.427] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:58.428] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:58.430] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:58.431] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:00:58.433] Server  ERROR    ⨯ Error: Model not found: The model ID is incorrect or the model does not exist. Please check the model name.
-[00:00:58.545] Browser ERROR   Error generating response: {"digest":"286483242","environmentName":"Server","name":"Error"}
-[00:01:38.148] Server  LOG      ✓ Compiled in 84ms
-[00:02:50.493] Server  ERROR   Hugging Face API Error: {}
-[00:02:50.506] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\_71c56bff._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:02:50.511] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:02:50.538] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\node_modules_next_dist_179b90d2._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:02:50.540] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:02:50.541] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:02:50.542] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:02:50.542] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:02:50.542] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:02:50.543] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:02:50.545] Server  ERROR    ⨯ Error: Model not found: The model "mistralai/Mistral-7B-Instruct-v0.2" does not exist or is not available through the Inference API. Please: 1) Check the model ID spelling, 2) Ensure the model supports inference API, 3) Try "meta-llama/Meta-Llama-3-8B-Instruct" which is known to work.
-[00:02:50.660] Browser ERROR   Error generating response: {"digest":"581701865","environmentName":"Server","name":"Error"}
-[00:03:12.122] Server  LOG      ✓ Compiled in 61ms
-[00:03:26.287] Server  LOG      ✓ Compiled in 62ms
-[00:03:34.756] Server  LOG      ✓ Compiled in 80ms
-[00:04:06.292] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:04:06.457] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:04:06.457] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:04:06.457] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763452404165}
-[00:04:09.935] Server  ERROR   Hugging Face API Error: {}
-[00:04:09.941] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\_71c56bff._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:04:09.947] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:04:09.965] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\node_modules_next_dist_179b90d2._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:04:09.966] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:04:09.967] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:04:09.967] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:04:09.968] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:04:09.968] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:04:09.969] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:04:09.970] Server  ERROR    ⨯ Error: Model not found: The model "meta-llama/Meta-Llama-3-8B-Instruct" does not exist or is not available through the Inference API. Please: 1) Check the model ID spelling, 2) Ensure the model supports inference API, 3) Try "meta-llama/Meta-Llama-3-8B-Instruct" which is known to work.
-[00:04:10.079] Browser ERROR   Error generating response: {"digest":"3668043145","environmentName":"Server","name":"Error"}
-[00:04:47.986] Server  LOG      ✓ Compiled in 73ms
-[00:05:04.910] Server  LOG      ✓ Compiled in 105ms
-[00:05:18.928] Server  ERROR   Hugging Face API Error: {}
-[00:05:18.936] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\_71c56bff._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:05:18.939] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:05:18.960] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\node_modules_next_dist_179b90d2._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:05:18.961] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:05:18.962] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:05:18.962] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:05:18.963] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:05:18.964] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:05:18.966] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:05:18.967] Server  ERROR    ⨯ Error: Model not found: The model "microsoft/DialoGPT-medium" does not exist or is not available through the Inference API. Please: 1) Check the model ID spelling, 2) Ensure the model supports inference API, 3) Try "google/gemma-2-2b-it" which is known to work on free tier.
-[00:05:19.085] Browser ERROR   Error generating response: {"digest":"404361993","environmentName":"Server","name":"Error"}
-[00:05:49.250] Server  ERROR   Hugging Face API Error: {}
-[00:05:49.254] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\_71c56bff._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:05:49.256] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:05:49.256] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\node_modules_next_dist_179b90d2._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:05:49.257] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:05:49.258] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:05:49.258] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:05:49.259] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:05:49.259] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:05:49.259] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[00:05:49.260] Server  ERROR    ⨯ Error: Model not found: The model "google/gemma-2-2b-it" does not exist or is not available through the Inference API. Please: 1) Check the model ID spelling, 2) Ensure the model supports inference API, 3) Try "google/gemma-2-2b-it" which is known to work on free tier.
-[00:05:49.377] Browser ERROR   Error generating response: {"digest":"1391260681","environmentName":"Server","name":"Error"}
-[01:59:18.982] Server  ERROR   Hugging Face API Error: {}
-[01:59:18.990] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\_71c56bff._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:59:18.995] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:59:18.997] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\node_modules_next_dist_179b90d2._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:59:18.998] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:59:18.999] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:59:19.000] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:59:19.014] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:59:19.015] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:59:19.017] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[01:59:19.017] Server  ERROR    ⨯ Error: Model not found: The model "google/gemma-2-2b-it" does not exist or is not available through the Inference API. Please: 1) Check the model ID spelling, 2) Ensure the model supports inference API, 3) Try "google/gemma-2-2b-it" which is known to work on free tier.
-[01:59:19.129] Browser ERROR   Error generating response: {"digest":"1391260681","environmentName":"Server","name":"Error"}
-[02:55:55.761] Server  ERROR   Hugging Face API Error: {}
-[02:55:55.776] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\_71c56bff._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[02:55:55.788] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[02:55:55.790] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\node_modules_next_dist_179b90d2._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[02:55:55.792] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[02:55:55.793] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[02:55:55.793] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[02:55:55.794] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[02:55:55.795] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[02:55:55.795] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[02:55:55.797] Server  ERROR    ⨯ Error: Model not found: The model "HuggingFaceH4/zephyr-7b-beta" does not exist or is not available through the Inference API. Please: 1) Check the model ID spelling, 2) Ensure the model supports inference API, 3) Try "google/gemma-2-2b-it" which is known to work on free tier.
-[02:55:55.914] Browser ERROR   Error generating response: {"digest":"935183209","environmentName":"Server","name":"Error"}
-[03:00:49.699] Server  LOG      ✓ Compiled in 612ms
-[03:01:02.026] Server  LOG      ✓ Compiled in 65ms
-[03:02:25.009] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\_71c56bff._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[03:02:25.014] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[03:02:25.045] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\node_modules_next_dist_179b90d2._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[03:02:25.046] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[03:02:25.047] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[03:02:25.047] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[03:02:25.048] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[03:02:25.048] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[03:02:25.049] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[03:02:25.049] Server  ERROR    ⨯ Error: Invalid model ID format. Expected format: organization/model-name
-[03:02:25.155] Browser ERROR   Error generating response: {"digest":"1851718202","environmentName":"Server","name":"Error"}
-[03:02:48.337] Server  LOG      ✓ Compiled in 63ms
-[03:03:47.916] Server  WARN    Using unapproved model: gpt2. This may not work or could be slower.
-[03:03:48.305] Server  ERROR   Hugging Face API Error: {}
-[03:03:48.311] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\_71c56bff._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[03:03:48.314] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\compiled\next-server\app-page-turbo.runtime.dev.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[03:03:48.320] Server  ERROR   C:\THE ONE\ECHO\.next\dev\server\chunks\ssr\node_modules_next_dist_179b90d2._.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[03:03:48.322] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\base-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[03:03:48.323] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\next-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[03:03:48.324] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\dev\next-dev-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[03:03:48.324] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\trace\trace.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[03:03:48.325] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\router-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[03:03:48.325] Server  ERROR   C:\THE ONE\ECHO\node_modules\next\dist\server\lib\start-server.js: Invalid source map. Only conformant source maps can be used to find the original code. Cause: Error: sourceMapURL could not be parsed
-[03:03:48.326] Server  ERROR    ⨯ Error: Model not found: The model "gpt2" does not exist or is not available through the Inference API. Please: 1) Check the model ID spelling, 2) Ensure the model supports inference API, 3) Try "distilbert/distilgpt2" which is known to work reliably.
-[03:03:48.434] Browser ERROR   Error generating response: {"digest":"3988219941","environmentName":"Server","name":"Error"}
+[00:00:01.466] Server  LOG      ✓ Ready in 926ms
+[00:00:11.892] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:12.111] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:12.112] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:00:12.112] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763469497722}
+[00:00:18.193] Browser LOG     Using random provider: gemini, model: gemini-2.0-flash
+[00:00:24.224] Browser LOG     Using random provider: gemini, model: gemini-2.0-flash
+[00:00:46.397] Browser LOG     Using random provider: gemini, model: gemini-2.0-flash
+[00:02:14.491] Server  LOG        Reload env: .env.local
+[00:05:32.100] Server  LOG        Reload env: .env.local
+[00:08:45.953] Server  LOG      ✓ Compiled in 77ms
+[00:08:47.913] Server  LOG      ✓ Compiled in 68ms
+[00:08:53.377] Server  LOG      ✓ Compiled in 71ms
+[00:08:56.916] Server  LOG      ✓ Compiled in 71ms
+[00:09:00.410] Browser LOG     Using random provider: mistral, model: mistral-small
+[00:09:45.980] Server  LOG      ✓ Compiled in 59ms
+[00:09:46.257] Browser ERROR   ./components/sidebar.tsx:87:15
+Parsing ecmascript source code failed
+  85 |             </button>
+  86 |           </nav>
+> 87 |         </div>
+     |               ^
+> 88 |         
+     | ^^^^^^^^
+> 89 |         {/* Footer */}
+     | ^^^^^^^^^
+  90 |         <div className="p-4 border-t border-cyan-500/30 space-y-3">
+  91 |           <a 
+  92 |             href="https://www.codecraftnet.com/" 
+
+Expected '</', got 'jsx text (
+        
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./components/sidebar.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/sidebar.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:09:48.260] Browser ERROR   ./components/sidebar.tsx:87:15
+Parsing ecmascript source code failed
+  85 |             </button>
+  86 |           </nav>
+> 87 |         </div>
+     |               ^
+> 88 |         
+     | ^^^^^^^^
+> 89 |         {/* Footer */}
+     | ^^^^^^^^^
+  90 |         <div className="p-4 border-t border-cyan-500/30 space-y-3">
+  91 |           <a 
+  92 |             href="https://www.codecraftnet.com/" 
+
+Expected '</', got 'jsx text (
+        
+        )'
+
+Import traces:
+  Client Component Browser:
+    ./components/sidebar.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/sidebar.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]

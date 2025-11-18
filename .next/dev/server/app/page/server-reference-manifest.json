@@ -15,19 +15,19 @@
       "exportedName": "generateAIResponse",
       "filename": "app/actions.ts"
     },
-    "60b317c1d9fa49fbd4af8401e8294e54ab43cb024e": {
+    "40daefe899d53282033fc90314cf0e04cbea711297": {
       "workers": {
         "app/page": {
           "moduleId": "[project]/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/app/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
-          "exportedName": "generateHFResponse",
+          "exportedName": "generateMistralResponse",
           "filename": "app/actions.ts"
         }
       },
       "layer": {
         "app/page": "action-browser"
       },
-      "exportedName": "generateHFResponse",
+      "exportedName": "generateMistralResponse",
       "filename": "app/actions.ts"
     }
   },

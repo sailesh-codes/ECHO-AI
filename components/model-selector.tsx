@@ -12,43 +12,36 @@ interface HFModel {
 }
 
 const hfModels: HFModel[] = [
-  // Basic Models (Tested Working)
+  // Basic Models (Most Reliable)
   {
     id: 'distilbert/distilgpt2',
     name: 'DistilGPT2',
-    description: 'Lightweight GPT-2 model - reliable and fast',
-    category: 'general',
-    icon: <Cpu className="w-4 h-4" />
-  },
-  {
-    id: 'openai-community/gpt2',
-    name: 'GPT2 Small',
-    description: 'Original GPT-2 model - very reliable',
+    description: 'Lightweight GPT-2 model - most reliable',
     category: 'general',
     icon: <Cpu className="w-4 h-4" />
   },
   
-  // Code Models (Tested Working)
+  // Code Models (Reliable)
   {
     id: 'bigcode/tiny_starcoder_py',
     name: 'Tiny StarCoder',
-    description: 'Lightweight code model - works reliably',
+    description: 'Lightweight code model - tested working',
     category: 'code',
     icon: <Code className="w-4 h-4" />
   },
   {
-    id: 'codeparrot/codeparrot-small',
-    name: 'CodeParrot Small',
+    id: 'huggingface-codegen-small',
+    name: 'CodeGen Small',
     description: 'Small code generation model',
     category: 'code',
     icon: <Code className="w-4 h-4" />
   },
   
-  // Chat Models (Tested Working)
+  // Chat Models (Reliable)
   {
     id: 'microsoft/DialoGPT-medium',
     name: 'DialoGPT Medium',
-    description: 'Conversational model - tested working',
+    description: 'Conversational model - most reliable',
     category: 'chat',
     icon: <MessageSquare className="w-4 h-4" />
   },

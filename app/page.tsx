@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { generateAIResponse, generateHFResponse } from './actions'
+import { generateAIResponse, generateMistralResponse } from './actions'
 import Sidebar from '@/components/sidebar'
 import ChatWindow from '@/components/chat-window'
 import InfoModal from '@/components/info-modal'
@@ -23,9 +23,19 @@ export default function Home() {
   const [showConfirmModal, setShowConfirmModal] = useState(false)
   const [isInitialized, setIsInitialized] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
-  const [selectedModel, setSelectedModel] = useState('distilbert/distilgpt2')
-  const [aiProvider, setAiProvider] = useState<'gemini' | 'huggingface'>('huggingface')
   const abortControllerRef = useRef<AbortController | null>(null)
+
+  // Available models and providers for random selection
+  const availableModels = [
+    { provider: 'gemini', model: 'gemini-2.0-flash' },
+    { provider: 'mistral', model: 'mistral-small' }
+  ]
+
+  // Function to get random model and provider
+  const getRandomModel = () => {
+    const randomIndex = Math.floor(Math.random() * availableModels.length)
+    return availableModels[randomIndex]
+  }
 
   useEffect(() => {
     const savedMessages = localStorage.getItem('chatbot_messages')
@@ -62,12 +72,18 @@ export default function Home() {
     abortControllerRef.current = new AbortController()
 
     try {
+      // Get random model and provider for each request
+      const { provider, model } = getRandomModel()
+      console.log(`Using random provider: ${provider}, model: ${model}`)
+      
       let assistantContent: string
       
-      if (aiProvider === 'huggingface') {
-        assistantContent = await generateHFResponse(selectedModel, content)
-      } else {
+      if (provider === 'gemini') {
         assistantContent = await generateAIResponse(content)
+      } else if (provider === 'mistral') {
+        assistantContent = await generateMistralResponse(content)
+      } else {
+        throw new Error('Unknown provider')
       }
 
       const assistantMessage: Message = {
@@ -137,10 +153,6 @@ export default function Home() {
         isOpen={isSidebarOpen}
         onToggle={() => setIsSidebarOpen(!isSidebarOpen)}
         onClearHistory={handleClearChat}
-        selectedModel={selectedModel}
-        onModelChange={setSelectedModel}
-        aiProvider={aiProvider}
-        onProviderChange={setAiProvider}
         isLoading={isLoading}
       />
       

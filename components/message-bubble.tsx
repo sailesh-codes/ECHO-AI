@@ -49,7 +49,7 @@ export default function MessageBubble({ message, onCopy }: MessageBubbleProps) {
         <div className="flex items-center gap-2">
           {!isUser && (
             <span className="w-7 h-7 rounded-full bg-cyan-500 flex items-center justify-center text-sm font-bold">
-              AI
+              Echo
             </span>
           )}
           <p className="text-sm md:text-base break-words whitespace-pre-wrap leading-relaxed font-medium flex-1">
@@ -57,7 +57,7 @@ export default function MessageBubble({ message, onCopy }: MessageBubbleProps) {
           </p>
           {isUser && (
             <span className="w-7 h-7 rounded-full bg-gradient-to-br from-[#a78bfa] to-[#7c3aed] flex items-center justify-center text-sm font-bold">
-              U
+              You
             </span>
           )}
         </div>

@@ -1,238 +1,146 @@
-# AI Code Editor
+# Echo - AI Assistant
 
-A modern AI-powered code editor with support for multiple AI providers including Hugging Face Inference API and Google Gemini.
+A modern AI assistant application with multi-model support through OpenRouter and Google Gemini APIs.
 
 ## Features
 
-- **Multiple AI Providers**: Switch between Hugging Face and Google Gemini
-- **Model Selection**: Choose from various pre-configured Hugging Face models
-- **Code Generation**: Generate code with specialized models like StarCoder and Codestral
-- **Chat Interface**: Interactive chat with AI assistants
-- **Modern UI**: Black and aqua theme with responsive design
-- **Error Handling**: Comprehensive error handling for API rate limits and failures
+- **Multiple AI Models**: Access to various AI models through OpenRouter's orchestration
+- **Random Model Selection**: Automatically rotates between different models for variety
+- **Clean Interface**: Modern, responsive UI with dark theme
+- **Real-time Chat**: Interactive chat interface with message history
+- **Code Generation**: Support for code-related queries and assistance
 
-## Setup
+## Quick Start
 
 ### Prerequisites
 
 - Node.js 18+ 
-- npm, yarn, or pnpm
+- OpenRouter API key
+- Google Gemini API key (optional)
 
 ### Installation
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm install
-   # or
-   yarn install
-   # or
-   pnpm install
-   ```
-
-### Environment Variables
-
-1. Copy the environment template:
-   ```bash
-   cp .env.example .env
-   ```
-
-2. Get your API keys:
-   - **Hugging Face**: Visit [https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
-   - **Google Gemini**: Visit [https://makersuite.google.com/app/apikey](https://makersuite.google.com/app/apikey)
-
-3. Update your `.env` file with your API keys:
-   ```env
-   # Hugging Face API Configuration
-   HF_API_KEY=your-hugging-face-api-key-here
-
-   # Google Gemini API Configuration (optional)
-   GEMINI_API_KEY=your-gemini-api-key-here
-   ```
-
-### Running the Application
-
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+git clone <repository-url>
+cd echo
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+2. Install dependencies:
+```bash
+npm install
+```
 
-## Usage
+3. Set up environment variables:
+```bash
+cp .env.example .env.local
+```
 
-### Switching AI Providers
+4. Add your API keys to `.env.local`:
+```env
+OPENROUTER_API_KEY=your-openrouter-api-key-here
+GEMINI_API_KEY=your-gemini-api-key-here
+```
 
-1. Open the sidebar
-2. Use the AI Provider toggle to switch between:
-   - **HF (Hugging Face)**: Access to various open-source models
-   - **Gemini**: Google's Gemini model
+5. Start the development server:
+```bash
+npm run dev
+```
 
-### Selecting Hugging Face Models
+6. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-When using Hugging Face provider:
-1. Click on the model selector in the sidebar
-2. Choose from available models:
-   - **StarCoder**: Code generation model
-   - **Codestral**: Advanced code generation
-   - **Llama 3 8B**: General purpose model
-   - **Phi-3 Mini**: Lightweight instruction model
-   - **Gemma 7B**: Google's lightweight model
-   - **Zephyr 7B**: Helpful instruction model
+## API Configuration
 
-### Chat Features
+### OpenRouter API
 
-- **Copy Messages**: Click the copy button on any message to copy it to clipboard
-- **Clear History**: Use the "Clear Chat History" button to reset the conversation
-- **Stop Generation**: Click the stop button to interrupt AI responses
+OpenRouter provides access to multiple AI models through a unified API. Get your API key from [OpenRouter](https://openrouter.ai/keys).
+
+### Google Gemini API
+
+Get your Gemini API key from [Google AI Studio](https://makersuite.google.com/app/apikey).
 
 ## Available Models
 
-### Basic Models (Tested Working)
-- `distilbert/distilgpt2` - Lightweight GPT-2 model - reliable and fast
-- `openai-community/gpt2` - Original GPT-2 model - very reliable
+The application automatically rotates between these models:
 
-### Code Models (Tested Working)
-- `bigcode/tiny_starcoder_py` - Lightweight code model - works reliably
-- `codeparrot/codeparrot-small` - Small code generation model
+### OpenRouter Models
+- `openrouter/auto` - Automatic model selection
+- `anthropic/claude-3-haiku` - Fast, efficient model
+- `anthropic/claude-3.5-sonnet` - Balanced performance
+- `openai/gpt-4o-mini` - Fast GPT-4 variant
+- `openai/gpt-4o` - Full GPT-4 capabilities
+- `google/gemini-flash-1.5` - Fast Gemini model
+- `meta-llama/llama-3.1-8b-instruct` - Open source model
+- `meta-llama/llama-3.2-3b-instruct` - Lightweight open source
 
-### Chat Models (Tested Working)
-- `microsoft/DialoGPT-medium` - Conversational model - tested working
-- `microsoft/DialoGPT-small` - Lightweight conversational model
+### Gemini Models
+- `gemini-2.0-flash` - Google's latest model
 
-### Custom Models
-- **Enter any Hugging Face model ID**: Use the "Custom Model" option to enter any public Hugging Face model repository ID
-- **Format**: `organization/model-name` (e.g., `microsoft/DialoGPT-medium`)
-- **Access**: Works with any public model available on Hugging Face
+## Model Selection
 
-### Model Categories
-- **Code** (Cyan): Specialized for code generation and understanding
-- **General** (Purple): Multi-purpose models for various tasks
-- **Chat** (Green): Optimized for conversation and dialogue
-- **Custom** (Orange): User-specified models
-
-## API Integration
-
-### Hugging Face Inference API
-
-The application uses Hugging Face's new unified router endpoint for all inference requests:
-
-#### Endpoint Configuration
-- **URL**: `https://router.huggingface.co/hf-inference`
-- **Method**: POST
-- **Headers**: 
-  - `Content-Type: application/json`
-  - `Authorization: Bearer <HF_API_KEY>`
-
-#### Request Format
-```json
-{
-  "model": "meta-llama/Meta-Llama-3-8B-Instruct",
-  "inputs": "Your prompt here",
-  "parameters": {
-    "max_new_tokens": 1024,
-    "temperature": 0.7,
-    "do_sample": true,
-    "return_full_text": false
-  }
-}
-```
-
-#### Error Handling
-The application handles the following HTTP error codes with user-friendly messages:
-
-- **400**: Bad request - Invalid model or input format
-- **401**: Authentication failed - Check API token permissions
-- **403**: Access denied - Token lacks model permissions
-- **404**: Model not found - Incorrect model ID
-- **410**: Deprecated endpoint - Update API configuration
-- **429**: Rate limit exceeded - Wait and retry (automatic retry enabled)
-- **500**: Server error - HF service issues (automatic retry enabled)
-- **503**: Model loading - Model is loading (automatic retry enabled)
-
-#### Retry Logic
-The application implements automatic retries with exponential backoff for:
-- Rate limit errors (429)
-- Server errors (500)
-- Model loading errors (503)
-
-Maximum retries: 3 with exponential backoff (1s, 2s, 4s delays)
-
-#### Model Validation
-All models are validated against an approved list. Custom models are allowed but logged as warnings.
-
-Approved Models (Tested Working):
-- `distilbert/distilgpt2`
-- `openai-community/gpt2`
-- `bigcode/tiny_starcoder_py`
-- `codeparrot/codeparrot-small`
-- `microsoft/DialoGPT-medium`
-- `microsoft/DialoGPT-small`
-
-## Rate Limits
-
-- **Hugging Face**: Free tier has rate limits. If you encounter rate limit errors, wait a moment before trying again.
-- **Gemini**: Follows Google's API rate limits.
+The application uses automatic random model selection to provide variety in responses. Each message is processed by a different model from the available pool, ensuring diverse perspectives and capabilities.
 
 ## Error Handling
 
-The application includes comprehensive error handling for:
-- API rate limits (429 errors)
-- Model loading (503 errors)
-- Deprecated endpoints (410 errors)
-- Invalid model IDs or authentication (401/404 errors)
-- Network connectivity issues
+The application includes robust error handling with:
+- Automatic fallback to reliable models
+- Retry logic with exponential backoff
+- Clear error messages and user feedback
+- Model validation and auto-correction
 
-### Common Error Messages:
-- **Rate limit exceeded**: Wait a moment before trying again
-- **Model loading**: Model is being prepared, please retry
-- **Endpoint deprecated**: Configuration needs updating
-- **Authentication failed**: Check your API key
+## Rate Limits
+
+- **OpenRouter**: Follows OpenRouter's rate limits based on your plan
+- **Gemini**: Follows Google's API rate limits
 
 ## Development
 
 ### Project Structure
 
 ```
-├── app/                 # Next.js app directory
-│   ├── actions.ts      # Server actions for API calls
-│   ├── page.tsx        # Main page component
-│   └── layout.tsx      # Root layout
-├── components/         # React components
-│   ├── model-selector.tsx  # Model selection dropdown
-│   ├── sidebar.tsx         # Application sidebar
-│   ├── chat-window.tsx     # Chat interface
-│   └── ui/                 # UI components
-├── hooks/              # Custom React hooks
-└── styles/             # CSS files
+├── app/
+│   ├── actions.ts          # API integration functions
+│   ├── api/
+│   │   └── openrouter/     # OpenRouter API endpoint
+│   ├── page.tsx           # Main application component
+│   └── layout.tsx         # App layout
+├── components/
+│   ├── sidebar.tsx        # Navigation sidebar
+│   ├── chat-window.tsx    # Chat interface
+│   └── info-modal.tsx     # Information modal
+└── README.md
 ```
 
 ### Adding New Models
 
-To add a new Hugging Face model:
+To add new models to the random selection:
 
-1. Update the `hfModels` array in `components/model-selector.tsx`
-2. Add the model configuration:
-   ```typescript
-   {
-     id: 'organization/model-name',
-     name: 'Display Name',
-     description: 'Model description',
-     category: 'code' | 'text' | 'general',
-     icon: <ComponentIcon />
-   }
-   ```
+1. Update the `availableModels` array in `app/page.tsx`
+2. Add the model to `APPROVED_MODELS` in `app/actions.ts`
+3. Update the README documentation
+
+## Environment Variables
+
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `OPENROUTER_API_KEY` | OpenRouter API key | Yes |
+| `GEMINI_API_KEY` | Google Gemini API key | Optional |
+
+## Troubleshooting
+
+### Common Issues
+
+1. **API Key Errors**: Ensure your API keys are correctly set in `.env.local`
+2. **Rate Limits**: Wait before making additional requests if you hit rate limits
+3. **Model Errors**: The app automatically falls back to working models
+
+### Debug Mode
+
+Check the browser console for detailed information about:
+- Which model is being used for each request
+- API response times
+- Error details
 
 ## License
 
 This project is licensed under the MIT License.
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
