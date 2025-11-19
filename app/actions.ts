@@ -1,20 +1,7 @@
 'use server'
 
-import { UserService } from '@/lib/user-service'
-
-export async function generateAIResponse(userMessage: string, userEmail: string) {
+export async function generateAIResponse(userMessage: string) {
   try {
-    // Check prompt limit directly using UserService
-    const canPrompt = await UserService.canSendPrompt(userEmail)
-    const promptCount = await UserService.getPromptCount(userEmail)
-
-    if (!canPrompt) {
-      throw new Error(`Prompt limit reached. You have used ${promptCount}/5 prompts.`)
-    }
-
-    // Increment prompt count
-    await UserService.updateUserPromptCount(userEmail)
-
     const apiKey = process.env.GEMINI_API_KEY
     
     if (!apiKey) {
@@ -58,19 +45,8 @@ export async function generateAIResponse(userMessage: string, userEmail: string)
   }
 }
 
-export async function generateMistralResponse(userMessage: string, userEmail: string) {
+export async function generateMistralResponse(userMessage: string) {
   try {
-    // Check prompt limit directly using UserService
-    const canPrompt = await UserService.canSendPrompt(userEmail)
-    const promptCount = await UserService.getPromptCount(userEmail)
-
-    if (!canPrompt) {
-      throw new Error(`Prompt limit reached. You have used ${promptCount}/5 prompts.`)
-    }
-
-    // Increment prompt count
-    await UserService.updateUserPromptCount(userEmail)
-
     const apiKey = process.env.MISTRAL_API_KEY
     
     if (!apiKey) {

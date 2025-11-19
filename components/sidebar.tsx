@@ -8,7 +8,7 @@ interface SidebarProps {
   onToggle: () => void
   onClearHistory: () => void
   isLoading?: boolean
-  userEmail?: string
+  userName?: string
   onLogout?: () => Promise<void>
   remainingPrompts?: number
 }
@@ -18,7 +18,7 @@ export default function Sidebar({
   onToggle, 
   onClearHistory, 
   isLoading = false,
-  userEmail,
+  userName,
   onLogout,
   remainingPrompts = 5
 }: SidebarProps) {
@@ -63,24 +63,13 @@ export default function Sidebar({
               <p className="text-cyan-400 text-sm">AI Assistant</p>
             </div>
           </div>
-
-          {/* User Profile */}
-          <button className="w-full text-left hover:bg-cyan-500/10 p-3 rounded-xl transition-colors flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-r from-cyan-500 to-cyan-400 flex items-center justify-center">
-              <User className="w-4 h-4 text-black" />
-            </div>
-            <div className="text-left">
-              <div className="text-sm font-medium text-white">Guest User</div>
-              <div className="text-xs text-cyan-400">Free Plan</div>
-            </div>
-          </button>
         </div>
-        
+
         {/* Navigation */}
         <div className="flex-1 px-4 space-y-4">
           
           {/* User Profile */}
-        {userEmail && (
+        {userName && (
           <div className="space-y-4">
             <div className="text-xs text-cyan-400 font-medium uppercase tracking-wider">Profile</div>
             <div className="bg-gradient-to-br from-cyan-500/20 to-cyan-600/10 border border-cyan-500/30 rounded-xl p-4">
@@ -89,7 +78,7 @@ export default function Sidebar({
                   <User className="w-5 h-5 text-black" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-white font-medium truncate">{userEmail}</div>
+                  <div className="text-white font-medium truncate">{userName}</div>
                   <div className="text-xs text-cyan-400">Free Plan</div>
                 </div>
               </div>

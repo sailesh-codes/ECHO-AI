@@ -23,7 +23,7 @@ export default function Home() {
   const [showConfirmModal, setShowConfirmModal] = useState(false)
   const [isInitialized, setIsInitialized] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
-  const [userEmail, setUserEmail] = useState<string>('')
+  const [userName, setUserName] = useState<string>('')
   const [remainingPrompts, setRemainingPrompts] = useState<number>(5)
   const abortControllerRef = useRef<AbortController | null>(null)
 
@@ -40,64 +40,22 @@ export default function Home() {
   }
 
   useEffect(() => {
-    // Debug: Show all cookies
-    console.log('All cookies:', document.cookie)
-    
-    // Extract user email from auth token
-    const token = document.cookie.split('; ').find(row => row.startsWith('auth-token='))
-    console.log('Token found:', !!token)
-    
-    if (token) {
+    // Check authentication status via API
+    const checkAuthStatus = async () => {
       try {
-        const tokenValue = token.split('=')[1]
-        console.log('Token value:', tokenValue)
-        const decoded = Buffer.from(tokenValue, 'base64').toString('utf-8')
-        console.log('Decoded token:', decoded)
-        const email = decoded.split(':')[0]
-        console.log('Extracted email:', email)
+        const response = await fetch('/api/auth/status')
+        const data = await response.json()
         
-        if (email) {
-          setUserEmail(email)
-          setRemainingPrompts(5) // Default to 5 prompts
+        if (data.success && data.isLoggedIn && data.userName) {
+          setUserName(data.userName)
+          setRemainingPrompts(data.remainingPrompts)
         }
-        
-        // Try to get user data from the user endpoint
-        fetch('/api/auth/user', {
-          method: 'GET',
-          headers: { 'Content-Type': 'application/json' }
-        })
-          .then(res => res.json())
-          .then(data => {
-            console.log('User data response:', data)
-            if (data.success && data.user?.remainingPrompts !== undefined) {
-              setRemainingPrompts(data.user.remainingPrompts)
-            }
-          })
-          .catch(err => {
-            console.error('Failed to fetch user data:', err)
-            // Try the login endpoint as fallback
-            return fetch('/api/auth/login', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ email })
-            })
-          })
-          .then(res => res?.json())
-          .then(data => {
-            console.log('Login fallback response:', data)
-            if (data?.success && data.user?.remainingPrompts !== undefined) {
-              setRemainingPrompts(data.user.remainingPrompts)
-            }
-          })
-          .catch(err => console.error('Failed to fetch user data:', err))
       } catch (error) {
-        console.error('Token decode error:', error)
+        console.error('Failed to check auth status:', error)
       }
-    } else {
-      console.log('No auth token found in cookies')
-      // Redirect to login page if no token found
-      window.location.href = '/auth'
     }
+
+    checkAuthStatus()
 
     const savedMessages = localStorage.getItem('chatbot_messages')
     if (savedMessages) {
@@ -115,31 +73,13 @@ export default function Home() {
   }, [messages])
 
   const handleSendMessage = async (content: string) => {
-    console.log('handleSendMessage called, userEmail:', userEmail)
+    console.log('handleSendMessage called')
     
-    // Fallback: try to get email directly from token if state is empty
-    let emailToUse = userEmail
-    if (!emailToUse) {
-      console.log('userEmail is empty, trying to get from token')
-      const token = document.cookie.split('; ').find(row => row.startsWith('auth-token='))
-      if (token) {
-        try {
-          const decoded = Buffer.from(token.split('=')[1], 'base64').toString('utf-8')
-          emailToUse = decoded.split(':')[0]
-          console.log('Fallback email extracted:', emailToUse)
-          // Set it in state for future use
-          setUserEmail(emailToUse)
-        } catch (error) {
-          console.error('Fallback token decode error:', error)
-        }
-      }
-    }
-    
-    if (!emailToUse) {
-      console.log('No email found, showing error toast')
+    // Check if user has reached the limit
+    if (remainingPrompts <= 0) {
       toast({
-        title: 'Authentication Error',
-        description: 'Please log in to send messages',
+        title: 'Chat Limit Reached',
+        description: 'You have used all 5 free prompts',
         variant: 'destructive'
       })
       return
@@ -155,44 +95,40 @@ export default function Home() {
     setMessages(prev => [...prev, newUserMessage])
     setIsLoading(true)
     abortControllerRef.current = null
+    
     try {
       // Get random model and provider for each request
       const { provider, model } = getRandomModel()
       console.log(`Using random provider: ${provider}, model: ${model}`)
       
-      let assistantContent: string
-      
-      if (provider === 'gemini') {
-        assistantContent = await generateAIResponse(content, emailToUse)
-      } else if (provider === 'mistral') {
-        assistantContent = await generateMistralResponse(content, emailToUse)
-      } else {
-        throw new Error('Unknown provider')
+      // Call the new chat API
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          message: content, 
+          provider 
+        })
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message')
       }
 
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
-        content: assistantContent,
+        content: data.response,
         timestamp: new Date()
       }
 
       setMessages(prev => [...prev, assistantMessage])
       
-      // Refresh prompt count
-      if (emailToUse) {
-        fetch('/api/auth/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: emailToUse })
-        })
-          .then(res => res.json())
-          .then(data => {
-            if (data.success && data.user?.remainingPrompts !== undefined) {
-              setRemainingPrompts(data.user.remainingPrompts)
-            }
-          })
-          .catch(err => console.error('Failed to refresh prompt count:', err))
+      // Update remaining prompts from API response
+      if (data.remainingPrompts !== undefined) {
+        setRemainingPrompts(data.remainingPrompts)
       }
     } catch (error: any) {
       console.error('Error generating response:', error)
@@ -217,6 +153,11 @@ export default function Home() {
 
   const handleLogout = async () => {
     try {
+      // Clear cookies by setting them to expire
+      document.cookie = 'userName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+      document.cookie = 'chatCount=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+      
+      // Call logout API to clear any server-side cookies
       await fetch('/api/auth/logout', { method: 'POST' })
       window.location.href = '/auth'
     } catch (error) {
@@ -261,7 +202,7 @@ export default function Home() {
         onToggle={() => setIsSidebarOpen(!isSidebarOpen)}
         onClearHistory={handleClearChat}
         isLoading={isLoading}
-        userEmail={userEmail}
+        userName={userName}
         onLogout={handleLogout}
         remainingPrompts={remainingPrompts}
       />

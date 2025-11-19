@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import { Mail, ArrowRight, Sparkles } from 'lucide-react'
 
 export default function AuthPage() {
-  const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const router = useRouter()
@@ -19,7 +19,7 @@ export default function AuthPage() {
       const response = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
+        body: JSON.stringify({ name })
       })
 
       const data = await response.json()
@@ -67,7 +67,7 @@ export default function AuthPage() {
             Welcome to Echo AI
           </h1>
           <p className="text-gray-400 mt-2">
-            Enter your email to start chatting with AI
+            Enter your name to start chatting with AI
           </p>
         </div>
 
@@ -75,17 +75,17 @@ export default function AuthPage() {
         <div className="bg-gray-900/50 backdrop-blur-xl border border-cyan-500/20 rounded-2xl p-8 shadow-2xl">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-cyan-300 mb-2">
-                Email Address
+              <label htmlFor="name" className="block text-sm font-medium text-cyan-300 mb-2">
+                Your Name
               </label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <input
-                  id="email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter your email"
+                  id="name"
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Enter your name"
                   className="w-full pl-12 pr-4 py-3 bg-black/50 border border-cyan-500/30 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all"
                   required
                 />
@@ -116,20 +116,10 @@ export default function AuthPage() {
 
           <div className="mt-6 pt-6 border-t border-gray-800">
             <div className="text-center text-sm text-gray-400">
-              <p>You get 5 free prompts per email</p>
+              <p>You get 5 free prompts per session</p>
               <p className="mt-1">No registration required</p>
             </div>
           </div>
-        </div>
-
-        {/* Login Link */}
-        <div className="mt-6 text-center">
-          <p className="text-gray-400 text-sm">
-            Don't have an account?{' '}
-            <a href="/register" className="text-cyan-400 hover:text-cyan-300 font-medium transition-colors">
-              Register
-            </a>
-          </p>
         </div>
 
         {/* Footer */}

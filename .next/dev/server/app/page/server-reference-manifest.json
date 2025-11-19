@@ -1,35 +1,4 @@
 {
-  "node": {
-    "604b1c38d0623efbdc0af6b40713aa13911edb05fc": {
-      "workers": {
-        "app/page": {
-          "moduleId": "[project]/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/app/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "generateAIResponse",
-          "filename": "app/actions.ts"
-        }
-      },
-      "layer": {
-        "app/page": "action-browser"
-      },
-      "exportedName": "generateAIResponse",
-      "filename": "app/actions.ts"
-    },
-    "60daefe899d53282033fc90314cf0e04cbea711297": {
-      "workers": {
-        "app/page": {
-          "moduleId": "[project]/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/app/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "generateMistralResponse",
-          "filename": "app/actions.ts"
-        }
-      },
-      "layer": {
-        "app/page": "action-browser"
-      },
-      "exportedName": "generateMistralResponse",
-      "filename": "app/actions.ts"
-    }
-  },
+  "node": {},
   "edge": {}
 }
