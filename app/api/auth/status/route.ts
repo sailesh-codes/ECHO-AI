@@ -2,17 +2,17 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(request: NextRequest) {
   try {
-    // Get user data from cookies
-    const userName = request.cookies.get('userName')?.value
-    const chatCount = parseInt(request.cookies.get('chatCount')?.value || '0', 10)
-    const remainingPrompts = 5 - chatCount
+    // Get session data from cookies
+    const sessionId = request.cookies.get('sessionId')?.value
+    const promptCount = parseInt(request.cookies.get('promptCount')?.value || '0', 10)
+    const remainingPrompts = 5 - promptCount
 
     return NextResponse.json({
       success: true,
-      userName,
-      chatCount,
+      sessionId,
+      promptCount,
       remainingPrompts,
-      isLoggedIn: !!userName
+      isLoggedIn: !!sessionId
     })
   } catch (error) {
     console.error('Auth status error:', error)

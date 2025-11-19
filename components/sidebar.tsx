@@ -2,15 +2,16 @@
 
 import { useState } from 'react'
 import { Menu, X, Sparkles, User, Trash2, ExternalLink, Shuffle } from 'lucide-react'
+import ConfirmModal from './ui/confirm-modal'
 
 interface SidebarProps {
   isOpen: boolean
   onToggle: () => void
   onClearHistory: () => void
-  isLoading?: boolean
-  userName?: string
-  onLogout?: () => Promise<void>
-  remainingPrompts?: number
+  isLoading: boolean
+  sessionId: string | null
+  onLogout: () => void
+  remainingPrompts: number
 }
 
 export default function Sidebar({ 
@@ -18,12 +19,27 @@ export default function Sidebar({
   onToggle, 
   onClearHistory, 
   isLoading = false,
-  userName,
+  sessionId,
   onLogout,
   remainingPrompts = 5
 }: SidebarProps) {
+  const [showEndSessionModal, setShowEndSessionModal] = useState(false)
+  const [isEndingSession, setIsEndingSession] = useState(false)
+
   const handleClearChat = () => {
     onClearHistory()
+  }
+
+  const handleEndSession = async () => {
+    setIsEndingSession(true)
+    try {
+      await onLogout()
+      setShowEndSessionModal(false)
+    } catch (error) {
+      console.error('Error ending session:', error)
+    } finally {
+      setIsEndingSession(false)
+    }
   }
 
   return (
@@ -68,17 +84,17 @@ export default function Sidebar({
         {/* Navigation */}
         <div className="flex-1 px-4 space-y-4">
           
-          {/* User Profile */}
-        {userName && (
+          {/* Session Profile */}
+        {sessionId && (
           <div className="space-y-4">
-            <div className="text-xs text-cyan-400 font-medium uppercase tracking-wider">Profile</div>
+            <div className="text-xs text-cyan-400 font-medium uppercase tracking-wider">Session</div>
             <div className="bg-gradient-to-br from-cyan-500/20 to-cyan-600/10 border border-cyan-500/30 rounded-xl p-4">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full flex items-center justify-center">
                   <User className="w-5 h-5 text-black" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-white font-medium truncate">{userName}</div>
+                  <div className="text-white font-medium truncate">Active Session</div>
                   <div className="text-xs text-cyan-400">Free Plan</div>
                 </div>
               </div>
@@ -97,14 +113,12 @@ export default function Sidebar({
               </div>
             </div>
             
-            {onLogout && (
-              <button
-                onClick={onLogout}
-                className="w-full px-4 py-2 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 hover:bg-red-500/20 transition-colors text-sm font-medium"
-              >
-                Logout
-              </button>
-            )}
+            <button
+              onClick={() => setShowEndSessionModal(true)}
+              className="w-full px-4 py-2 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 hover:bg-red-500/20 transition-colors text-sm font-medium"
+            >
+              End Session
+            </button>
           </div>
         )}
 
@@ -119,14 +133,6 @@ export default function Sidebar({
             <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-cyan-500/10 text-gray-400 transition-colors hover:text-cyan-300">
               Settings
             </button>
-            {onLogout && (
-              <button 
-                onClick={onLogout}
-                className="w-full text-left px-3 py-2 rounded-lg hover:bg-red-500/10 text-gray-400 transition-colors hover:text-red-400"
-              >
-                Logout
-              </button>
-            )}
           </nav>
         </div>
         
@@ -160,6 +166,18 @@ export default function Sidebar({
           <X className="w-5 h-5" />
         </button>
       </aside>
+
+      {/* End Session Confirmation Modal */}
+      <ConfirmModal
+        isOpen={showEndSessionModal}
+        onClose={() => setShowEndSessionModal(false)}
+        onConfirm={handleEndSession}
+        title="End Session"
+        description="Are you sure you want to end your current session? This will clear your chat history and you'll need to start a new session to continue chatting."
+        confirmText="End Session"
+        cancelText="Cancel"
+        isLoading={isEndingSession}
+      />
     </>
   )
 }

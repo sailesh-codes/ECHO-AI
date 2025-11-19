@@ -23,8 +23,8 @@ export default function Home() {
   const [showConfirmModal, setShowConfirmModal] = useState(false)
   const [isInitialized, setIsInitialized] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
-  const [userName, setUserName] = useState<string>('')
   const [remainingPrompts, setRemainingPrompts] = useState<number>(5)
+  const [sessionId, setSessionId] = useState<string | null>(null)
   const abortControllerRef = useRef<AbortController | null>(null)
 
   // Available models and providers for random selection
@@ -46,8 +46,8 @@ export default function Home() {
         const response = await fetch('/api/auth/status')
         const data = await response.json()
         
-        if (data.success && data.isLoggedIn && data.userName) {
-          setUserName(data.userName)
+        if (data.success && data.isLoggedIn && data.sessionId) {
+          setSessionId(data.sessionId)
           setRemainingPrompts(data.remainingPrompts)
         }
       } catch (error) {
@@ -154,8 +154,8 @@ export default function Home() {
   const handleLogout = async () => {
     try {
       // Clear cookies by setting them to expire
-      document.cookie = 'userName=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
-      document.cookie = 'chatCount=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+      document.cookie = 'sessionId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+      document.cookie = 'promptCount=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
       
       // Call logout API to clear any server-side cookies
       await fetch('/api/auth/logout', { method: 'POST' })
@@ -202,7 +202,7 @@ export default function Home() {
         onToggle={() => setIsSidebarOpen(!isSidebarOpen)}
         onClearHistory={handleClearChat}
         isLoading={isLoading}
-        userName={userName}
+        sessionId={sessionId}
         onLogout={handleLogout}
         remainingPrompts={remainingPrompts}
       />
