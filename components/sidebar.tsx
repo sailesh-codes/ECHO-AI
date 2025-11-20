@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import logo from '../public/logo.png'
 import { Menu, X, User, Trash2, ExternalLink, Shuffle } from 'lucide-react'
 import ConfirmModal from './ui/confirm-modal'
 import InfoModal from './info-modal'
@@ -77,7 +76,7 @@ export default function Sidebar({
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 rounded-xl overflow-hidden bg-black">
               <Image 
-                src={logo} 
+                src="/logo.png" 
                 alt="Echo logo" 
                 width={40}
                 height={40}

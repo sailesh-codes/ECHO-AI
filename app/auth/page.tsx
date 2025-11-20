@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { Loader2 } from 'lucide-react'
-import logo from '../../public/logo.png'
 
 export default function AuthPage() {
   const [isLoading, setIsLoading] = useState(false)
@@ -41,9 +40,11 @@ export default function AuthPage() {
           <div className="text-center mb-6 sm:mb-8">
             <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-black flex items-center justify-center mx-auto mb-4 shadow-[0_20px_40px_rgba(0,0,0,0.65)] border border-cyan-500/40">
               <Image
-                src={logo}
+                src="/logo.png"
                 alt="Echo logo"
                 priority
+                width={48}
+                height={48}
                 className="relative w-10 h-10 sm:w-12 sm:h-12 object-contain drop-shadow-[0_4px_20px_rgba(8,145,178,0.8)]"
               />
             </div>
