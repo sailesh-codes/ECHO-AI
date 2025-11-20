@@ -6,9 +6,14 @@ export function middleware(request: NextRequest) {
   const isAuthPage = request.nextUrl.pathname.startsWith('/auth')
   const isRegisterPage = request.nextUrl.pathname.startsWith('/register')
   const isApiRoute = request.nextUrl.pathname.startsWith('/api')
-  
+  const publicAssets = ['/logo.png', '/favicon.ico', '/icon.svg', '/icon-dark-32x32.png', '/icon-light-32x32.png']
+
   // Don't redirect API routes
   if (isApiRoute) {
+    return NextResponse.next()
+  }
+
+  if (publicAssets.some(asset => request.nextUrl.pathname === asset)) {
     return NextResponse.next()
   }
   
@@ -26,5 +31,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)']
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|logo.png|icon.svg|icon-dark-32x32.png|icon-light-32x32.png).*)']
 }
