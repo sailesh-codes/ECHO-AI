@@ -2,7 +2,9 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Sparkles, Loader2 } from 'lucide-react'
+import Image from 'next/image'
+import { Loader2 } from 'lucide-react'
+import logo from '../../public/logo.png'
 
 export default function AuthPage() {
   const [isLoading, setIsLoading] = useState(false)
@@ -32,16 +34,21 @@ export default function AuthPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center p-4 twinkle-background">
-      <div className="w-full max-w-md">
-        <div className="bg-black border border-cyan-500/30 rounded-2xl p-8 shadow-[0_20px_60px_rgba(0,0,0,0.65)]">
+    <div className="min-h-screen bg-black text-white flex items-center justify-center px-4 py-8 sm:p-4 twinkle-background">
+      <div className="w-full max-w-sm sm:max-w-md">
+        <div className="bg-black/90 border border-cyan-500/30 rounded-2xl p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.65)]">
           {/* Logo and Header */}
-          <div className="text-center mb-8">
-            <div className="w-16 h-16 rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-400 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-cyan-500/25">
-              <Sparkles className="w-8 h-8 text-black" />
+          <div className="text-center mb-6 sm:mb-8">
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-black flex items-center justify-center mx-auto mb-4 shadow-[0_20px_40px_rgba(0,0,0,0.65)] border border-cyan-500/40">
+              <Image
+                src={logo}
+                alt="Echo logo"
+                priority
+                className="relative w-10 h-10 sm:w-12 sm:h-12 object-contain drop-shadow-[0_4px_20px_rgba(8,145,178,0.8)]"
+              />
             </div>
-            <h1 className="text-2xl font-bold text-white mb-2">Welcome to Echo AI</h1>
-            <p className="text-gray-400">Your intelligent conversation partner</p>
+            <h1 className="text-xl sm:text-2xl font-bold text-white mb-2">Welcome to Echo AI</h1>
+            <p className="text-sm sm:text-base text-gray-400">Your intelligent conversation partner</p>
           </div>
 
           {/* Login Form */}
@@ -49,7 +56,7 @@ export default function AuthPage() {
             <button
               onClick={handleLogin}
               disabled={isLoading}
-              className="group relative flex h-14 w-full items-center justify-center overflow-hidden rounded-2xl border border-cyan-500/70 bg-transparent px-6 text-lg font-semibold text-cyan-200 transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-60"
+              className="group relative flex h-12 sm:h-14 w-full items-center justify-center overflow-hidden rounded-2xl border border-cyan-500/70 bg-transparent px-5 sm:px-6 text-base sm:text-lg font-semibold text-cyan-200 transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-60"
               aria-label="Start chat session"
             >
               {isLoading ? (

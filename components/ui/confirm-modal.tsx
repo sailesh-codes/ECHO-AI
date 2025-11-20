@@ -38,7 +38,7 @@ export default function ConfirmModal({
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-4 sm:p-6">
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/80 backdrop-blur-sm"
@@ -46,10 +46,10 @@ export default function ConfirmModal({
       />
       
       {/* Modal */}
-      <div className="relative w-full max-w-lg rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-900/95 via-black/90 to-red-950/30 shadow-[0_25px_80px_rgba(0,0,0,0.7)] overflow-hidden">
+      <div className="relative w-full max-w-md sm:max-w-lg rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-900/95 via-black/90 to-red-950/30 shadow-[0_25px_80px_rgba(0,0,0,0.7)] overflow-hidden max-h-[90vh]">
         <div className="absolute inset-x-0 -top-28 mx-auto h-64 w-64 bg-red-500/30 blur-[110px] opacity-50 pointer-events-none" />
 
-        <div className="relative p-8 space-y-6">
+        <div className="relative p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-xs uppercase tracking-[0.4em] text-red-300/70">Warning</p>
@@ -57,7 +57,7 @@ export default function ConfirmModal({
             </div>
             <button
               onClick={onClose}
-              className="h-10 w-10 rounded-2xl bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 transition-colors"
+              className="h-9 w-9 sm:h-10 sm:w-10 rounded-2xl bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 transition-colors"
               aria-label="Close modal"
             >
               <svg className="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">

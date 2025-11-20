@@ -9,11 +9,11 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-xl flex items-center justify-center z-50 p-4">
-      <div className="relative w-full max-w-2xl rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-900/90 via-black/90 to-cyan-950/40 shadow-[0_20px_80px_rgba(0,0,0,0.65)] overflow-hidden">
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-xl flex items-start sm:items-center justify-center z-50 p-4 sm:p-6">
+      <div className="relative w-full max-w-lg sm:max-w-2xl rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-900/90 via-black/90 to-cyan-950/40 shadow-[0_20px_80px_rgba(0,0,0,0.65)] overflow-hidden max-h-[90vh]">
         <div className="absolute inset-x-0 -top-24 mx-auto h-72 w-72 bg-cyan-500/30 blur-[120px] opacity-50 pointer-events-none" />
 
-        <div className="relative p-8 space-y-6">
+        <div className="relative p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto">
           <div className="flex items-center justify-between gap-4">
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-cyan-400">Echo brief</p>
@@ -21,7 +21,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
             </div>
             <button
               onClick={onClose}
-              className="h-10 w-10 rounded-2xl bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 transition-colors"
+              className="h-9 w-9 sm:h-10 sm:w-10 rounded-2xl bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 transition-colors"
               aria-label="Close modal"
             >
               <svg className="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -71,7 +71,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
             </div>
             <button
               onClick={onClose}
-              className="px-5 py-2 rounded-2xl bg-cyan-500 text-black font-semibold shadow-[0_10px_30px_rgba(6,182,212,0.35)] hover:bg-cyan-400 transition-colors"
+              className="px-5 py-2 rounded-2xl bg-cyan-500 text-black font-semibold shadow-[0_10px_30px_rgba(6,182,212,0.35)] hover:bg-cyan-400 transition-colors inline-flex items-center space-x-1"
             >
               Got it
             </button>
