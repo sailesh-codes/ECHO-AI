@@ -9,64 +9,73 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-zinc-900 border border-cyan-500/30 rounded-lg max-w-md w-full shadow-xl shadow-cyan-500/10 max-h-96 overflow-y-auto">
-        {/* Header */}
-        <div className="px-6 py-4 border-b border-cyan-500/20 flex items-center justify-between sticky top-0 bg-zinc-900">
-          <h2 className="text-xl font-bold text-cyan-400">About This Bot</h2>
-          <button
-            onClick={onClose}
-            className="text-zinc-400 hover:text-cyan-400 transition-colors"
-            aria-label="Close modal"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
+    <div className="fixed inset-0 bg-black/80 backdrop-blur-xl flex items-center justify-center z-50 p-4">
+      <div className="relative w-full max-w-2xl rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-900/90 via-black/90 to-cyan-950/40 shadow-[0_20px_80px_rgba(0,0,0,0.65)] overflow-hidden">
+        <div className="absolute inset-x-0 -top-24 mx-auto h-72 w-72 bg-cyan-500/30 blur-[120px] opacity-50 pointer-events-none" />
 
-        {/* Content */}
-        <div className="px-6 py-6 space-y-4 text-sm text-zinc-300">
-          <div>
-            <h3 className="font-semibold text-cyan-400 mb-2">Welcome!</h3>
-            <p>This is an AI-powered chatbot that leverages advanced language models to provide intelligent responses to your queries.</p>
+        <div className="relative p-8 space-y-6">
+          <div className="flex items-center justify-between gap-4">
+            <div>
+              <p className="text-xs uppercase tracking-[0.3em] text-cyan-400">Echo brief</p>
+              <h2 className="text-3xl font-semibold text-white">About This Bot</h2>
+            </div>
+            <button
+              onClick={onClose}
+              className="h-10 w-10 rounded-2xl bg-white/5 text-zinc-400 hover:text-white hover:bg-white/10 transition-colors"
+              aria-label="Close modal"
+            >
+              <svg className="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
           </div>
 
-          <div>
-            <h3 className="font-semibold text-cyan-400 mb-2">Features</h3>
-            <ul className="space-y-1 text-xs">
-              <li>• Real-time conversation history</li>
-              <li>• Message copying capability</li>
-              <li>• Stop response during generation</li>
-              <li>• Local data persistence</li>
-              <li>• Responsive mobile design</li>
-            </ul>
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="rounded-2xl bg-white/5 border border-white/10 p-5 space-y-3">
+              <p className="text-sm text-cyan-300 font-semibold">Welcome!</p>
+              <p className="text-sm text-zinc-200 leading-relaxed">
+                Echo pairs contextual reasoning with elegant UI to keep your conversations flowing. It blends Google Gemini & Mistral intelligence for fast, grounded responses.
+              </p>
+            </div>
+
+            <div className="rounded-2xl bg-white/5 border border-white/10 p-5 space-y-3">
+              <p className="text-sm text-cyan-300 font-semibold">Highlights</p>
+              <ul className="text-sm text-zinc-200 space-y-1.5">
+                <li className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />Real-time conversation memory</li>
+                <li className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />Message copy & stop controls</li>
+                <li className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />Local data persistence</li>
+                <li className="flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />Mobile-responsive canvas</li>
+              </ul>
+            </div>
           </div>
 
-          <div>
-            <h3 className="font-semibold text-cyan-400 mb-2">Usage Tips</h3>
-            <ul className="space-y-1 text-xs">
-              <li>• Press Enter to send, Shift+Enter for new line</li>
-              <li>• Click "Copy" on assistant messages</li>
-              <li>• Use "Delete Chat" to clear history</li>
-              <li>• Your API key is stored locally</li>
-            </ul>
+          <div className="rounded-2xl bg-cyan-500/10 border border-cyan-500/30 p-5 space-y-4">
+            <div className="flex items-center justify-between">
+              <p className="text-sm font-semibold text-cyan-300">Usage Tips</p>
+              <span className="text-xs text-cyan-200/70">Stay in flow</span>
+            </div>
+            <div className="grid gap-3 text-sm text-zinc-200 md:grid-cols-2">
+              <p>↵ Enter to send, Shift+Enter for breaks.</p>
+              <p>📋 Tap “Copy” on any assistant response.</p>
+              <p>🧹 “Delete Chat” wipes local history instantly.</p>
+              <p>🔒 API keys live only in your browser storage.</p>
+            </div>
           </div>
 
-          <div>
-            <h3 className="font-semibold text-cyan-400 mb-2">API & Privacy</h3>
-            <p className="text-xs">This application uses the Google Gemini API. Your messages are sent to Google's servers for processing. Your API key is stored only in your browser's local storage.</p>
+          <div className="rounded-2xl bg-white/5 border border-white/10 p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+              <p className="text-sm font-semibold text-cyan-300">API & Privacy</p>
+              <p className="text-sm text-zinc-200">
+                Echo routes prompts through Google Gemini with optional Mistral fallbacks. Traffic is encrypted and your credentials never leave local storage.
+              </p>
+            </div>
+            <button
+              onClick={onClose}
+              className="px-5 py-2 rounded-2xl bg-cyan-500 text-black font-semibold shadow-[0_10px_30px_rgba(6,182,212,0.35)] hover:bg-cyan-400 transition-colors"
+            >
+              Got it
+            </button>
           </div>
-        </div>
-
-        {/* Footer */}
-        <div className="px-6 py-4 border-t border-cyan-500/20 flex justify-end sticky bottom-0 bg-zinc-900">
-          <button
-            onClick={onClose}
-            className="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-black font-semibold rounded transition-colors"
-          >
-            Got It
-          </button>
         </div>
       </div>
     </div>

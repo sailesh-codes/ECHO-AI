@@ -79,8 +79,9 @@ export default function ChatWindow({
       </div>
 
       {/* Floating Input */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 w-full max-w-2xl px-2">
-        <div className="flex gap-2 w-full items-end bg-gradient-to-r from-[#291952]/90 to-[#2C1E4A]/90 rounded-full shadow-xl px-2 py-2">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-full max-w-2xl px-4">
+        <div className="glow-input-wrapper">
+          <div className="glow-input-inner flex gap-2 w-full items-center rounded-full shadow-xl px-2 py-2">
           <textarea
             ref={inputRef}
             value={input}
@@ -105,9 +106,9 @@ export default function ChatWindow({
           {isLoading ? (
             <button
               onClick={onStopResponse}
-              className="p-3 bg-gradient-to-r from-red-500 to-red-600 rounded-full text-white flex items-center justify-center transition-all"
+              className="p-2.5 bg-gradient-to-r from-red-500 to-red-600 rounded-full text-white flex items-center justify-center transition-all"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
@@ -115,13 +116,14 @@ export default function ChatWindow({
             <button
               onClick={handleSend}
               disabled={!input.trim() || isLoading}
-              className="p-3 bg-gradient-to-r from-purple-500 to-violet-600 rounded-full text-white flex items-center justify-center transition-all disabled:opacity-50"
+              className="p-2.5 bg-gradient-to-r from-purple-500 to-violet-600 rounded-full text-white flex items-center justify-center transition-all disabled:opacity-50"
             >
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5.951-1.429 5.951 1.429a1 1 0 001.169-1.409l-7-14z" />
               </svg>
             </button>
           )}
+          </div>
         </div>
       </div>
     </div>
