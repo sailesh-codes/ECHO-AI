@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { generateAIResponse, generateMistralResponse } from './actions'
 import Sidebar from '@/components/sidebar'
 import ChatWindow from '@/components/chat-window'
@@ -26,6 +27,7 @@ export default function Home() {
   const [remainingPrompts, setRemainingPrompts] = useState<number>(5)
   const [sessionId, setSessionId] = useState<string | null>(null)
   const abortControllerRef = useRef<AbortController | null>(null)
+  const router = useRouter()
 
   // Available models and providers for random selection
   const availableModels = [
@@ -49,9 +51,14 @@ export default function Home() {
         if (data.success && data.isLoggedIn && data.sessionId) {
           setSessionId(data.sessionId)
           setRemainingPrompts(data.remainingPrompts)
+        } else {
+          router.replace('/auth')
+          return
         }
       } catch (error) {
         console.error('Failed to check auth status:', error)
+        router.replace('/auth')
+        return
       }
     }
 
@@ -66,7 +73,7 @@ export default function Home() {
       }
     }
     setIsInitialized(true)
-  }, [])
+  }, [router])
 
   useEffect(() => {
     localStorage.setItem('chatbot_messages', JSON.stringify(messages))
