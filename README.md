@@ -134,13 +134,6 @@ To add new models to the random selection:
 2. **Rate Limits**: Wait before making additional requests if you hit rate limits
 3. **Model Errors**: The app automatically falls back to working models
 
-### Debug Mode
-
-Check the browser console for detailed information about:
-- Which model is being used for each request
-- API response times
-- Error details
-
 ## License
 
 This project is licensed under the MIT License.
