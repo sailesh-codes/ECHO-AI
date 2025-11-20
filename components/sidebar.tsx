@@ -1,7 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { Menu, X, Sparkles, User, Trash2, ExternalLink, Shuffle } from 'lucide-react'
+import Image from 'next/image'
+import logo from '../public/logo.png'
+import { Menu, X, User, Trash2, ExternalLink, Shuffle } from 'lucide-react'
 import ConfirmModal from './ui/confirm-modal'
 
 interface SidebarProps {
@@ -71,8 +73,15 @@ export default function Sidebar({
         {/* Logo Section */}
         <div className="p-6">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-cyan-500/25">
-              <Sparkles className="w-5 h-5 text-black" />
+            <div className="w-10 h-10 rounded-xl overflow-hidden bg-black">
+              <Image 
+                src={logo} 
+                alt="Echo logo" 
+                width={40}
+                height={40}
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
             <div>
               <h1 className="text-white font-bold text-lg">Echo</h1>
@@ -122,18 +131,6 @@ export default function Sidebar({
           </div>
         )}
 
-        {/* Navigation Buttons */}
-          <nav className="space-y-2">
-            <button className="w-full text-left px-3 py-2 rounded-lg bg-cyan-500/20 text-cyan-300 font-medium transition-colors hover:bg-cyan-500/30">
-              New Chat
-            </button>
-            <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-cyan-500/10 text-gray-400 transition-colors hover:text-cyan-300">
-              Recent Chats
-            </button>
-            <button className="w-full text-left px-3 py-2 rounded-lg hover:bg-cyan-500/10 text-gray-400 transition-colors hover:text-cyan-300">
-              Settings
-            </button>
-          </nav>
         </div>
         
         {/* Footer */}
