@@ -5,6 +5,7 @@ import Image from 'next/image'
 import logo from '../public/logo.png'
 import { Menu, X, User, Trash2, ExternalLink, Shuffle } from 'lucide-react'
 import ConfirmModal from './ui/confirm-modal'
+import InfoModal from './info-modal'
 
 interface SidebarProps {
   isOpen: boolean
@@ -27,6 +28,7 @@ export default function Sidebar({
 }: SidebarProps) {
   const [showEndSessionModal, setShowEndSessionModal] = useState(false)
   const [isEndingSession, setIsEndingSession] = useState(false)
+  const [showInfoModal, setShowInfoModal] = useState(false)
 
   const handleClearChat = () => {
     onClearHistory()
@@ -91,7 +93,7 @@ export default function Sidebar({
         </div>
 
         {/* Navigation */}
-        <div className="flex-1 px-4 space-y-4">
+        <div className="flex-1 px-4 space-y-4 overflow-y-auto">
           
           {/* Session Profile */}
         {sessionId && (
@@ -130,6 +132,14 @@ export default function Sidebar({
             </button>
           </div>
         )}
+
+          
+          <button
+            onClick={() => setShowInfoModal(true)}
+            className="w-full px-4 py-2 text-sm font-medium text-cyan-300 border border-cyan-500/40 rounded-lg hover:bg-cyan-500/10 transition-colors"
+          >
+            About
+          </button>
 
         </div>
         
@@ -175,6 +185,8 @@ export default function Sidebar({
         cancelText="Cancel"
         isLoading={isEndingSession}
       />
+
+      <InfoModal isOpen={showInfoModal} onClose={() => setShowInfoModal(false)} />
     </>
   )
 }
