@@ -221,7 +221,7 @@ export default function Home() {
           isOpen={isSidebarOpen} 
           onToggle={() => setIsSidebarOpen(!isSidebarOpen)} 
           onClearHistory={handleClearChat}
-          onLogout={() => setShowConfirmModal(true)}
+          onLogout={handleLogout}
           isLoading={isLoading}
           sessionId={sessionId}
           remainingPrompts={remainingPrompts}

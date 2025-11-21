@@ -95,64 +95,85 @@
   position: relative;
   z-index: 0;
   overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
 }
 
 .glow-on-hover:before {
   content: '';
   position: absolute;
-  top: -2px;
-  left: -2px;
-  background-size: 400%;
+  inset: -2px;
+  background-size: 300%;
   z-index: -1;
-  filter: blur(5px);
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
-  opacity: 0;
-  transition: opacity .3s ease-in-out;
+  filter: blur(6px);
+  opacity: 0.65;
+  transition: opacity 0.35s ease-in-out;
   border-radius: inherit;
 }
 
-.glow-on-hover:active {
-  color: #000;
-}
-
-.glow-on-hover:active:after {
-  background: transparent;
+.glow-on-hover:after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: -1;
 }
 
 .glow-on-hover:hover:before {
   opacity: 1;
 }
 
-.glow-on-hover:after {
-  z-index: -1;
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  border-radius: inherit;
+.glow-on-hover:hover {
+  transform: translateY(-1px);
+}
+
+.glow-on-hover:active {
+  transform: translateY(1px);
 }
 
 /* Red glow effect */
+
+.glow-red {
+  color: #ffecec;
+  background: linear-gradient(135deg, #4a0f0f, #c63030 35%, #ff7b7b, #c63030 65%, #3a0a0a);
+  border: none;
+  box-shadow: 0 6px 18px rgba(255, 104, 104, 0.28);
+}
+
 .glow-red:before {
-  background: linear-gradient(45deg, #ff0000, #ff4d4d, #ff9999, #ff4d4d, #ff0000);
-  animation: glowing 3s linear infinite;
+  background: linear-gradient(120deg, #a12323, #ff6464, #ffb6b6, #ff6464, #a12323);
+  animation: glowing 5s linear infinite;
 }
 
 .glow-red:after {
-  background: #111;
+  background: linear-gradient(135deg, rgba(74,15,15,0.85), rgba(255,120,120,0.4), rgba(94,14,14,0.8));
+  box-shadow: 0 0 20px rgba(255,110,110,0.32), inset 0 0 16px rgba(255,122,122,0.25);
+}
+
+.glow-red:hover {
+  box-shadow: 0 10px 28px rgba(255, 120, 120, 0.38);
 }
 
 /* Cyan glow effect */
+.glow-cyan {
+  color: #e6fcff;
+  background: linear-gradient(135deg, #032033, #0aa5c8 35%, #53eeff, #0aa5c8 65%, #031423);
+  border: none;
+  box-shadow: 0 6px 18px rgba(86, 233, 255, 0.28);
+}
+
 .glow-cyan:before {
-  background: linear-gradient(45deg, #00ccff, #00e6e6, #66ffff, #00e6e6, #00ccff);
-  animation: glowing 3s linear infinite;
+  background: linear-gradient(120deg, #064160, #33ddff, #9af7ff, #33ddff, #064160);
+  animation: glowing 5s linear infinite;
 }
 
 .glow-cyan:after {
-  background: #111;
+  background: linear-gradient(135deg, rgba(6,33,52,0.85), rgba(0,214,255,0.35), rgba(0,118,168,0.75));
+  box-shadow: 0 0 20px rgba(58,225,255,0.32), inset 0 0 16px rgba(74,222,255,0.28);
+}
+
+.glow-cyan:hover {
+  box-shadow: 0 10px 28px rgba(86, 233, 255, 0.38);
 }
 
 @keyframes glowing {

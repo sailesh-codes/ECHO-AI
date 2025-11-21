@@ -125,7 +125,7 @@ export default function Sidebar({
             
             <button
               onClick={() => setShowEndSessionModal(true)}
-              className="glow-on-hover glow-red w-full px-4 py-2 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 hover:bg-red-500/20 transition-all text-sm font-medium relative overflow-hidden"
+              className="w-full px-4 py-2 rounded-lg bg-red-800 text-white shadow-md transition-transform transition-colors duration-200 hover:bg-red-700 hover:-translate-y-0.5 text-sm font-semibold"
             >
               End Session
             </button>
@@ -135,7 +135,7 @@ export default function Sidebar({
           
           <button
             onClick={() => setShowInfoModal(true)}
-            className="glow-on-hover glow-cyan w-full px-4 py-2 text-sm font-medium text-cyan-300 border border-cyan-500/40 rounded-lg hover:bg-cyan-500/10 transition-all relative overflow-hidden"
+            className="w-full px-4 py-2 text-sm font-semibold text-black rounded-lg bg-cyan-500 shadow-md transition-transform transition-colors duration-200 hover:bg-cyan-400 hover:-translate-y-0.5"
           >
             About
           </button>
@@ -158,7 +158,7 @@ export default function Sidebar({
           <button 
             onClick={handleClearChat}
             disabled={isLoading}
-            className="glow-on-hover glow-red w-full px-4 py-2 text-sm font-medium text-red-400 border border-red-500/30 rounded-lg hover:bg-red-500/10 transition-all relative overflow-hidden flex items-center justify-center gap-2"
+            className="w-full px-4 py-2 text-sm font-semibold text-white rounded-lg bg-red-800 shadow-md transition-transform transition-colors duration-200 hover:bg-red-700 hover:-translate-y-0.5 flex items-center justify-center gap-2 disabled:opacity-70"
           >
             <Trash2 className="w-4 h-4" />
             Clear Chat
