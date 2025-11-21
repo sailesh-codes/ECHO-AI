@@ -90,6 +90,77 @@
   }
 }
 
+/* Glow effect for buttons */
+.glow-on-hover {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.glow-on-hover:before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: inherit;
+}
+
+.glow-on-hover:active {
+  color: #000;
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border-radius: inherit;
+}
+
+/* Red glow effect */
+.glow-red:before {
+  background: linear-gradient(45deg, #ff0000, #ff4d4d, #ff9999, #ff4d4d, #ff0000);
+  animation: glowing 3s linear infinite;
+}
+
+.glow-red:after {
+  background: #111;
+}
+
+/* Cyan glow effect */
+.glow-cyan:before {
+  background: linear-gradient(45deg, #00ccff, #00e6e6, #66ffff, #00e6e6, #00ccff);
+  animation: glowing 3s linear infinite;
+}
+
+.glow-cyan:after {
+  background: #111;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
 /* Smooth animations */
 @keyframes bounce-custom {
   0%, 100% { transform: translateY(0); }

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { Loader2 } from 'lucide-react'
@@ -34,8 +34,14 @@ export default function AuthPage() {
 
   return (
     <div className="min-h-screen bg-black text-white flex items-center justify-center px-4 py-8 sm:p-4 twinkle-background">
-      <div className="w-full max-w-sm sm:max-w-md">
-        <div className="bg-black/90 border border-cyan-500/30 rounded-2xl p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.65)]">
+      <div className="w-full max-w-sm sm:max-w-md relative">
+        <div className="relative bg-black/90 border border-cyan-500/30 rounded-2xl p-6 sm:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.65)] overflow-hidden">
+          {/* Animated border elements */}
+          <span className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-300 to-transparent animate-[borderTop_3s_linear_infinite]" />
+          <span className="absolute top-0 right-0 w-0.5 h-full bg-gradient-to-b from-transparent via-cyan-300 to-transparent animate-[borderRight_3s_linear_infinite_0.75s]" />
+          <span className="absolute bottom-0 right-0 w-full h-0.5 bg-gradient-to-l from-transparent via-cyan-300 to-transparent animate-[borderBottom_3s_linear_infinite_1.5s]" />
+          <span className="absolute bottom-0 left-0 w-0.5 h-full bg-gradient-to-t from-transparent via-cyan-300 to-transparent animate-[borderLeft_3s_linear_infinite_2.25s]" />
+          <div className="absolute inset-0 rounded-2xl border border-cyan-300/20 pointer-events-none" />
           {/* Logo and Header */}
           <div className="text-center mb-6 sm:mb-8">
             <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-black flex items-center justify-center mx-auto mb-4 shadow-[0_20px_40px_rgba(0,0,0,0.65)] border border-cyan-500/40">
@@ -93,4 +99,32 @@ export default function AuthPage() {
       </div>
     </div>
   )
+}
+
+// Add keyframes to the document head
+if (typeof document !== 'undefined') {
+  const style = document.createElement('style')
+  style.textContent = `
+    @keyframes borderTop {
+      0% { transform: translateX(-100%); opacity: 0; }
+      20%, 80% { opacity: 1; }
+      100% { transform: translateX(100%); opacity: 0; }
+    }
+    @keyframes borderRight {
+      0% { transform: translateY(-100%); opacity: 0; }
+      20%, 80% { opacity: 1; }
+      100% { transform: translateY(100%); opacity: 0; }
+    }
+    @keyframes borderBottom {
+      0% { transform: translateX(100%); opacity: 0; }
+      20%, 80% { opacity: 1; }
+      100% { transform: translateX(-100%); opacity: 0; }
+    }
+    @keyframes borderLeft {
+      0% { transform: translateY(100%); opacity: 0; }
+      20%, 80% { opacity: 1; }
+      100% { transform: translateY(-100%); opacity: 0; }
+    }
+  `
+  document.head.appendChild(style)
 }

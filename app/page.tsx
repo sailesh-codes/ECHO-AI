@@ -8,6 +8,7 @@ import ChatWindow from '@/components/chat-window'
 import InfoModal from '@/components/info-modal'
 import ConfirmModal from '@/components/confirm-modal'
 import ModelSelector from '@/components/model-selector'
+import InteractiveBackground from '@/components/InteractiveBackground'
 import { toast } from '@/hooks/use-toast'
 
 export interface Message {
@@ -20,8 +21,9 @@ export interface Message {
 export default function Home() {
   const [messages, setMessages] = useState<Message[]>([])
   const [isLoading, setIsLoading] = useState(false)
-  const [showInfoModal, setShowInfoModal] = useState(false)
   const [showConfirmModal, setShowConfirmModal] = useState(false)
+  const [showClearChatModal, setShowClearChatModal] = useState(false)
+  const [showInfoModal, setShowInfoModal] = useState(false)
   const [isInitialized, setIsInitialized] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
   const [remainingPrompts, setRemainingPrompts] = useState<number>(5)
@@ -188,13 +190,13 @@ export default function Home() {
   }
 
   const handleClearChat = () => {
-    setShowConfirmModal(true)
+    setShowClearChatModal(true)
   }
 
   const confirmClearChat = () => {
     setMessages([])
     localStorage.setItem('chatbot_messages', '[]')
-    setShowConfirmModal(false)
+    setShowClearChatModal(false)
     toast({
       title: 'Chat history cleared',
       description: 'All messages have been removed.',
@@ -202,42 +204,70 @@ export default function Home() {
     })
   }
 
-  return (
-    <div className="flex h-screen w-full bg-black text-white overflow-hidden">
-      <Sidebar
-        isOpen={isSidebarOpen}
-        onToggle={() => setIsSidebarOpen(!isSidebarOpen)}
-        onClearHistory={handleClearChat}
-        isLoading={isLoading}
-        sessionId={sessionId}
-        onLogout={handleLogout}
-        remainingPrompts={remainingPrompts}
-      />
-      
-      <main className="flex-1 flex items-center justify-center p-4 md:p-8">
-        {isInitialized && (
-          <ChatWindow
-            messages={messages}
-            isLoading={isLoading}
-            onSendMessage={handleSendMessage}
-            onStopResponse={handleStopResponse}
-            onCopyMessage={handleCopyMessage}
-          />
-        )}
-      </main>
+  const handleConfirmLogout = () => {
+    handleLogout()
+    setShowConfirmModal(false)
+  }
 
-      <InfoModal 
-        isOpen={showInfoModal} 
-        onClose={() => setShowInfoModal(false)}
-      />
+  return (
+    <div className="relative h-screen w-full overflow-hidden bg-transparent">
+      {/* Background Container */}
+      <div className="fixed inset-0 -z-10">
+        <InteractiveBackground />
+      </div>
       
-      <ConfirmModal
-        isOpen={showConfirmModal}
-        title="Clear Chat History"
-        message="Are you sure you want to delete all messages? This action cannot be undone."
-        onConfirm={confirmClearChat}
-        onCancel={() => setShowConfirmModal(false)}
-      />
+      <div className="flex h-full">
+        <Sidebar 
+          isOpen={isSidebarOpen} 
+          onToggle={() => setIsSidebarOpen(!isSidebarOpen)} 
+          onClearHistory={handleClearChat}
+          onLogout={() => setShowConfirmModal(true)}
+          isLoading={isLoading}
+          sessionId={sessionId}
+          remainingPrompts={remainingPrompts}
+        />
+        
+        <main className={`flex-1 flex flex-col items-start justify-center h-full overflow-hidden transition-all duration-300 ${isSidebarOpen ? 'ml-64' : 'ml-0'} pl-4`}>
+          <div className="w-full max-w-4xl h-full flex flex-col justify-center">
+            {isInitialized && (
+              <ChatWindow 
+                messages={messages}
+                isLoading={isLoading}
+                onSendMessage={handleSendMessage}
+                onStopResponse={handleStopResponse}
+                onCopyMessage={handleCopyMessage}
+              />
+            )}
+          </div>
+        </main>
+
+        <InfoModal 
+          isOpen={showInfoModal} 
+          onClose={() => setShowInfoModal(false)} 
+        />
+        
+        <ConfirmModal
+          isOpen={showConfirmModal}
+          onCancel={() => setShowConfirmModal(false)}
+          onConfirm={handleLogout}
+          title="Logout"
+          message="Are you sure you want to logout?"
+        />
+        
+        <ConfirmModal
+          isOpen={showClearChatModal}
+          onCancel={() => setShowClearChatModal(false)}
+          onConfirm={confirmClearChat}
+          title="Clear Chat History"
+          message="Are you sure you want to clear all chat history? This action cannot be undone."
+        />
+        
+        {remainingPrompts <= 3 && (
+          <div className="fixed bottom-4 right-4 bg-cyan-500/10 backdrop-blur-sm border border-cyan-500/30 text-cyan-100 px-4 py-2 rounded-lg text-sm shadow-lg z-50">
+            Remaining prompts: {remainingPrompts}
+          </div>
+        )}
+      </div>
     </div>
   )
 }

@@ -34,16 +34,16 @@ export default function Sidebar({
   }
 
   const handleEndSession = async () => {
-    setIsEndingSession(true)
-    try {
-      await onLogout()
-      setShowEndSessionModal(false)
-    } catch (error) {
-      console.error('Error ending session:', error)
-    } finally {
-      setIsEndingSession(false)
-    }
+  setIsEndingSession(true);
+  try {
+    await onLogout();
+    setShowEndSessionModal(false); // Close the modal after successful logout
+  } catch (error) {
+    console.error('Error ending session:', error);
+  } finally {
+    setIsEndingSession(false);
   }
+};
 
   return (
     <>
@@ -125,7 +125,7 @@ export default function Sidebar({
             
             <button
               onClick={() => setShowEndSessionModal(true)}
-              className="w-full px-4 py-2 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 hover:bg-red-500/20 transition-colors text-sm font-medium"
+              className="glow-on-hover glow-red w-full px-4 py-2 rounded-lg bg-red-500/10 border border-red-500/30 text-red-400 hover:bg-red-500/20 transition-all text-sm font-medium relative overflow-hidden"
             >
               End Session
             </button>
@@ -135,7 +135,7 @@ export default function Sidebar({
           
           <button
             onClick={() => setShowInfoModal(true)}
-            className="w-full px-4 py-2 text-sm font-medium text-cyan-300 border border-cyan-500/40 rounded-lg hover:bg-cyan-500/10 transition-colors"
+            className="glow-on-hover glow-cyan w-full px-4 py-2 text-sm font-medium text-cyan-300 border border-cyan-500/40 rounded-lg hover:bg-cyan-500/10 transition-all relative overflow-hidden"
           >
             About
           </button>
@@ -157,10 +157,11 @@ export default function Sidebar({
           {/* Clear Chat Button */}
           <button 
             onClick={handleClearChat}
-            className="w-full flex items-center justify-center gap-2 px-4 py-2 text-sm text-red-400 hover:bg-red-900 hover:text-white rounded-lg transition-colors"
+            disabled={isLoading}
+            className="glow-on-hover glow-red w-full px-4 py-2 text-sm font-medium text-red-400 border border-red-500/30 rounded-lg hover:bg-red-500/10 transition-all relative overflow-hidden flex items-center justify-center gap-2"
           >
             <Trash2 className="w-4 h-4" />
-            Clear Chat 
+            Clear Chat
           </button>
         </div>
 

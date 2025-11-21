@@ -1,19 +1,848 @@
-[00:00:01.831] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:02.117] Server  LOG      ✓ Ready in 1537ms
-[00:00:05.959] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:06.130] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:06.130] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:00:06.130] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763632862423}
-[00:00:13.358] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:13.497] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:13.497] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth","route":"/auth"}
-[00:00:13.497] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://localhost:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763632869759}
-[00:05:41.047] Server  LOG      ✓ Compiled in 120ms
-[00:06:14.976] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:15.157] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:06:15.157] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
-[00:06:15.157] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763633231441}
-[00:06:18.408] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:06:18.535] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:06:18.535] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth","route":"/auth"}
-[00:06:18.535] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://localhost:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763633234831}
+[00:00:01.703] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.992] Server  LOG      ✓ Ready in 1456ms
+[00:04:57.245] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:57.454] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:04:57.454] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:04:57.454] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763698943292}
+[00:05:03.414] Server  LOG      ✓ Compiled in 238ms
+[00:05:05.723] Server  ERROR    ⨯ ./app/auth/page.tsx:7:1
+Module not found: Can't resolve './auth.css'
+   5 | import Image from 'next/image'
+   6 | import { Loader2 } from 'lucide-react'
+>  7 | import './auth.css'
+     | ^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | export default function AuthPage() {
+  10 |   const [isLoading, setIsLoading] = useState(false)
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/auth/page.tsx [Client Component Browser]
+    ./app/auth/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/auth/page.tsx [Client Component SSR]
+    ./app/auth/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:05.842] Browser ERROR   ./app/auth/page.tsx:7:1
+Module not found: Can't resolve './auth.css'
+   5 | import Image from 'next/image'
+   6 | import { Loader2 } from 'lucide-react'
+>  7 | import './auth.css'
+     | ^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | export default function AuthPage() {
+  10 |   const [isLoading, setIsLoading] = useState(false)
+
+Import traces:
+  Client Component Browser:
+    ./app/auth/page.tsx [Client Component Browser]
+    ./app/auth/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/auth/page.tsx [Client Component SSR]
+    ./app/auth/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:05:06.556] Browser ERROR   ./app/auth/page.tsx:7:1
+Module not found: Can't resolve './auth.css'
+   5 | import Image from 'next/image'
+   6 | import { Loader2 } from 'lucide-react'
+>  7 | import './auth.css'
+     | ^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | export default function AuthPage() {
+  10 |   const [isLoading, setIsLoading] = useState(false)
+
+Import traces:
+  Client Component Browser:
+    ./app/auth/page.tsx [Client Component Browser]
+    ./app/auth/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/auth/page.tsx [Client Component SSR]
+    ./app/auth/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:05:06.556] Browser ERROR   ./app/auth/page.tsx:7:1
+Module not found: Can't resolve './auth.css'
+   5 | import Image from 'next/image'
+   6 | import { Loader2 } from 'lucide-react'
+>  7 | import './auth.css'
+     | ^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | export default function AuthPage() {
+  10 |   const [isLoading, setIsLoading] = useState(false)
+
+Import traces:
+  Client Component Browser:
+    ./app/auth/page.tsx [Client Component Browser]
+    ./app/auth/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/auth/page.tsx [Client Component SSR]
+    ./app/auth/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:05:07.087] Browser ERROR   ./app/auth/page.tsx:7:1
+Module not found: Can't resolve './auth.css'
+   5 | import Image from 'next/image'
+   6 | import { Loader2 } from 'lucide-react'
+>  7 | import './auth.css'
+     | ^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | export default function AuthPage() {
+  10 |   const [isLoading, setIsLoading] = useState(false)
+
+Import traces:
+  Client Component Browser:
+    ./app/auth/page.tsx [Client Component Browser]
+    ./app/auth/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/auth/page.tsx [Client Component SSR]
+    ./app/auth/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:05:07.273] Browser ERROR   uncaughtError: Error: ./app/auth/page.tsx:7:1
+Module not found: Can't resolve './auth.css'
+   5 | import Image from 'next/image'
+   6 | import { Loader2 } from 'lucide-react'
+>  7 | import './auth.css'
+     | ^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | export default function AuthPage() {
+  10 |   const [isLoading, setIsLoading] = useState(false)
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/auth/page.tsx [Client Component Browser]
+    ./app/auth/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/auth/page.tsx [Client Component SSR]
+    ./app/auth/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:07.459] Browser ERROR   ./app/auth/page.tsx:7:1
+Module not found: Can't resolve './auth.css'
+   5 | import Image from 'next/image'
+   6 | import { Loader2 } from 'lucide-react'
+>  7 | import './auth.css'
+     | ^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | export default function AuthPage() {
+  10 |   const [isLoading, setIsLoading] = useState(false)
+
+Import traces:
+  Client Component Browser:
+    ./app/auth/page.tsx [Client Component Browser]
+    ./app/auth/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/auth/page.tsx [Client Component SSR]
+    ./app/auth/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:05:07.459] Browser ERROR   ./app/auth/page.tsx:7:1
+Module not found: Can't resolve './auth.css'
+   5 | import Image from 'next/image'
+   6 | import { Loader2 } from 'lucide-react'
+>  7 | import './auth.css'
+     | ^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | export default function AuthPage() {
+  10 |   const [isLoading, setIsLoading] = useState(false)
+
+Import traces:
+  Client Component Browser:
+    ./app/auth/page.tsx [Client Component Browser]
+    ./app/auth/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/auth/page.tsx [Client Component SSR]
+    ./app/auth/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:05:19.866] Server  ERROR    ⨯ ./app/auth/page.tsx:7:1
+Module not found: Can't resolve './auth.css'
+   5 | import Image from 'next/image'
+   6 | import { Loader2 } from 'lucide-react'
+>  7 | import './auth.css'
+     | ^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | export default function AuthPage() {
+  10 |   const [isLoading, setIsLoading] = useState(false)
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/auth/page.tsx [Client Component Browser]
+    ./app/auth/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/auth/page.tsx [Client Component SSR]
+    ./app/auth/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:20.030] Browser ERROR   uncaughtError: Error: ./app/auth/page.tsx:7:1
+Module not found: Can't resolve './auth.css'
+   5 | import Image from 'next/image'
+   6 | import { Loader2 } from 'lucide-react'
+>  7 | import './auth.css'
+     | ^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | export default function AuthPage() {
+  10 |   const [isLoading, setIsLoading] = useState(false)
+
+
+
+Import traces:
+  Client Component Browser:
+    ./app/auth/page.tsx [Client Component Browser]
+    ./app/auth/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/auth/page.tsx [Client Component SSR]
+    ./app/auth/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[00:05:20.186] Browser ERROR   ./app/auth/page.tsx:7:1
+Module not found: Can't resolve './auth.css'
+   5 | import Image from 'next/image'
+   6 | import { Loader2 } from 'lucide-react'
+>  7 | import './auth.css'
+     | ^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | export default function AuthPage() {
+  10 |   const [isLoading, setIsLoading] = useState(false)
+
+Import traces:
+  Client Component Browser:
+    ./app/auth/page.tsx [Client Component Browser]
+    ./app/auth/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/auth/page.tsx [Client Component SSR]
+    ./app/auth/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:05:20.186] Browser ERROR   ./app/auth/page.tsx:7:1
+Module not found: Can't resolve './auth.css'
+   5 | import Image from 'next/image'
+   6 | import { Loader2 } from 'lucide-react'
+>  7 | import './auth.css'
+     | ^^^^^^^^^^^^^^^^^^^
+   8 |
+   9 | export default function AuthPage() {
+  10 |   const [isLoading, setIsLoading] = useState(false)
+
+Import traces:
+  Client Component Browser:
+    ./app/auth/page.tsx [Client Component Browser]
+    ./app/auth/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/auth/page.tsx [Client Component SSR]
+    ./app/auth/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+[00:05:32.008] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:32.360] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:05:32.360] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth","route":"/auth"}
+[00:05:32.360] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://localhost:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763698978027}
+[00:06:30.837] Server  LOG      ✓ Compiled in 153ms
+[00:07:00.021] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763699065848}
+[00:09:17.675] Browser LOG     handleSendMessage called
+[00:09:26.030] Browser LOG     handleSendMessage called
+[00:09:35.104] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:35.241] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:09:35.241] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth","route":"/auth"}
+[00:09:35.241] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://localhost:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763699221082}
+[00:11:47.916] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763699353750}
+[00:14:50.521] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:14:50.660] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:14:50.660] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth","route":"/auth"}
+[00:14:50.660] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://localhost:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763699536503}
+[00:15:15.151] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763699560981}
+[00:16:28.157] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:16:28.289] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:16:28.289] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth","route":"/auth"}
+[00:16:28.289] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://localhost:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763699634133}
+[00:18:34.788] Server  LOG      ✓ Compiled in 132ms
+[00:18:38.687] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763699764525}
+[00:19:57.880] Server  LOG      ✓ Compiled in 138ms
+[00:19:57.987] Browser ERROR   ./components/InteractiveBackground.tsx:155:6
+Parsing ecmascript source code failed
+  153 |       }
+  154 |     }
+> 155 |   }, [mousePos])
+      |      ^^^^^^^^^^
+  156 |
+  157 |   return (
+  158 |     <div 
+
+'const' declarations must be initialized
+
+Import traces:
+  Client Component Browser:
+    ./components/InteractiveBackground.tsx [Client Component Browser]
+    ./components/chat-window.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/InteractiveBackground.tsx [Client Component SSR]
+    ./components/chat-window.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:19:57.987] Browser ERROR   ./components/InteractiveBackground.tsx:155:16
+Parsing ecmascript source code failed
+  153 |       }
+  154 |     }
+> 155 |   }, [mousePos])
+      |                ^
+  156 |
+  157 |   return (
+  158 |     <div 
+
+Expected a semicolon
+
+Import traces:
+  Client Component Browser:
+    ./components/InteractiveBackground.tsx [Client Component Browser]
+    ./components/chat-window.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/InteractiveBackground.tsx [Client Component SSR]
+    ./components/chat-window.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[00:21:01.868] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:21:02.127] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:21:02.127] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:21:02.127] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763699907965}
+[00:21:47.442] Server  LOG      ✓ Compiled in 173ms
+[00:23:23.614] Server  LOG      ✓ Compiled in 167ms
+[00:24:27.582] Server  LOG      ✓ Compiled in 81ms
+[00:24:43.261] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:43.408] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:24:43.408] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth","route":"/auth"}
+[00:24:43.408] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://localhost:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763700129246}
+[00:24:51.746] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763700137526}
+[00:25:23.741] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:25:24.183] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:25:24.183] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:25:24.183] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763700169916}
+[00:25:34.067] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:25:34.210] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:25:34.210] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth","route":"/auth"}
+[00:25:34.210] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://localhost:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763700180052}
+[00:26:33.992] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763700239729}
+[00:27:04.229] Server  LOG      ✓ Compiled in 167ms
+[00:27:16.746] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:27:17.194] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:27:17.195] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:27:17.195] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763700283030}
+[00:29:07.883] Server  LOG      ✓ Compiled in 108ms
+[00:29:26.239] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:29:26.380] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:29:26.381] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth","route":"/auth"}
+[00:29:26.381] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://localhost:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763700412217}
+[00:33:47.822] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763700673629}
+[00:35:00.307] Server  LOG      ✓ Compiled in 231ms
+[00:35:58.703] Server  LOG      ✓ Compiled in 240ms
+[00:35:58.840] Browser ERROR   uncaughtError: ReferenceError: InteractiveBackground is not defined
+[00:36:17.190] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:36:17.379] Server  LOG      ✓ Compiled in 91ms
+[00:36:17.563] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:36:18.360] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:36:18.360] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:36:18.360] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763700823686}
+[00:36:27.945] Server  LOG      ✓ Compiled in 70ms
+[00:40:00.555] Server  LOG      ✓ Compiled in 181ms
+[00:41:49.421] Server  LOG      ✓ Compiled in 73ms
+[00:43:34.225] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:43:34.792] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:43:34.792] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[00:43:34.792] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763701260489}
+[00:44:56.550] Server  LOG      ✓ Compiled in 144ms
+[00:45:50.272] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:45:50.416] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:45:50.416] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth","route":"/auth"}
+[00:45:50.417] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://localhost:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763701396255}
+[00:45:53.185] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763701398981}
+[00:46:34.082] Server  LOG      ✓ Compiled in 298ms
+[00:47:51.946] Server  LOG      ✓ Compiled in 121ms
+[00:48:45.217] Server  LOG      ✓ Compiled in 142ms
+[00:55:25.068] Server  LOG      ✓ Compiled in 95ms
+[00:55:43.477] Server  LOG      ✓ Compiled in 126ms
+[01:18:42.940] Server  LOG      ✓ Compiled in 126ms
+[01:18:51.793] Server  LOG      ✓ Compiled in 157ms
+[01:20:13.665] Server  LOG      ✓ Compiled in 77ms
+[01:21:01.940] Server  LOG      ✓ Compiled in 77ms
+[01:21:14.372] Server  LOG      ✓ Compiled in 136ms
+[01:21:54.198] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:21:54.365] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:21:54.365] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth","route":"/auth"}
+[01:21:54.365] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://localhost:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763703560207}
+[01:21:57.628] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763703563435}
+[01:23:14.285] Server  LOG      ✓ Compiled in 164ms
+[01:23:31.106] Server  LOG      ✓ Compiled in 79ms
+[01:23:48.834] Server  LOG      ✓ Compiled in 77ms
+[01:23:54.388] Server  LOG      ✓ Compiled in 72ms
+[01:24:48.194] Server  LOG      ✓ Compiled in 275ms
+[01:25:27.138] Server  LOG      ✓ Compiled in 78ms
+[01:27:55.431] Server  LOG      ✓ Compiled in 67ms
+[01:28:21.718] Server  LOG      ✓ Compiled in 68ms
+[01:28:22.354] Browser ERROR   ./components/chat-window.tsx:46:8
+Parsing ecmascript source code failed
+  44 |     <div className="relative w-full h-full flex flex-col items-start justify-center">
+  45 |       {/* Messages Area */}
+> 46 |       <<div className="w-full flex-1 flex flex-col items-center justify-center overflow-y-auto no-scrollbar px-2 sm:px-4 py-4 relative z-10">
+     |        ^
+  47 |   <div className="w-full max-w-4xl space-y-6 pl-2">
+  48 |     {messages.length === 0 ? (
+  49 |       <div className="flex items-center justify-center h-full text-center">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./components/chat-window.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/chat-window.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:30:17.416] Server  LOG      ✓ Compiled in 74ms
+[01:30:22.755] Server  LOG      ✓ Compiled in 98ms
+[01:31:30.022] Server  LOG      ✓ Compiled in 72ms
+[01:31:30.349] Browser ERROR   uncaughtError: ReferenceError: useState is not defined
+[01:31:33.454] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[01:31:33.634] Server  LOG      ✓ Compiled in 63ms
+[01:31:33.826] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:31:34.357] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:31:34.357] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[01:31:34.357] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763704139897}
+[01:32:57.662] Server  LOG      ✓ Compiled in 68ms
+[01:33:03.173] Server  LOG      ✓ Compiled in 61ms
+[01:34:31.328] Server  LOG      ✓ Compiled in 79ms
+[01:35:28.991] Server  LOG      ✓ Compiled in 79ms
+[01:35:46.522] Server  LOG      ✓ Compiled in 72ms
+[01:37:50.282] Server  LOG      ✓ Compiled in 305ms
+[01:39:56.886] Server  LOG      ✓ Compiled in 162ms
+[01:41:13.945] Server  LOG      ✓ Compiled in 286ms
+[01:41:39.730] Server  LOG      ✓ Compiled in 118ms
+[01:41:42.378] Server  LOG      ✓ Compiled in 57ms
+[01:41:46.132] Server  LOG      ✓ Compiled in 63ms
+[01:41:47.748] Server  LOG      ✓ Compiled in 59ms
+[01:42:01.134] Server  LOG      ✓ Compiled in 127ms
+[01:42:07.979] Server  LOG      ✓ Compiled in 119ms
+[01:42:11.080] Server  LOG      ✓ Compiled in 187ms
+[01:42:21.270] Server  LOG      ✓ Compiled in 241ms
+[01:42:25.131] Server  LOG      ✓ Compiled in 121ms
+[01:42:47.176] Server  LOG      ✓ Compiled in 67ms
+[01:42:49.088] Server  LOG      ✓ Compiled in 211ms
+[01:42:52.922] Server  LOG      ✓ Compiled in 70ms
+[01:42:54.335] Server  LOG      ✓ Compiled in 207ms
+[01:43:23.212] Server  LOG      ✓ Compiled in 148ms
+[01:43:28.918] Server  LOG      ✓ Compiled in 65ms
+[01:43:30.441] Server  LOG      ✓ Compiled in 102ms
+[01:44:02.446] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:44:03.105] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:44:03.105] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/","route":"/"}
+[01:44:03.105] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth","route":"/auth"}
+[01:44:03.105] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763704888944}
+[01:44:03.105] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://localhost:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763704888944}
+[01:44:09.350] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763704895152}
+[01:44:14.161] Browser LOG     handleSendMessage called
+[01:44:14.161] Browser LOG     Using random provider: mistral, model: mistral-small
+[01:44:28.459] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:44:28.615] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:44:28.615] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth","route":"/auth"}
+[01:44:28.615] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://localhost:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763704914453}
+[01:44:51.621] Server  LOG      ✓ Compiled in 84ms
+[01:45:31.362] Server  LOG      ✓ Compiled in 66ms
+[01:45:32.589] Server  LOG      ✓ Compiled in 128ms
+[01:45:35.669] Server  LOG      ✓ Compiled in 103ms
+[01:45:39.022] Server  LOG      ✓ Compiled in 113ms
+[01:45:42.698] Server  LOG      ✓ Compiled in 69ms
+[01:45:44.067] Server  LOG      ✓ Compiled in 91ms
+[01:45:48.137] Server  LOG      ✓ Compiled in 64ms
+[01:45:49.792] Server  LOG      ✓ Compiled in 57ms
+[01:45:59.401] Server  LOG      ✓ Compiled in 86ms
+[01:46:03.114] Server  LOG      ✓ Compiled in 61ms
+[01:46:05.327] Server  LOG      ✓ Compiled in 112ms
+[01:46:14.730] Server  LOG      ✓ Compiled in 86ms
+[01:46:18.075] Server  LOG      ✓ Compiled in 94ms
+[01:46:27.883] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763705033687}
+[01:46:42.555] Browser LOG     handleSendMessage called
+[01:46:42.555] Browser LOG     Using random provider: gemini, model: gemini-2.0-flash
+[01:46:52.585] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:46:52.725] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:46:52.725] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth","route":"/auth"}
+[01:46:52.725] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://localhost:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763705058566}
+[01:46:59.236] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763705065045}
+[01:48:57.682] Server  LOG      ✓ Compiled in 71ms
+[01:49:49.604] Server  LOG      ✓ Compiled in 78ms
+[01:50:45.917] Server  LOG      ✓ Compiled in 159ms
+[01:50:54.411] Server  LOG      ✓ Compiled in 206ms
+[01:51:50.041] Server  LOG      ✓ Compiled in 177ms
+[01:52:16.157] Server  LOG      ✓ Compiled in 78ms
+[01:52:18.229] Server  LOG      ✓ Compiled in 237ms
+[01:52:19.875] Server  LOG      ✓ Compiled in 94ms
+[01:52:21.380] Server  LOG      ✓ Compiled in 203ms
+[01:52:23.854] Server  LOG      ✓ Compiled in 199ms
+[01:52:28.607] Server  LOG      ✓ Compiled in 166ms
+[01:52:34.556] Server  LOG      ✓ Compiled in 162ms
+[01:52:41.278] Server  LOG      ✓ Compiled in 172ms
+[01:53:11.988] Browser LOG     handleSendMessage called
+[01:53:11.988] Browser LOG     Using random provider: gemini, model: gemini-2.0-flash
+[01:55:11.660] Server  LOG      ✓ Compiled in 113ms
+[01:55:37.890] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:55:38.050] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:55:38.050] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth","route":"/auth"}
+[01:55:38.050] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://localhost:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763705583891}
+[01:55:42.059] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763705587867}
+[01:55:50.480] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:55:50.618] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[01:55:50.618] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth","route":"/auth"}
+[01:55:50.618] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://localhost:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763705596460}
+[01:55:51.725] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {"dp":"/","o":"http://localhost:3000/","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1763705597535}
+[01:57:18.597] Server  LOG      ✓ Compiled in 214ms
+[01:57:29.037] Server  LOG      ✓ Compiled in 90ms
+[01:58:09.795] Server  LOG      ✓ Compiled in 113ms
+[01:58:10.356] Browser ERROR   ./components/chat-window.tsx:150:12
+Parsing ecmascript source code failed
+  148 |             disabled={isLoading}
+  149 |             rows={1}
+> 150 |           />
+      |            ^
+  151 |           {isLoading ? (
+  152 |             <button
+  153 |               onClick={onStopResponse}
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./components/chat-window.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/chat-window.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:58:10.356] Browser ERROR   ./components/chat-window.tsx:150:12
+Parsing ecmascript source code failed
+  148 |             disabled={isLoading}
+  149 |             rows={1}
+> 150 |           />
+      |            ^
+  151 |           {isLoading ? (
+  152 |             <button
+  153 |               onClick={onStopResponse}
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./components/chat-window.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/chat-window.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[01:59:57.834] Server  LOG      ✓ Compiled in 87ms
+[01:59:59.277] Server  LOG      ✓ Compiled in 75ms
+[02:00:01.422] Server  LOG      ✓ Compiled in 255ms
+[02:00:10.488] Server  LOG      ✓ Compiled in 116ms
+[02:00:13.487] Server  LOG      ✓ Compiled in 58ms
+[02:00:17.809] Server  LOG      ✓ Compiled in 125ms
+[02:00:20.344] Server  LOG      ✓ Compiled in 58ms
+[02:00:21.513] Server  LOG      ✓ Compiled in 57ms
+[02:00:22.647] Server  LOG      ✓ Compiled in 93ms
+[02:00:26.099] Server  LOG      ✓ Compiled in 62ms
+[02:00:28.438] Server  LOG      ✓ Compiled in 200ms
+[02:00:32.208] Server  LOG      ✓ Compiled in 63ms
+[02:00:35.522] Server  LOG      ✓ Compiled in 110ms
+[02:00:40.384] Server  LOG      ✓ Compiled in 111ms
+[02:00:44.376] Server  LOG      ✓ Compiled in 115ms
+[02:00:47.029] Server  LOG      ✓ Compiled in 105ms
+[02:00:50.926] Server  LOG      ✓ Compiled in 104ms
+[02:00:54.870] Server  LOG      ✓ Compiled in 63ms
+[02:00:56.740] Server  LOG      ✓ Compiled in 126ms
+[02:01:06.173] Server  LOG      ✓ Compiled in 110ms
+[02:01:13.659] Server  LOG      ✓ Compiled in 70ms
+[02:01:14.751] Server  LOG      ✓ Compiled in 102ms
+[02:01:20.666] Server  LOG      ✓ Compiled in 196ms
+[02:01:24.118] Server  LOG      ✓ Compiled in 58ms
+[02:01:25.919] Server  LOG      ✓ Compiled in 60ms
+[02:01:29.706] Server  LOG      ✓ Compiled in 242ms
+[02:01:46.956] Server  LOG      ✓ Compiled in 116ms
+[02:02:01.386] Browser LOG     handleSendMessage called
+[02:02:01.386] Browser LOG     Using random provider: mistral, model: mistral-small
+[02:03:12.775] Server  LOG      ✓ Compiled in 208ms
+[02:10:57.296] Server  LOG      ✓ Compiled in 231ms
+[02:10:58.354] Browser ERROR   ./components/ui/confirm-modal.tsx:94:6
+Parsing ecmascript source code failed
+  92 |         </div>
+  93 |       </div>
+> 94 |     </div>
+     |      ^^^^^
+  95 |   )
+  96 | }
+  97 |
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/confirm-modal.tsx [Client Component Browser]
+    ./components/sidebar.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/confirm-modal.tsx [Client Component SSR]
+    ./components/sidebar.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[02:10:58.355] Browser ERROR   ./components/ui/confirm-modal.tsx:94:6
+Parsing ecmascript source code failed
+  92 |         </div>
+  93 |       </div>
+> 94 |     </div>
+     |      ^^^^^
+  95 |   )
+  96 | }
+  97 |
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/confirm-modal.tsx [Client Component Browser]
+    ./components/sidebar.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/confirm-modal.tsx [Client Component SSR]
+    ./components/sidebar.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[02:13:07.721] Server  LOG      ✓ Compiled in 94ms
+[02:13:08.037] Browser ERROR   ./components/ui/confirm-modal.tsx:94:6
+Parsing ecmascript source code failed
+  92 |         </div>
+  93 |       </div>
+> 94 |     </div>
+     |      ^^^^^
+  95 |   )
+  96 | }
+  97 |
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/confirm-modal.tsx [Client Component Browser]
+    ./components/sidebar.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/confirm-modal.tsx [Client Component SSR]
+    ./components/sidebar.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[02:13:08.359] Browser ERROR   ./components/ui/confirm-modal.tsx:94:6
+Parsing ecmascript source code failed
+  92 |         </div>
+  93 |       </div>
+> 94 |     </div>
+     |      ^^^^^
+  95 |   )
+  96 | }
+  97 |
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/confirm-modal.tsx [Client Component Browser]
+    ./components/sidebar.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/confirm-modal.tsx [Client Component SSR]
+    ./components/sidebar.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[02:16:44.478] Server  LOG      ✓ Compiled in 247ms
+[02:42:44.725] Server  LOG      ✓ Compiled in 549ms
+[02:43:04.802] Server  LOG      ✓ Compiled in 163ms
+[02:45:41.080] Server  LOG      ✓ Compiled in 171ms
+[02:45:41.347] Browser ERROR   ./components/ui/confirm-modal.tsx:99:1
+Parsing ecmascript source code failed
+   97 |     </div>
+   98 |   )
+>  99 | }
+      | ^
+  100 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/confirm-modal.tsx [Client Component Browser]
+    ./components/sidebar.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/confirm-modal.tsx [Client Component SSR]
+    ./components/sidebar.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[02:45:41.347] Browser ERROR   ./components/ui/confirm-modal.tsx:99:1
+Parsing ecmascript source code failed
+   97 |     </div>
+   98 |   )
+>  99 | }
+      | ^
+  100 |
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/confirm-modal.tsx [Client Component Browser]
+    ./components/sidebar.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/confirm-modal.tsx [Client Component SSR]
+    ./components/sidebar.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[02:46:40.902] Server  LOG      ✓ Compiled in 78ms
+[02:46:41.356] Browser ERROR   ./components/ui/confirm-modal.tsx:101:8
+Parsing ecmascript source code failed
+   99 |     </div>
+  100 |   )
+> 101 |       </div>
+      |        ^^^^^
+  102 |     </div>
+  103 |   )
+  104 | }
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/confirm-modal.tsx [Client Component Browser]
+    ./components/sidebar.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/confirm-modal.tsx [Client Component SSR]
+    ./components/sidebar.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[02:46:41.356] Browser ERROR   ./components/ui/confirm-modal.tsx:101:8
+Parsing ecmascript source code failed
+   99 |     </div>
+  100 |   )
+> 101 |       </div>
+      |        ^^^^^
+  102 |     </div>
+  103 |   )
+  104 | }
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/confirm-modal.tsx [Client Component Browser]
+    ./components/sidebar.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/confirm-modal.tsx [Client Component SSR]
+    ./components/sidebar.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[02:47:08.707] Server  LOG      ✓ Compiled in 74ms
+[02:47:09.348] Browser ERROR   ./components/ui/confirm-modal.tsx:100:4
+Parsing ecmascript source code failed
+   98 |       </div>
+   99 |     </div>
+> 100 |   )
+      |    ^
+  101 |
+
+Expected '}', got '<eof>'
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/confirm-modal.tsx [Client Component Browser]
+    ./components/sidebar.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/confirm-modal.tsx [Client Component SSR]
+    ./components/sidebar.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[02:47:09.348] Browser ERROR   ./components/ui/confirm-modal.tsx:100:4
+Parsing ecmascript source code failed
+   98 |       </div>
+   99 |     </div>
+> 100 |   )
+      |    ^
+  101 |
+
+Expected '}', got '<eof>'
+
+Import traces:
+  Client Component Browser:
+    ./components/ui/confirm-modal.tsx [Client Component Browser]
+    ./components/sidebar.tsx [Client Component Browser]
+    ./app/page.tsx [Client Component Browser]
+    ./app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/ui/confirm-modal.tsx [Client Component SSR]
+    ./components/sidebar.tsx [Client Component SSR]
+    ./app/page.tsx [Client Component SSR]
+    ./app/page.tsx [Server Component]
+[02:52:09.600] Server  LOG      ✓ Compiled in 84ms
