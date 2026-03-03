@@ -13,17 +13,21 @@ interface SidebarProps {
   isLoading: boolean
   sessionId: string | null
   onLogout: () => void
-  remainingPrompts: number
+  remainingMessages: number
+  messagesUsed: number
+  messageLimit: number
 }
 
-export default function Sidebar({ 
-  isOpen, 
-  onToggle, 
-  onClearHistory, 
+export default function Sidebar({
+  isOpen,
+  onToggle,
+  onClearHistory,
   isLoading = false,
   sessionId,
   onLogout,
-  remainingPrompts = 5
+  remainingMessages = 0,
+  messagesUsed = 0,
+  messageLimit = 5
 }: SidebarProps) {
   const [showEndSessionModal, setShowEndSessionModal] = useState(false)
   const [isEndingSession, setIsEndingSession] = useState(false)
@@ -109,18 +113,18 @@ export default function Sidebar({
                 </div>
               </div>
               
-              <div className="space-y-2">
-                <div className="flex justify-between items-center">
-                  <span className="text-xs text-gray-400">Prompts Remaining</span>
-                  <span className="text-sm font-bold text-cyan-300">{isNaN(remainingPrompts) ? 5 : remainingPrompts}/5</span>
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-xs text-gray-400">Messages Remaining</span>
+                    <span className="text-sm font-bold text-cyan-300">{remainingMessages}/5</span>
+                  </div>
+                  <div className="w-full bg-gray-700 rounded-full h-2">
+                    <div 
+                      className="bg-gradient-to-r from-cyan-400 to-cyan-600 h-2 rounded-full transition-all duration-300"
+                      style={{ width: `${(remainingMessages / 5) * 100}%` }}
+                    />
+                  </div>
                 </div>
-                <div className="w-full bg-gray-700 rounded-full h-2">
-                  <div 
-                    className="bg-gradient-to-r from-cyan-400 to-cyan-600 h-2 rounded-full transition-all duration-300"
-                    style={{ width: `${((isNaN(remainingPrompts) ? 5 : remainingPrompts) / 5) * 100}%` }}
-                  />
-                </div>
-              </div>
             </div>
             
             <button

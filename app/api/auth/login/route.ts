@@ -11,8 +11,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ 
         success: true,
         sessionId: existingSessionId,
-        promptCount: parseInt(existingPromptCount, 10),
-        remainingPrompts: 5 - parseInt(existingPromptCount, 10)
+        remainingMessages: 5 - parseInt(existingPromptCount, 10)
       })
     }
 
@@ -23,8 +22,7 @@ export async function POST(request: NextRequest) {
     const response = NextResponse.json({ 
       success: true,
       sessionId,
-      promptCount: initialPromptCount,
-      remainingPrompts: 5 - initialPromptCount
+      remainingMessages: 5 - initialPromptCount
     })
 
     // Set session cookies

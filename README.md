@@ -1,6 +1,6 @@
 # Echo - AI Assistant
 
-A modern AI assistant application with multi-model support through OpenRouter and Google Gemini APIs.
+A modern AI assistant application with multi-model support through OpenRouter API.
 
 ## Features
 
@@ -16,7 +16,6 @@ A modern AI assistant application with multi-model support through OpenRouter an
 
 - Node.js 18+ 
 - OpenRouter API key
-- Google Gemini API key (optional)
 
 ### Installation
 
@@ -39,7 +38,6 @@ cp .env.example .env.local
 4. Add your API keys to `.env.local`:
 ```env
 OPENROUTER_API_KEY=your-openrouter-api-key-here
-GEMINI_API_KEY=your-gemini-api-key-here
 ```
 
 5. Start the development server:
@@ -55,10 +53,6 @@ npm run dev
 
 OpenRouter provides access to multiple AI models through a unified API. Get your API key from [OpenRouter](https://openrouter.ai/keys).
 
-### Google Gemini API
-
-Get your Gemini API key from [Google AI Studio](https://makersuite.google.com/app/apikey).
-
 ## Available Models
 
 The application automatically rotates between these models:
@@ -72,9 +66,6 @@ The application automatically rotates between these models:
 - `google/gemini-flash-1.5` - Fast Gemini model
 - `meta-llama/llama-3.1-8b-instruct` - Open source model
 - `meta-llama/llama-3.2-3b-instruct` - Lightweight open source
-
-### Gemini Models
-- `gemini-2.0-flash` - Google's latest model
 
 ## Model Selection
 
@@ -91,7 +82,6 @@ The application includes robust error handling with:
 ## Rate Limits
 
 - **OpenRouter**: Follows OpenRouter's rate limits based on your plan
-- **Gemini**: Follows Google's API rate limits
 
 ## Development
 
@@ -124,7 +114,6 @@ To add new models to the random selection:
 | Variable | Description | Required |
 |----------|-------------|----------|
 | `OPENROUTER_API_KEY` | OpenRouter API key | Yes |
-| `GEMINI_API_KEY` | Google Gemini API key | Optional |
 
 ## Troubleshooting
 

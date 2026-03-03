@@ -26,15 +26,18 @@ export default function Home() {
   const [showInfoModal, setShowInfoModal] = useState(false)
   const [isInitialized, setIsInitialized] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
-  const [remainingPrompts, setRemainingPrompts] = useState<number>(5)
+  const [remainingTokens, setRemainingTokens] = useState<number>(0)
+  const [tokensUsed, setTokensUsed] = useState<number>(0)
+  const [tokenLimit, setTokenLimit] = useState<number>(5)
+  const [tier, setTier] = useState<string>('free')
   const [sessionId, setSessionId] = useState<string | null>(null)
   const abortControllerRef = useRef<AbortController | null>(null)
   const router = useRouter()
 
   // Available models and providers for random selection
   const availableModels = [
-    { provider: 'gemini', model: 'gemini-2.0-flash' },
-    { provider: 'mistral', model: 'mistral-small' }
+    { provider: 'openai', model: 'openai/gpt-4o-mini' },
+    { provider: 'mistral', model: 'mistralai/mistral-7b-instruct' }
   ]
 
   // Function to get random model and provider
@@ -52,7 +55,9 @@ export default function Home() {
         
         if (data.success && data.isLoggedIn && data.sessionId) {
           setSessionId(data.sessionId)
-          setRemainingPrompts(data.remainingPrompts)
+          setRemainingTokens(data.remainingMessages || 5)
+          setTokensUsed(5 - (data.remainingMessages || 5))
+          setTokenLimit(5)
         } else {
           router.replace('/auth')
           return
@@ -84,16 +89,6 @@ export default function Home() {
   const handleSendMessage = async (content: string) => {
     console.log('handleSendMessage called')
     
-    // Check if user has reached the limit
-    if (remainingPrompts <= 0) {
-      toast({
-        title: 'Chat Limit Reached',
-        description: 'You have used all 5 free prompts',
-        variant: 'destructive'
-      })
-      return
-    }
-
     const newUserMessage: Message = {
       id: Date.now().toString(),
       role: 'user',
@@ -122,6 +117,8 @@ export default function Home() {
 
       const data = await response.json()
 
+      console.log('Chat API Response:', data)
+
       if (!response.ok) {
         throw new Error(data.error || 'Failed to send message')
       }
@@ -135,25 +132,49 @@ export default function Home() {
 
       setMessages(prev => [...prev, assistantMessage])
       
-      // Update remaining prompts from API response
-      if (data.remainingPrompts !== undefined) {
-        setRemainingPrompts(data.remainingPrompts)
+      // Update token state from API response
+      if (data.remainingMessages !== undefined) {
+        console.log('Updating state - remainingMessages:', data.remainingMessages, 'tokensUsed:', 5 - data.remainingMessages)
+        setRemainingTokens(data.remainingMessages)
+        setTokensUsed(5 - data.remainingMessages)
       }
     } catch (error: any) {
       console.error('Error generating response:', error)
-      const errorMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        role: 'assistant',
-        content: `Error: ${error.message}`,
-        timestamp: new Date()
+      
+      // Handle message limit gracefully
+      if (error.message === 'Message limit reached (5 messages)') {
+        const limitMessage: Message = {
+          id: (Date.now() + 1).toString(),
+          role: 'assistant',
+          content: 'You have reached your 5 message limit. Please start a new session to continue.',
+          timestamp: new Date()
+        }
+        setMessages(prev => [...prev, limitMessage])
+        
+        // Update state to reflect limit reached
+        setRemainingTokens(0)
+        setTokensUsed(5)
+        
+        toast({
+          title: '5 Messages Completed',
+          description: 'You have used all your free messages. Start a new session to continue.',
+          variant: 'default'
+        })
+      } else {
+        // Handle other errors normally
+        const errorMessage: Message = {
+          id: (Date.now() + 1).toString(),
+          role: 'assistant',
+          content: `Error: ${error.message}`,
+          timestamp: new Date()
+        }
+        setMessages(prev => [...prev, errorMessage])
+        toast({
+          title: 'Error',
+          description: error.message || 'Failed to generate response',
+          variant: 'destructive'
+        })
       }
-
-      setMessages(prev => [...prev, errorMessage])
-      toast({
-        title: 'Error',
-        description: error.message || 'Failed to generate response',
-        variant: 'destructive'
-      })
     } finally {
       setIsLoading(false)
       abortControllerRef.current = null
@@ -224,7 +245,9 @@ export default function Home() {
           onLogout={handleLogout}
           isLoading={isLoading}
           sessionId={sessionId}
-          remainingPrompts={remainingPrompts}
+          remainingMessages={remainingTokens}
+          messagesUsed={tokensUsed}
+          messageLimit={tokenLimit}
         />
         
         <main className={`flex-1 flex flex-col items-start justify-center h-full overflow-hidden transition-all duration-300 ${isSidebarOpen ? 'ml-64' : 'ml-0'} pl-4`}>
@@ -262,9 +285,9 @@ export default function Home() {
           message="Are you sure you want to clear all chat history? This action cannot be undone."
         />
         
-        {remainingPrompts <= 3 && (
+        {remainingTokens <= 1 && (
           <div className="fixed bottom-4 right-4 bg-cyan-500/10 backdrop-blur-sm border border-cyan-500/30 text-cyan-100 px-4 py-2 rounded-lg text-sm shadow-lg z-50">
-            Remaining prompts: {remainingPrompts}
+            Remaining messages: {remainingTokens}
           </div>
         )}
       </div>

@@ -34,7 +34,7 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
             <div className="rounded-2xl bg-white/5 border border-white/10 p-5 space-y-3">
               <p className="text-sm text-cyan-300 font-semibold">Welcome!</p>
               <p className="text-sm text-zinc-200 leading-relaxed">
-                Echo pairs contextual reasoning with elegant UI to keep your conversations flowing. It blends Google Gemini & Mistral intelligence for fast, grounded responses.
+                Echo pairs contextual reasoning with elegant UI to keep your conversations flowing. It uses advanced AI models for fast, grounded responses.
               </p>
             </div>
 
@@ -58,15 +58,15 @@ export default function InfoModal({ isOpen, onClose }: InfoModalProps) {
               <p>↵ Enter to send, Shift+Enter for breaks.</p>
               <p>📋 Tap “Copy” on any assistant response.</p>
               <p>🧹 “Delete Chat” wipes local history instantly.</p>
-              <p>🔒 API keys live only in your browser storage.</p>
+              <p>🔒 Your data stays private and secure.</p>
             </div>
           </div>
 
           <div className="rounded-2xl bg-white/5 border border-white/10 p-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
-              <p className="text-sm font-semibold text-cyan-300">API & Privacy</p>
+              <p className="text-sm font-semibold text-cyan-300">Privacy</p>
               <p className="text-sm text-zinc-200">
-                Echo routes prompts through Google Gemini with optional Mistral fallbacks. Traffic is encrypted and your credentials never leave local storage.
+                Your conversations are processed securely and your data never leaves your local storage.
               </p>
             </div>
             <button

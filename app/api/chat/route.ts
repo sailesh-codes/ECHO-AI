@@ -3,6 +3,8 @@ import { generateAIResponse, generateMistralResponse } from '@/app/actions'
 
 export async function POST(request: NextRequest) {
   try {
+    console.log('=== Chat API Called ===')
+    
     const { message, provider } = await request.json()
 
     if (!message) {
@@ -13,15 +15,25 @@ export async function POST(request: NextRequest) {
     const sessionId = request.cookies.get('sessionId')?.value
     const promptCount = parseInt(request.cookies.get('promptCount')?.value || '0', 10)
 
+    console.log('Chat API - Cookie values:', {
+      sessionId: !!sessionId,
+      sessionIdValue: sessionId,
+      promptCount,
+      remainingMessages: 5 - promptCount,
+      allCookies: request.cookies.getAll()
+    })
+
     if (!sessionId) {
+      console.log('Chat API - No session found')
       return NextResponse.json({ error: 'No active session found' }, { status: 401 })
     }
 
     // Check if user has reached the limit
     if (promptCount >= 5) {
-      return NextResponse.json({ 
-        error: 'Chat limit reached (5 messages)',
-        remainingPrompts: 0 
+      console.log('Chat API - Limit reached:', promptCount)
+      return NextResponse.json({
+        error: 'Message limit reached (5 messages)',
+        remainingMessages: 0
       }, { status: 403 })
     }
 
@@ -35,7 +47,7 @@ export async function POST(request: NextRequest) {
       }
     } catch (aiError) {
       console.error('AI generation error:', aiError)
-      return NextResponse.json({ 
+      return NextResponse.json({
         error: 'Failed to generate AI response',
         details: aiError instanceof Error ? aiError.message : 'Unknown error'
       }, { status: 500 })
@@ -43,14 +55,13 @@ export async function POST(request: NextRequest) {
 
     // Increment prompt count
     const newPromptCount = promptCount + 1
-    const remainingPrompts = 5 - newPromptCount
+    const remainingMessages = 5 - newPromptCount
 
     const apiResponse = NextResponse.json({
       success: true,
       response,
       provider,
-      promptCount: newPromptCount,
-      remainingPrompts
+      remainingMessages
     })
 
     // Update the promptCount cookie
@@ -61,10 +72,16 @@ export async function POST(request: NextRequest) {
       maxAge: 60 * 60 * 24 * 7 // 7 days
     })
 
+    console.log('Chat API - Updated cookie:', {
+      oldPromptCount: promptCount,
+      newPromptCount,
+      remainingMessages: 5 - newPromptCount
+    })
+
     return apiResponse
   } catch (error) {
     console.error('Chat API error:', error)
-    return NextResponse.json({ 
+    return NextResponse.json({
       error: 'Failed to process chat request',
       details: error instanceof Error ? error.message : 'Unknown error'
     }, { status: 500 })
@@ -76,13 +93,12 @@ export async function GET(request: NextRequest) {
     // Get current chat status from cookies
     const sessionId = request.cookies.get('sessionId')?.value
     const promptCount = parseInt(request.cookies.get('promptCount')?.value || '0', 10)
-    const remainingPrompts = 5 - promptCount
+    const remainingMessages = 5 - promptCount
 
     return NextResponse.json({
       success: true,
       sessionId,
-      promptCount,
-      remainingPrompts,
+      remainingMessages,
       isLoggedIn: !!sessionId
     })
   } catch (error) {
