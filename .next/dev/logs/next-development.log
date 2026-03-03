@@ -103,3 +103,5 @@
 [00:12:42.637] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
 [00:12:42.637] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/auth","route":"/auth"}
 [00:12:42.637] Browser LOG     %c[Vercel Web Analytics]%c [view] http://localhost:3000/auth color: rgb(120, 120, 120) color: inherit {"dp":"/auth","o":"http://localhost:3000/auth","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1772555661744} /_vercel/insights/view
+[00:32:02.598] Server  LOG      ✓ Compiled in 113ms
+[00:32:05.213] Server  LOG      ✓ Compiled in 83ms

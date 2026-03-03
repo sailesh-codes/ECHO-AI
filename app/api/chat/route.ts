@@ -37,14 +37,10 @@ export async function POST(request: NextRequest) {
       }, { status: 403 })
     }
 
-    // Generate AI response
+    // Generate AI response using the reliable model
     let response: string
     try {
-      if (provider === 'mistral') {
-        response = await generateMistralResponse(message)
-      } else {
-        response = await generateAIResponse(message)
-      }
+      response = await generateAIResponse(message)
     } catch (aiError) {
       console.error('AI generation error:', aiError)
       return NextResponse.json({

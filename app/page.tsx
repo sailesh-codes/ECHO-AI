@@ -34,16 +34,9 @@ export default function Home() {
   const abortControllerRef = useRef<AbortController | null>(null)
   const router = useRouter()
 
-  // Available models and providers for random selection
-  const availableModels = [
-    { provider: 'openai', model: 'openai/gpt-4o-mini' },
-    { provider: 'mistral', model: 'mistralai/mistral-7b-instruct' }
-  ]
-
-  // Function to get random model and provider
-  const getRandomModel = () => {
-    const randomIndex = Math.floor(Math.random() * availableModels.length)
-    return availableModels[randomIndex]
+  // Use the most reliable model for consistent responses
+  const getModel = () => {
+    return { provider: 'openai', model: 'openai/gpt-4o-mini' }
   }
 
   useEffect(() => {
@@ -101,9 +94,9 @@ export default function Home() {
     abortControllerRef.current = null
     
     try {
-      // Get random model and provider for each request
-      const { provider, model } = getRandomModel()
-      console.log(`Using random provider: ${provider}, model: ${model}`)
+      // Get the reliable model
+      const { provider, model } = getModel()
+      console.log(`Using provider: ${provider}, model: ${model}`)
       
       // Call the new chat API
       const response = await fetch('/api/chat', {

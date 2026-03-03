@@ -7,7 +7,7 @@ export async function generateAIResponse(userMessage: string): Promise<string> {
     const response = await openRouterAPI.generateText(userMessage, {
       model: 'openai/gpt-4o-mini',
       temperature: 0.7,
-      maxTokens: 1024
+      maxTokens: 2048
     })
     return response
   } catch (error: any) {
