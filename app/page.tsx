@@ -7,6 +7,7 @@ import Sidebar from '@/components/sidebar'
 import ChatWindow from '@/components/chat-window'
 import InfoModal from '@/components/info-modal'
 import ConfirmModal from '@/components/confirm-modal'
+import KnowledgeDisclaimerModal from '@/components/knowledge-disclaimer-modal'
 import ModelSelector from '@/components/model-selector'
 import InteractiveBackground from '@/components/InteractiveBackground'
 import { toast } from '@/hooks/use-toast'
@@ -24,6 +25,8 @@ export default function Home() {
   const [showConfirmModal, setShowConfirmModal] = useState(false)
   const [showClearChatModal, setShowClearChatModal] = useState(false)
   const [showInfoModal, setShowInfoModal] = useState(false)
+  const [showKnowledgeDisclaimer, setShowKnowledgeDisclaimer] = useState(false)
+  const [hasAcceptedDisclaimer, setHasAcceptedDisclaimer] = useState(false)
   const [isInitialized, setIsInitialized] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
   const [remainingTokens, setRemainingTokens] = useState<number>(0)
@@ -79,8 +82,20 @@ export default function Home() {
     localStorage.setItem('chatbot_messages', JSON.stringify(messages))
   }, [messages])
 
+  useEffect(() => {
+    // Check if user has already accepted the disclaimer
+    const hasAccepted = localStorage.getItem('hasAcceptedKnowledgeDisclaimer') === 'true'
+    setHasAcceptedDisclaimer(hasAccepted)
+  }, [])
+
   const handleSendMessage = async (content: string) => {
     console.log('handleSendMessage called')
+    
+    // Show knowledge disclaimer if not accepted yet
+    if (!hasAcceptedDisclaimer) {
+      setShowKnowledgeDisclaimer(true)
+      return
+    }
     
     const newUserMessage: Message = {
       id: Date.now().toString(),
@@ -203,6 +218,21 @@ export default function Home() {
     })
   }
 
+  const handleAcceptDisclaimer = () => {
+    setHasAcceptedDisclaimer(true)
+    setShowKnowledgeDisclaimer(false)
+    localStorage.setItem('hasAcceptedKnowledgeDisclaimer', 'true')
+  }
+
+  const handleDeclineDisclaimer = () => {
+    setShowKnowledgeDisclaimer(false)
+    toast({
+      title: 'Disclaimer Required',
+      description: 'You must accept the knowledge limitation disclaimer to use the chat.',
+      variant: 'destructive'
+    })
+  }
+
   const handleClearChat = () => {
     setShowClearChatModal(true)
   }
@@ -260,6 +290,12 @@ export default function Home() {
         <InfoModal 
           isOpen={showInfoModal} 
           onClose={() => setShowInfoModal(false)} 
+        />
+        
+        <KnowledgeDisclaimerModal
+          isOpen={showKnowledgeDisclaimer}
+          onClose={handleDeclineDisclaimer}
+          onAccept={handleAcceptDisclaimer}
         />
         
         <ConfirmModal
