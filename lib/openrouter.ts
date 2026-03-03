@@ -5,7 +5,7 @@ export class OpenRouterAPI {
   constructor() {
     this.apiKey = process.env.OPENROUTER_API_KEY || '';
     if (!this.apiKey) {
-      throw new Error('OPENROUTER_API_KEY is not set in environment variables');
+      console.warn('OPENROUTER_API_KEY is not set in environment variables. AI responses will not work.');
     }
   }
 
@@ -14,6 +14,10 @@ export class OpenRouterAPI {
     temperature?: number;
     maxTokens?: number;
   }): Promise<string> {
+    if (!this.apiKey) {
+      throw new Error('OpenRouter API key is not configured. Please set OPENROUTER_API_KEY environment variable.');
+    }
+
     const model = options?.model || 'openai/gpt-3.5-turbo';
     const temperature = options?.temperature || 0.7;
     const maxTokens = options?.maxTokens || 1024;
